@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "882622321213",
+    "project_id": "kargo-81c8c",
+    "storage_bucket": "kargo-81c8c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882622321213:android:ac4198a5f7c772cc3c5054",
+        "android_client_info": {
+          "package_name": "com.vikua.kargo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882622321213-hle0bqrib8bd73af7lli628brrfgf9j0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vikua.kargo",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "882622321213-b5srpjbb0anmvlq3f8dig162opdsacrq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmHNLa15j1W35FQih4ZkM9j6wMy0LlopM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882622321213-b5srpjbb0anmvlq3f8dig162opdsacrq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "882622321213-feofcd1qlce14svfdomrhbbqv2f48f56.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.vikua.kargo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
