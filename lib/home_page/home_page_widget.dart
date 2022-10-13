@@ -1,7 +1,6 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../components/preview_marker_widget.dart';
-import '../components/search_r_i_f_widget.dart';
 import '../flutter_flow/flutter_flow_google_map.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -136,8 +135,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   children: [
                     Align(
                       alignment: AlignmentDirectional(0, 0),
-                      child: StreamBuilder<List<ActivitiesRecord>>(
-                        stream: queryActivitiesRecord(),
+                      child: StreamBuilder<List<TaxpayerRecord>>(
+                        stream: queryTaxpayerRecord(
+                          limit: 100,
+                        ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
                           if (!snapshot.hasData) {
@@ -152,7 +153,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                             );
                           }
-                          List<ActivitiesRecord> googleMapActivitiesRecordList =
+                          List<TaxpayerRecord> googleMapTaxpayerRecordList =
                               snapshot.data!;
                           return FlutterFlowGoogleMap(
                             controller: googleMapsController,
@@ -160,12 +161,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 setState(() => googleMapsCenter = latLng),
                             initialLocation: googleMapsCenter ??=
                                 currentUserLocationValue!,
-                            markers: googleMapActivitiesRecordList
+                            markers: googleMapTaxpayerRecordList
                                 .map(
-                                  (googleMapActivitiesRecord) =>
+                                  (googleMapTaxpayerRecord) =>
                                       FlutterFlowMarker(
-                                    googleMapActivitiesRecord.reference.path,
-                                    googleMapActivitiesRecord.location!,
+                                    googleMapTaxpayerRecord.reference.path,
+                                    googleMapTaxpayerRecord.location!,
                                     () async {
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
@@ -179,7 +180,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               height: 450,
                                               child: PreviewMarkerWidget(
                                                 contribuyente:
-                                                    googleMapActivitiesRecord
+                                                    googleMapTaxpayerRecord
                                                         .reference,
                                               ),
                                             ),
@@ -270,20 +271,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           size: 30,
                         ),
                         onPressed: () async {
-                          await showModalBottomSheet(
-                            isScrollControlled: true,
-                            backgroundColor: Colors.transparent,
-                            context: context,
-                            builder: (context) {
-                              return Padding(
-                                padding: MediaQuery.of(context).viewInsets,
-                                child: Container(
-                                  height: 350,
-                                  child: SearchRIFWidget(),
-                                ),
-                              );
-                            },
-                          ).then((value) => setState(() {}));
+                          context.pushNamed('formPage');
                         },
                       ),
                     ),

@@ -98,7 +98,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Activity',
               path: 'activity',
-              builder: (context, params) => ActivityWidget(),
+              builder: (context, params) => ActivityWidget(
+                taxpayer: params.getParam(
+                    'taxpayer', ParamType.DocumentReference, false, 'taxpayer'),
+              ),
             ),
             FFRoute(
               name: 'search',
@@ -115,9 +118,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'prueba',
               path: 'prueba',
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'prueba')
-                  : PruebaWidget(),
+              builder: (context, params) => PruebaWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

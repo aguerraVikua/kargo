@@ -105,6 +105,94 @@ class _$TaxpayerRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.photoComformityToUse;
+    if (value != null) {
+      result
+        ..add('photoComformityToUse')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.photoLEA;
+    if (value != null) {
+      result
+        ..add('photoLEA')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.photoIEA;
+    if (value != null) {
+      result
+        ..add('photoIEA')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.photoISLR;
+    if (value != null) {
+      result
+        ..add('photoISLR')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.photoLastTaxEA;
+    if (value != null) {
+      result
+        ..add('photoLastTaxEA')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.photoPaymentEA;
+    if (value != null) {
+      result
+        ..add('photoPaymentEA')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.iAEApplied;
+    if (value != null) {
+      result
+        ..add('IAEApplied')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    value = object.createdAt;
+    if (value != null) {
+      result
+        ..add('createdAt')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.reporter;
+    if (value != null) {
+      result
+        ..add('reporter')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                DocumentReference, const [const FullType.nullable(Object)])));
+    }
+    value = object.articles;
+    if (value != null) {
+      result
+        ..add('articles')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    value = object.articlesAlcohol;
+    if (value != null) {
+      result
+        ..add('articlesAlcohol')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    value = object.comments;
+    if (value != null) {
+      result
+        ..add('comments')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -176,6 +264,62 @@ class _$TaxpayerRecordSerializer
           result.photoCadastralCertificate = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'photoComformityToUse':
+          result.photoComformityToUse = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'photoLEA':
+          result.photoLEA = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'photoIEA':
+          result.photoIEA = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'photoISLR':
+          result.photoISLR = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'photoLastTaxEA':
+          result.photoLastTaxEA = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'photoPaymentEA':
+          result.photoPaymentEA = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'IAEApplied':
+          result.iAEApplied.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'createdAt':
+          result.createdAt = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'reporter':
+          result.reporter = serializers.deserialize(value,
+              specifiedType: const FullType(DocumentReference, const [
+                const FullType.nullable(Object)
+              ])) as DocumentReference<Object?>?;
+          break;
+        case 'articles':
+          result.articles.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'articlesAlcohol':
+          result.articlesAlcohol.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'comments':
+          result.comments = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -215,6 +359,30 @@ class _$TaxpayerRecord extends TaxpayerRecord {
   @override
   final String? photoCadastralCertificate;
   @override
+  final String? photoComformityToUse;
+  @override
+  final String? photoLEA;
+  @override
+  final String? photoIEA;
+  @override
+  final String? photoISLR;
+  @override
+  final String? photoLastTaxEA;
+  @override
+  final String? photoPaymentEA;
+  @override
+  final BuiltList<String>? iAEApplied;
+  @override
+  final DateTime? createdAt;
+  @override
+  final DocumentReference<Object?>? reporter;
+  @override
+  final BuiltList<String>? articles;
+  @override
+  final BuiltList<String>? articlesAlcohol;
+  @override
+  final String? comments;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$TaxpayerRecord([void Function(TaxpayerRecordBuilder)? updates]) =>
@@ -233,6 +401,18 @@ class _$TaxpayerRecord extends TaxpayerRecord {
       this.phoneLegalRepresentative,
       this.emailLegalRepresentative,
       this.photoCadastralCertificate,
+      this.photoComformityToUse,
+      this.photoLEA,
+      this.photoIEA,
+      this.photoISLR,
+      this.photoLastTaxEA,
+      this.photoPaymentEA,
+      this.iAEApplied,
+      this.createdAt,
+      this.reporter,
+      this.articles,
+      this.articlesAlcohol,
+      this.comments,
       this.ffRef})
       : super._();
 
@@ -260,6 +440,18 @@ class _$TaxpayerRecord extends TaxpayerRecord {
         phoneLegalRepresentative == other.phoneLegalRepresentative &&
         emailLegalRepresentative == other.emailLegalRepresentative &&
         photoCadastralCertificate == other.photoCadastralCertificate &&
+        photoComformityToUse == other.photoComformityToUse &&
+        photoLEA == other.photoLEA &&
+        photoIEA == other.photoIEA &&
+        photoISLR == other.photoISLR &&
+        photoLastTaxEA == other.photoLastTaxEA &&
+        photoPaymentEA == other.photoPaymentEA &&
+        iAEApplied == other.iAEApplied &&
+        createdAt == other.createdAt &&
+        reporter == other.reporter &&
+        articles == other.articles &&
+        articlesAlcohol == other.articlesAlcohol &&
+        comments == other.comments &&
         ffRef == other.ffRef;
   }
 
@@ -277,20 +469,31 @@ class _$TaxpayerRecord extends TaxpayerRecord {
                                         $jc(
                                             $jc(
                                                 $jc(
-                                                    $jc(0,
-                                                        businessName.hashCode),
-                                                    comercialDesignation
-                                                        .hashCode),
-                                                rif.hashCode),
-                                            location.hashCode),
-                                        establishmentPhone.hashCode),
-                                    businessEmail.hashCode),
-                                businessPicture.hashCode),
-                            legalRepresentative.hashCode),
-                        idCardLegalRepresentative.hashCode),
-                    phoneLegalRepresentative.hashCode),
-                emailLegalRepresentative.hashCode),
-            photoCadastralCertificate.hashCode),
+                                                    $jc(
+                                                        $jc(
+                                                            $jc(
+                                                                $jc(
+                                                                    $jc(
+                                                                        $jc(
+                                                                            $jc($jc($jc($jc($jc($jc($jc(0, businessName.hashCode), comercialDesignation.hashCode), rif.hashCode), location.hashCode), establishmentPhone.hashCode), businessEmail.hashCode),
+                                                                                businessPicture.hashCode),
+                                                                            legalRepresentative.hashCode),
+                                                                        idCardLegalRepresentative.hashCode),
+                                                                    phoneLegalRepresentative.hashCode),
+                                                                emailLegalRepresentative.hashCode),
+                                                            photoCadastralCertificate.hashCode),
+                                                        photoComformityToUse.hashCode),
+                                                    photoLEA.hashCode),
+                                                photoIEA.hashCode),
+                                            photoISLR.hashCode),
+                                        photoLastTaxEA.hashCode),
+                                    photoPaymentEA.hashCode),
+                                iAEApplied.hashCode),
+                            createdAt.hashCode),
+                        reporter.hashCode),
+                    articles.hashCode),
+                articlesAlcohol.hashCode),
+            comments.hashCode),
         ffRef.hashCode));
   }
 
@@ -309,6 +512,18 @@ class _$TaxpayerRecord extends TaxpayerRecord {
           ..add('phoneLegalRepresentative', phoneLegalRepresentative)
           ..add('emailLegalRepresentative', emailLegalRepresentative)
           ..add('photoCadastralCertificate', photoCadastralCertificate)
+          ..add('photoComformityToUse', photoComformityToUse)
+          ..add('photoLEA', photoLEA)
+          ..add('photoIEA', photoIEA)
+          ..add('photoISLR', photoISLR)
+          ..add('photoLastTaxEA', photoLastTaxEA)
+          ..add('photoPaymentEA', photoPaymentEA)
+          ..add('iAEApplied', iAEApplied)
+          ..add('createdAt', createdAt)
+          ..add('reporter', reporter)
+          ..add('articles', articles)
+          ..add('articlesAlcohol', articlesAlcohol)
+          ..add('comments', comments)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -375,6 +590,63 @@ class TaxpayerRecordBuilder
   set photoCadastralCertificate(String? photoCadastralCertificate) =>
       _$this._photoCadastralCertificate = photoCadastralCertificate;
 
+  String? _photoComformityToUse;
+  String? get photoComformityToUse => _$this._photoComformityToUse;
+  set photoComformityToUse(String? photoComformityToUse) =>
+      _$this._photoComformityToUse = photoComformityToUse;
+
+  String? _photoLEA;
+  String? get photoLEA => _$this._photoLEA;
+  set photoLEA(String? photoLEA) => _$this._photoLEA = photoLEA;
+
+  String? _photoIEA;
+  String? get photoIEA => _$this._photoIEA;
+  set photoIEA(String? photoIEA) => _$this._photoIEA = photoIEA;
+
+  String? _photoISLR;
+  String? get photoISLR => _$this._photoISLR;
+  set photoISLR(String? photoISLR) => _$this._photoISLR = photoISLR;
+
+  String? _photoLastTaxEA;
+  String? get photoLastTaxEA => _$this._photoLastTaxEA;
+  set photoLastTaxEA(String? photoLastTaxEA) =>
+      _$this._photoLastTaxEA = photoLastTaxEA;
+
+  String? _photoPaymentEA;
+  String? get photoPaymentEA => _$this._photoPaymentEA;
+  set photoPaymentEA(String? photoPaymentEA) =>
+      _$this._photoPaymentEA = photoPaymentEA;
+
+  ListBuilder<String>? _iAEApplied;
+  ListBuilder<String> get iAEApplied =>
+      _$this._iAEApplied ??= new ListBuilder<String>();
+  set iAEApplied(ListBuilder<String>? iAEApplied) =>
+      _$this._iAEApplied = iAEApplied;
+
+  DateTime? _createdAt;
+  DateTime? get createdAt => _$this._createdAt;
+  set createdAt(DateTime? createdAt) => _$this._createdAt = createdAt;
+
+  DocumentReference<Object?>? _reporter;
+  DocumentReference<Object?>? get reporter => _$this._reporter;
+  set reporter(DocumentReference<Object?>? reporter) =>
+      _$this._reporter = reporter;
+
+  ListBuilder<String>? _articles;
+  ListBuilder<String> get articles =>
+      _$this._articles ??= new ListBuilder<String>();
+  set articles(ListBuilder<String>? articles) => _$this._articles = articles;
+
+  ListBuilder<String>? _articlesAlcohol;
+  ListBuilder<String> get articlesAlcohol =>
+      _$this._articlesAlcohol ??= new ListBuilder<String>();
+  set articlesAlcohol(ListBuilder<String>? articlesAlcohol) =>
+      _$this._articlesAlcohol = articlesAlcohol;
+
+  String? _comments;
+  String? get comments => _$this._comments;
+  set comments(String? comments) => _$this._comments = comments;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -398,6 +670,18 @@ class TaxpayerRecordBuilder
       _phoneLegalRepresentative = $v.phoneLegalRepresentative;
       _emailLegalRepresentative = $v.emailLegalRepresentative;
       _photoCadastralCertificate = $v.photoCadastralCertificate;
+      _photoComformityToUse = $v.photoComformityToUse;
+      _photoLEA = $v.photoLEA;
+      _photoIEA = $v.photoIEA;
+      _photoISLR = $v.photoISLR;
+      _photoLastTaxEA = $v.photoLastTaxEA;
+      _photoPaymentEA = $v.photoPaymentEA;
+      _iAEApplied = $v.iAEApplied?.toBuilder();
+      _createdAt = $v.createdAt;
+      _reporter = $v.reporter;
+      _articles = $v.articles?.toBuilder();
+      _articlesAlcohol = $v.articlesAlcohol?.toBuilder();
+      _comments = $v.comments;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -419,21 +703,51 @@ class TaxpayerRecordBuilder
   TaxpayerRecord build() => _build();
 
   _$TaxpayerRecord _build() {
-    final _$result = _$v ??
-        new _$TaxpayerRecord._(
-            businessName: businessName,
-            comercialDesignation: comercialDesignation,
-            rif: rif,
-            location: location,
-            establishmentPhone: establishmentPhone,
-            businessEmail: businessEmail,
-            businessPicture: businessPicture,
-            legalRepresentative: legalRepresentative,
-            idCardLegalRepresentative: idCardLegalRepresentative,
-            phoneLegalRepresentative: phoneLegalRepresentative,
-            emailLegalRepresentative: emailLegalRepresentative,
-            photoCadastralCertificate: photoCadastralCertificate,
-            ffRef: ffRef);
+    _$TaxpayerRecord _$result;
+    try {
+      _$result = _$v ??
+          new _$TaxpayerRecord._(
+              businessName: businessName,
+              comercialDesignation: comercialDesignation,
+              rif: rif,
+              location: location,
+              establishmentPhone: establishmentPhone,
+              businessEmail: businessEmail,
+              businessPicture: businessPicture,
+              legalRepresentative: legalRepresentative,
+              idCardLegalRepresentative: idCardLegalRepresentative,
+              phoneLegalRepresentative: phoneLegalRepresentative,
+              emailLegalRepresentative: emailLegalRepresentative,
+              photoCadastralCertificate: photoCadastralCertificate,
+              photoComformityToUse: photoComformityToUse,
+              photoLEA: photoLEA,
+              photoIEA: photoIEA,
+              photoISLR: photoISLR,
+              photoLastTaxEA: photoLastTaxEA,
+              photoPaymentEA: photoPaymentEA,
+              iAEApplied: _iAEApplied?.build(),
+              createdAt: createdAt,
+              reporter: reporter,
+              articles: _articles?.build(),
+              articlesAlcohol: _articlesAlcohol?.build(),
+              comments: comments,
+              ffRef: ffRef);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'iAEApplied';
+        _iAEApplied?.build();
+
+        _$failedField = 'articles';
+        _articles?.build();
+        _$failedField = 'articlesAlcohol';
+        _articlesAlcohol?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'TaxpayerRecord', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

@@ -1,3 +1,5 @@
+import '../backend/backend.dart';
+import '../components/empty_widget.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -169,10 +171,79 @@ class _SearchWidgetState extends State<SearchWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Expanded(
-                        child: ListView(
-                          padding: EdgeInsets.zero,
-                          scrollDirection: Axis.vertical,
-                          children: [],
+                        child: StreamBuilder<List<TaxpayerRecord>>(
+                          stream: queryTaxpayerRecord(
+                            queryBuilder: (taxpayerRecord) => taxpayerRecord.where(
+                                'rif',
+                                isEqualTo:
+                                    '${dropDownValue}${rifController!.text}' !=
+                                            ''
+                                        ? '${dropDownValue}${rifController!.text}'
+                                        : null),
+                          ),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50,
+                                  height: 50,
+                                  child: CircularProgressIndicator(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryColor,
+                                  ),
+                                ),
+                              );
+                            }
+                            List<TaxpayerRecord> listViewTaxpayerRecordList =
+                                snapshot.data!;
+                            if (listViewTaxpayerRecordList.isEmpty) {
+                              return Container(
+                                height: 400,
+                                child: EmptyWidget(),
+                              );
+                            }
+                            return ListView.builder(
+                              padding: EdgeInsets.zero,
+                              scrollDirection: Axis.vertical,
+                              itemCount: listViewTaxpayerRecordList.length,
+                              itemBuilder: (context, listViewIndex) {
+                                final listViewTaxpayerRecord =
+                                    listViewTaxpayerRecordList[listViewIndex];
+                                return InkWell(
+                                  onTap: () async {
+                                    context.pushNamed('Activity');
+                                  },
+                                  child: ListTile(
+                                    title: Text(
+                                      listViewTaxpayerRecord.businessName!,
+                                      style:
+                                          FlutterFlowTheme.of(context).title3,
+                                    ),
+                                    subtitle: Text(
+                                      listViewTaxpayerRecord.rif!,
+                                      style: FlutterFlowTheme.of(context)
+                                          .subtitle2
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryColor,
+                                          ),
+                                    ),
+                                    trailing: Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 20,
+                                    ),
+                                    tileColor: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    dense: false,
+                                  ),
+                                );
+                              },
+                            );
+                          },
                         ),
                       ),
                     ],
