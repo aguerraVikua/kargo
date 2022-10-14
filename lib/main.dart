@@ -120,7 +120,6 @@ class _NavBarPageState extends State<NavBarPage> {
       'HomePage': HomePageWidget(),
       'List': ListWidget(),
       'search': SearchWidget(),
-      'prueba': PruebaWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
     return Scaffold(
@@ -158,14 +157,6 @@ class _NavBarPageState extends State<NavBarPage> {
             icon: Icon(
               Icons.search,
               size: 20,
-            ),
-            label: 'Home',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
-              size: 24,
             ),
             label: 'Home',
             tooltip: '',

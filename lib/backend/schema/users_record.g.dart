@@ -67,6 +67,14 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add('cedula')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.listadoPrueba;
+    if (value != null) {
+      result
+        ..add('listadoPrueba')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -117,6 +125,12 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.cedula = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
+        case 'listadoPrueba':
+          result.listadoPrueba.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object?>);
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -146,6 +160,8 @@ class _$UsersRecord extends UsersRecord {
   @override
   final int? cedula;
   @override
+  final BuiltList<String>? listadoPrueba;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UsersRecord([void Function(UsersRecordBuilder)? updates]) =>
@@ -159,6 +175,7 @@ class _$UsersRecord extends UsersRecord {
       this.createdTime,
       this.phoneNumber,
       this.cedula,
+      this.listadoPrueba,
       this.ffRef})
       : super._();
 
@@ -180,6 +197,7 @@ class _$UsersRecord extends UsersRecord {
         createdTime == other.createdTime &&
         phoneNumber == other.phoneNumber &&
         cedula == other.cedula &&
+        listadoPrueba == other.listadoPrueba &&
         ffRef == other.ffRef;
   }
 
@@ -190,12 +208,16 @@ class _$UsersRecord extends UsersRecord {
             $jc(
                 $jc(
                     $jc(
-                        $jc($jc($jc(0, email.hashCode), displayName.hashCode),
-                            photoUrl.hashCode),
-                        uid.hashCode),
-                    createdTime.hashCode),
-                phoneNumber.hashCode),
-            cedula.hashCode),
+                        $jc(
+                            $jc(
+                                $jc($jc(0, email.hashCode),
+                                    displayName.hashCode),
+                                photoUrl.hashCode),
+                            uid.hashCode),
+                        createdTime.hashCode),
+                    phoneNumber.hashCode),
+                cedula.hashCode),
+            listadoPrueba.hashCode),
         ffRef.hashCode));
   }
 
@@ -209,6 +231,7 @@ class _$UsersRecord extends UsersRecord {
           ..add('createdTime', createdTime)
           ..add('phoneNumber', phoneNumber)
           ..add('cedula', cedula)
+          ..add('listadoPrueba', listadoPrueba)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -245,6 +268,12 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   int? get cedula => _$this._cedula;
   set cedula(int? cedula) => _$this._cedula = cedula;
 
+  ListBuilder<String>? _listadoPrueba;
+  ListBuilder<String> get listadoPrueba =>
+      _$this._listadoPrueba ??= new ListBuilder<String>();
+  set listadoPrueba(ListBuilder<String>? listadoPrueba) =>
+      _$this._listadoPrueba = listadoPrueba;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -263,6 +292,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _createdTime = $v.createdTime;
       _phoneNumber = $v.phoneNumber;
       _cedula = $v.cedula;
+      _listadoPrueba = $v.listadoPrueba?.toBuilder();
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -284,16 +314,30 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   UsersRecord build() => _build();
 
   _$UsersRecord _build() {
-    final _$result = _$v ??
-        new _$UsersRecord._(
-            email: email,
-            displayName: displayName,
-            photoUrl: photoUrl,
-            uid: uid,
-            createdTime: createdTime,
-            phoneNumber: phoneNumber,
-            cedula: cedula,
-            ffRef: ffRef);
+    _$UsersRecord _$result;
+    try {
+      _$result = _$v ??
+          new _$UsersRecord._(
+              email: email,
+              displayName: displayName,
+              photoUrl: photoUrl,
+              uid: uid,
+              createdTime: createdTime,
+              phoneNumber: phoneNumber,
+              cedula: cedula,
+              listadoPrueba: _listadoPrueba?.build(),
+              ffRef: ffRef);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'listadoPrueba';
+        _listadoPrueba?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'UsersRecord', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

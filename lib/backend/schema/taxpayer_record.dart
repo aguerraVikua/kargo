@@ -35,6 +35,31 @@ abstract class TaxpayerRecord
 
   String? get photoCadastralCertificate;
 
+  String? get photoComformityToUse;
+
+  String? get photoLEA;
+
+  String? get photoIEA;
+
+  String? get photoISLR;
+
+  String? get photoLastTaxEA;
+
+  String? get photoPaymentEA;
+
+  @BuiltValueField(wireName: 'IAEApplied')
+  BuiltList<String>? get iAEApplied;
+
+  DateTime? get createdAt;
+
+  DocumentReference? get reporter;
+
+  BuiltList<String>? get articles;
+
+  BuiltList<String>? get articlesAlcohol;
+
+  String? get comments;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -50,7 +75,17 @@ abstract class TaxpayerRecord
     ..idCardLegalRepresentative = ''
     ..phoneLegalRepresentative = ''
     ..emailLegalRepresentative = ''
-    ..photoCadastralCertificate = '';
+    ..photoCadastralCertificate = ''
+    ..photoComformityToUse = ''
+    ..photoLEA = ''
+    ..photoIEA = ''
+    ..photoISLR = ''
+    ..photoLastTaxEA = ''
+    ..photoPaymentEA = ''
+    ..iAEApplied = ListBuilder()
+    ..articles = ListBuilder()
+    ..articlesAlcohol = ListBuilder()
+    ..comments = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('taxpayer');
@@ -86,6 +121,15 @@ Map<String, dynamic> createTaxpayerRecordData({
   String? phoneLegalRepresentative,
   String? emailLegalRepresentative,
   String? photoCadastralCertificate,
+  String? photoComformityToUse,
+  String? photoLEA,
+  String? photoIEA,
+  String? photoISLR,
+  String? photoLastTaxEA,
+  String? photoPaymentEA,
+  DateTime? createdAt,
+  DocumentReference? reporter,
+  String? comments,
 }) {
   final firestoreData = serializers.toFirestore(
     TaxpayerRecord.serializer,
@@ -102,7 +146,19 @@ Map<String, dynamic> createTaxpayerRecordData({
         ..idCardLegalRepresentative = idCardLegalRepresentative
         ..phoneLegalRepresentative = phoneLegalRepresentative
         ..emailLegalRepresentative = emailLegalRepresentative
-        ..photoCadastralCertificate = photoCadastralCertificate,
+        ..photoCadastralCertificate = photoCadastralCertificate
+        ..photoComformityToUse = photoComformityToUse
+        ..photoLEA = photoLEA
+        ..photoIEA = photoIEA
+        ..photoISLR = photoISLR
+        ..photoLastTaxEA = photoLastTaxEA
+        ..photoPaymentEA = photoPaymentEA
+        ..iAEApplied = null
+        ..createdAt = createdAt
+        ..reporter = reporter
+        ..articles = null
+        ..articlesAlcohol = null
+        ..comments = comments,
     ),
   );
 

@@ -23,8 +23,8 @@ class _PreviewMarkerWidgetState extends State<PreviewMarkerWidget> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-      child: StreamBuilder<ActivitiesRecord>(
-        stream: ActivitiesRecord.getDocument(widget.contribuyente!),
+      child: StreamBuilder<TaxpayerRecord>(
+        stream: TaxpayerRecord.getDocument(widget.contribuyente!),
         builder: (context, snapshot) {
           // Customize what your widget looks like when it's loading.
           if (!snapshot.hasData) {
@@ -38,7 +38,7 @@ class _PreviewMarkerWidgetState extends State<PreviewMarkerWidget> {
               ),
             );
           }
-          final containerActivitiesRecord = snapshot.data!;
+          final containerTaxpayerRecord = snapshot.data!;
           return Container(
             width: double.infinity,
             height: 450,
@@ -77,7 +77,7 @@ class _PreviewMarkerWidgetState extends State<PreviewMarkerWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          containerActivitiesRecord.name!,
+                          containerTaxpayerRecord.businessName!,
                           style: FlutterFlowTheme.of(context).subtitle1,
                         ),
                       ],
@@ -106,7 +106,7 @@ class _PreviewMarkerWidgetState extends State<PreviewMarkerWidget> {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(16),
                               child: Image.network(
-                                '',
+                                containerTaxpayerRecord.businessPicture!,
                                 width: double.infinity,
                                 height: double.infinity,
                                 fit: BoxFit.contain,
@@ -134,7 +134,7 @@ class _PreviewMarkerWidgetState extends State<PreviewMarkerWidget> {
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                             child: Text(
-                              containerActivitiesRecord.rif!.toString(),
+                              containerTaxpayerRecord.rif!,
                               style: FlutterFlowTheme.of(context)
                                   .bodyText2
                                   .override(
@@ -153,21 +153,22 @@ class _PreviewMarkerWidgetState extends State<PreviewMarkerWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Expanded(
-                          child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                            child: Text(
-                              'Impuesto por actividad: ',
-                              style: FlutterFlowTheme.of(context).bodyText2,
-                            ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                          child: Text(
+                            'Representante legal: ',
+                            style: FlutterFlowTheme.of(context).bodyText2,
                           ),
                         ),
                         Expanded(
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                             child: Text(
-                              'fgf',
+                              containerTaxpayerRecord.legalRepresentative!
+                                  .maybeHandleOverflow(
+                                maxChars: 12,
+                                replacement: '…',
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyText2
                                   .override(
@@ -187,6 +188,12 @@ class _PreviewMarkerWidgetState extends State<PreviewMarkerWidget> {
                       onPressed: () async {
                         context.pushNamed(
                           'Activity',
+                          queryParams: {
+                            'taxpayer': serializeParam(
+                              containerTaxpayerRecord.reference,
+                              ParamType.DocumentReference,
+                            ),
+                          }.withoutNulls,
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,

@@ -1,3 +1,5 @@
+import '../backend/backend.dart';
+import '../components/empty_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -36,9 +38,85 @@ class _ListWidgetState extends State<ListWidget> {
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [],
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                StreamBuilder<List<TaxpayerRecord>>(
+                  stream: queryTaxpayerRecord(),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50,
+                          height: 50,
+                          child: CircularProgressIndicator(
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                          ),
+                        ),
+                      );
+                    }
+                    List<TaxpayerRecord> listViewTaxpayerRecordList =
+                        snapshot.data!;
+                    if (listViewTaxpayerRecordList.isEmpty) {
+                      return Container(
+                        height: 450,
+                        child: EmptyWidget(),
+                      );
+                    }
+                    return ListView.builder(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: listViewTaxpayerRecordList.length,
+                      itemBuilder: (context, listViewIndex) {
+                        final listViewTaxpayerRecord =
+                            listViewTaxpayerRecordList[listViewIndex];
+                        return InkWell(
+                          onTap: () async {
+                            context.pushNamed(
+                              'Activity',
+                              queryParams: {
+                                'taxpayer': serializeParam(
+                                  listViewTaxpayerRecord.reference,
+                                  ParamType.DocumentReference,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: ListTile(
+                            title: Text(
+                              listViewTaxpayerRecord.businessName!,
+                              style: FlutterFlowTheme.of(context).title3,
+                            ),
+                            subtitle: Text(
+                              listViewTaxpayerRecord.rif!,
+                              style: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryColor,
+                                  ),
+                            ),
+                            trailing: Icon(
+                              Icons.arrow_forward_ios,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              size: 20,
+                            ),
+                            tileColor:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            dense: false,
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

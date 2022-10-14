@@ -98,7 +98,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Activity',
               path: 'activity',
-              builder: (context, params) => ActivityWidget(),
+              builder: (context, params) => ActivityWidget(
+                taxpayer: params.getParam(
+                    'taxpayer', ParamType.DocumentReference, false, 'taxpayer'),
+              ),
             ),
             FFRoute(
               name: 'search',
@@ -115,9 +118,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'prueba',
               path: 'prueba',
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'prueba')
-                  : PruebaWidget(),
+              builder: (context, params) => PruebaWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
@@ -290,13 +291,11 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: CircularProgressIndicator(
-                      color: FlutterFlowTheme.of(context).primaryColor,
-                    ),
+              ? Container(
+                  color: FlutterFlowTheme.of(context).primaryBackground,
+                  child: Image.asset(
+                    'assets/images/logokargo_(1).png',
+                    fit: BoxFit.none,
                   ),
                 )
               : page;
