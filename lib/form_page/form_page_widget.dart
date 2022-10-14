@@ -887,11 +887,8 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                                 child: ClipRRect(
                                                   borderRadius:
                                                       BorderRadius.circular(15),
-                                                  child: Image.network(
-                                                    valueOrDefault<String>(
-                                                      uploadedFileUrl1,
-                                                      'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/upload.png?alt=media&token=dcb472e4-7c9a-4df9-9187-8e7d58aafd0f',
-                                                    ),
+                                                  child: Image.asset(
+                                                    'assets/images/Vector_(1).png',
                                                     width:
                                                         MediaQuery.of(context)
                                                             .size
@@ -1776,12 +1773,8 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                                                           .circular(
                                                                               10),
                                                                   child: Image
-                                                                      .network(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      uploadedFileUrl2,
-                                                                      'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/Vector%20(1).png?alt=media&token=c6df250b-25ee-4697-853d-ecbf6eaa076a',
-                                                                    ),
+                                                                      .asset(
+                                                                    'assets/images/Vector_(1).png',
                                                                     width: MediaQuery.of(context)
                                                                             .size
                                                                             .width *
@@ -1982,12 +1975,8 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                                                           .circular(
                                                                               10),
                                                                   child: Image
-                                                                      .network(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      uploadedFileUrl3,
-                                                                      'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/Vector%20(1).png?alt=media&token=c6df250b-25ee-4697-853d-ecbf6eaa076a',
-                                                                    ),
+                                                                      .asset(
+                                                                    'assets/images/Vector_(1).png',
                                                                     width: MediaQuery.of(context)
                                                                             .size
                                                                             .width *
@@ -2188,12 +2177,8 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                                                           .circular(
                                                                               10),
                                                                   child: Image
-                                                                      .network(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      uploadedFileUrl4,
-                                                                      'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/Vector%20(1).png?alt=media&token=c6df250b-25ee-4697-853d-ecbf6eaa076a',
-                                                                    ),
+                                                                      .asset(
+                                                                    'assets/images/Vector_(1).png',
                                                                     width: MediaQuery.of(context)
                                                                             .size
                                                                             .width *
@@ -2394,12 +2379,8 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                                                           .circular(
                                                                               10),
                                                                   child: Image
-                                                                      .network(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      uploadedFileUrl5,
-                                                                      'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/Vector%20(1).png?alt=media&token=c6df250b-25ee-4697-853d-ecbf6eaa076a',
-                                                                    ),
+                                                                      .asset(
+                                                                    'assets/images/Vector_(1).png',
                                                                     width: MediaQuery.of(context)
                                                                             .size
                                                                             .width *
@@ -2600,12 +2581,8 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                                                           .circular(
                                                                               10),
                                                                   child: Image
-                                                                      .network(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      uploadedFileUrl6,
-                                                                      'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/Vector%20(1).png?alt=media&token=c6df250b-25ee-4697-853d-ecbf6eaa076a',
-                                                                    ),
+                                                                      .asset(
+                                                                    'assets/images/Vector_(1).png',
                                                                     width: MediaQuery.of(context)
                                                                             .size
                                                                             .width *
@@ -2806,12 +2783,8 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                                                           .circular(
                                                                               10),
                                                                   child: Image
-                                                                      .network(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      uploadedFileUrl7,
-                                                                      'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/Vector%20(1).png?alt=media&token=c6df250b-25ee-4697-853d-ecbf6eaa076a',
-                                                                    ),
+                                                                      .asset(
+                                                                    'assets/images/Vector_(1).png',
                                                                     width: MediaQuery.of(context)
                                                                             .size
                                                                             .width *
@@ -3012,12 +2985,8 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                                                           .circular(
                                                                               10),
                                                                   child: Image
-                                                                      .network(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      uploadedFileUrl8,
-                                                                      'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/Vector%20(1).png?alt=media&token=c6df250b-25ee-4697-853d-ecbf6eaa076a',
-                                                                    ),
+                                                                      .asset(
+                                                                    'assets/images/Vector_(1).png',
                                                                     width: MediaQuery.of(context)
                                                                             .size
                                                                             .width *
@@ -3407,7 +3376,7 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                           width: MediaQuery.of(context)
                                                   .size
                                                   .width *
-                                              0.2,
+                                              0.15,
                                           decoration: BoxDecoration(),
                                           alignment: AlignmentDirectional(
                                               0.050000000000000044, 0),
@@ -3569,140 +3538,163 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                     ),
                                   ],
                                 ),
-                                Container(
-                                  height:
-                                      MediaQuery.of(context).size.height * 1,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        5, 0, 0, 0),
-                                    child: FlutterFlowCheckboxGroup(
-                                      options: [
-                                        '01.01-Pesca',
-                                        '01.02-Agricultura',
-                                        '01.03-Avicultura',
-                                        '01.04-Ganadería',
-                                        '01.05-Silvicultura',
-                                        '02.01-Extracción de Minerales',
-                                        '02.02-Mataderos y Frigoríficos, Fabricación de Aceites, Fabricación de Tapices, Aserraderos y talleres de acepilladura, Fabricación de sustancias químicas industriales, Fabricación de productos farmacéuticos, Fabricación de ceras, Construcción y ensamblaje de vehículos, ',
-                                        '02.03-Manufactura de licores, tabaco, cigarrillos y derivados',
-                                        '02.04-Industrias básicas del hierro y del acero',
-                                        '02.05-Construcción, servicios y suministros',
-                                        '03.01-Comercio al por mayor',
-                                        '03.02-Comercio al Detal',
-                                        '03.02.01-Venta al Detal y/o mayor de licores',
-                                        '03.03-Alimentos, bebidas y esparcimiento',
-                                        '03.04-Hoteles, pensiones y afines',
-                                        '03.05-Transporte de pasajero y carga terrestre, marítimo y aéreo',
-                                        '03.06-Servicios de salud',
-                                        '03.06.01-Servicios de estética y cuidado personal',
-                                        '03.07-Otros Servicios domésticos y  empresariales',
-                                        '03.08-Empresas con concesión o contrato para operar servicios de telecomunicaciones, tales como: telefonía fija, celular, voz y datos',
-                                        '03.09-Empresas con concesión o contrato para operar servicios de radiodifusión sonora',
-                                        '03.10-Servicio y programación de sistemas',
-                                        '03.11-Prestación de servicios mecánicos, eléctricos y de gas a domicilio o en talleres.',
-                                        '03.12-Agencias de bancos comerciales, asociaciones de ahorro y préstamo',
-                                        '03.13-Servicios inmobiliarios en la compra y venta de bienes inmuebles',
-                                        '03.14-Aparatos, máquinas y dispositivos para juegos ',
-                                        '03.15-Cualquier otra actividad que no especifique en el clasificador único de actividades económicas'
-                                      ],
-                                      onChanged: (val) => setState(
-                                          () => checkboxGroupIAEValues = val),
-                                      activeColor: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      checkColor: Colors.white,
-                                      checkboxBorderColor: Color(0xFF95A1AC),
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 14,
+                                SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Align(
+                                        alignment: AlignmentDirectional(-1, 0),
+                                        child: Container(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.15,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
                                           ),
-                                      labelPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              5, 5, 5, 5),
-                                      initialized:
-                                          checkboxGroupIAEValues != null,
-                                    ),
-                                  ),
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 24, 0, 0),
-                                      child: FFButtonWidget(
-                                        onPressed: () async {
-                                          await pageViewController
-                                              ?.previousPage(
-                                            duration:
-                                                Duration(milliseconds: 300),
-                                            curve: Curves.ease,
-                                          );
-                                        },
-                                        text: 'Volver',
-                                        options: FFButtonOptions(
-                                          width: 150,
-                                          height: 50,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .subtitle2
-                                              .override(
-                                                fontFamily: 'Poppins',
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    5, 0, 0, 0),
+                                            child: FlutterFlowCheckboxGroup(
+                                              options: [
+                                                '01.01-Pesca',
+                                                '01.02-Agricultura',
+                                                '01.03-Avicultura',
+                                                '01.04-Ganadería',
+                                                '01.05-Silvicultura',
+                                                '02.01-Extracción de Minerales',
+                                                '02.02-Mataderos y Frigoríficos, Fabricación de Aceites, Fabricación de Tapices, Aserraderos y talleres de acepilladura, Fabricación de sustancias químicas industriales, Fabricación de productos farmacéuticos, Fabricación de ceras, Construcción y ensamblaje de vehículos, ',
+                                                '02.03-Manufactura de licores, tabaco, cigarrillos y derivados',
+                                                '02.04-Industrias básicas del hierro y del acero',
+                                                '02.05-Construcción, servicios y suministros',
+                                                '03.01-Comercio al por mayor',
+                                                '03.02-Comercio al Detal',
+                                                '03.02.01-Venta al Detal y/o mayor de licores',
+                                                '03.03-Alimentos, bebidas y esparcimiento',
+                                                '03.04-Hoteles, pensiones y afines',
+                                                '03.05-Transporte de pasajero y carga terrestre, marítimo y aéreo',
+                                                '03.06-Servicios de salud',
+                                                '03.06.01-Servicios de estética y cuidado personal',
+                                                '03.07-Otros Servicios domésticos y  empresariales',
+                                                '03.08-Empresas con concesión o contrato para operar servicios de telecomunicaciones, tales como: telefonía fija, celular, voz y datos',
+                                                '03.09-Empresas con concesión o contrato para operar servicios de radiodifusión sonora',
+                                                '03.10-Servicio y programación de sistemas',
+                                                '03.11-Prestación de servicios mecánicos, eléctricos y de gas a domicilio o en talleres.',
+                                                '03.12-Agencias de bancos comerciales, asociaciones de ahorro y préstamo',
+                                                '03.13-Servicios inmobiliarios en la compra y venta de bienes inmuebles',
+                                                '03.14-Aparatos, máquinas y dispositivos para juegos ',
+                                                '03.15-Cualquier otra actividad que no especifique en el clasificador único de actividades económicas'
+                                              ],
+                                              onChanged: (val) => setState(() =>
+                                                  checkboxGroupIAEValues = val),
+                                              activeColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryColor,
+                                              checkColor: Colors.white,
+                                              checkboxBorderColor:
+                                                  Color(0xFF95A1AC),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 14,
+                                                      ),
+                                              labelPadding:
+                                                  EdgeInsetsDirectional
+                                                      .fromSTEB(5, 5, 5, 5),
+                                              initialized:
+                                                  checkboxGroupIAEValues !=
+                                                      null,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 24, 0, 0),
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                await pageViewController
+                                                    ?.previousPage(
+                                                  duration: Duration(
+                                                      milliseconds: 300),
+                                                  curve: Curves.ease,
+                                                );
+                                              },
+                                              text: 'Volver',
+                                              options: FFButtonOptions(
+                                                width: 150,
+                                                height: 50,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBackground,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .subtitle2
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryColor,
+                                                        ),
+                                                elevation: 3,
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryColor,
+                                                  width: 1,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 24, 0, 0),
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                await pageViewController
+                                                    ?.nextPage(
+                                                  duration: Duration(
+                                                      milliseconds: 300),
+                                                  curve: Curves.ease,
+                                                );
+                                              },
+                                              text: 'Continuar',
+                                              options: FFButtonOptions(
+                                                width: 150,
+                                                height: 50,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryColor,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .subtitle2
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                        ),
+                                                elevation: 3,
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1,
+                                                ),
                                               ),
-                                          elevation: 3,
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
-                                            width: 1,
+                                            ),
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 24, 0, 0),
-                                      child: FFButtonWidget(
-                                        onPressed: () async {
-                                          await pageViewController?.nextPage(
-                                            duration:
-                                                Duration(milliseconds: 300),
-                                            curve: Curves.ease,
-                                          );
-                                        },
-                                        text: 'Continuar',
-                                        options: FFButtonOptions(
-                                          width: 150,
-                                          height: 50,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .subtitle2
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    color: Colors.white,
-                                                  ),
-                                          elevation: 3,
-                                          borderSide: BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
