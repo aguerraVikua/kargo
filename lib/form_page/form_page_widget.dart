@@ -3336,205 +3336,214 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                         Padding(
                           padding:
                               EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        15, 5, 0, 0),
-                                    child: Text(
-                                      'Expendio de bebidas alcohólicas',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        15, 0, 0, 0),
-                                    child: FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30,
-                                      borderWidth: 1,
-                                      buttonSize: 60,
-                                      icon: Icon(
-                                        Icons.info_outlined,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        size: 23,
-                                      ),
-                                      onPressed: () async {
-                                        await showModalBottomSheet(
-                                          isScrollControlled: true,
-                                          backgroundColor: Colors.transparent,
-                                          context: context,
-                                          builder: (context) {
-                                            return Padding(
-                                              padding: MediaQuery.of(context)
-                                                  .viewInsets,
-                                              child: Container(
-                                                height: double.infinity,
-                                                child: InfoAlcoholWidget(),
-                                              ),
-                                            );
-                                          },
-                                        ).then((value) => setState(() {}));
-                                      },
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SingleChildScrollView(
-                                child: Column(
+                          child: SingleChildScrollView(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Row(
                                   mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.2,
-                                      decoration: BoxDecoration(),
-                                      alignment: AlignmentDirectional(
-                                          0.050000000000000044, 0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 0, 0),
-                                        child: FlutterFlowCheckboxGroup(
-                                          options: [
-                                            'Artículo 83',
-                                            'Artículo 84',
-                                            'Artículo 85',
-                                            'Artículo 86',
-                                            'Artículo 87',
-                                            'Artículo 88',
-                                            'Artículo 89',
-                                            'Artículo 90',
-                                            'Artículo 91',
-                                            'Artículo 92',
-                                            'Artículo 93',
-                                            'Artículo 94',
-                                            'Artículo 95',
-                                            'Artículo 96',
-                                            'Artículo 97',
-                                            'Artículo 98',
-                                            'Artículo 99',
-                                            'Artículo 101',
-                                            'Artículo 107'
-                                          ],
-                                          onChanged: (val) => setState(() =>
-                                              checkboxGroupAlcoholValues = val),
-                                          activeColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryColor,
-                                          checkColor: Colors.white,
-                                          checkboxBorderColor:
-                                              Color(0xFF95A1AC),
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyText1,
-                                          initialized:
-                                              checkboxGroupAlcoholValues !=
-                                                  null,
-                                        ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          15, 5, 0, 0),
+                                      child: Text(
+                                        'Expendio de bebidas alcohólicas',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                       ),
                                     ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 24, 0, 0),
-                                          child: FFButtonWidget(
-                                            onPressed: () async {
-                                              await pageViewController
-                                                  ?.previousPage(
-                                                duration:
-                                                    Duration(milliseconds: 300),
-                                                curve: Curves.ease,
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          15, 0, 0, 0),
+                                      child: FlutterFlowIconButton(
+                                        borderColor: Colors.transparent,
+                                        borderRadius: 30,
+                                        borderWidth: 1,
+                                        buttonSize: 60,
+                                        icon: Icon(
+                                          Icons.info_outlined,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          size: 23,
+                                        ),
+                                        onPressed: () async {
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            context: context,
+                                            builder: (context) {
+                                              return Padding(
+                                                padding: MediaQuery.of(context)
+                                                    .viewInsets,
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: InfoAlcoholWidget(),
+                                                ),
                                               );
                                             },
-                                            text: 'Volver',
-                                            options: FFButtonOptions(
-                                              width: 150,
-                                              height: 50,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .subtitle2
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryColor,
-                                                      ),
-                                              elevation: 3,
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                                width: 2,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 24, 0, 0),
-                                          child: FFButtonWidget(
-                                            onPressed: () async {
-                                              await pageViewController
-                                                  ?.nextPage(
-                                                duration:
-                                                    Duration(milliseconds: 300),
-                                                curve: Curves.ease,
-                                              );
-                                            },
-                                            text: 'Continuar',
-                                            options: FFButtonOptions(
-                                              width: 150,
-                                              height: 50,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryColor,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .subtitle2
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                      ),
-                                              elevation: 3,
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
+                                          ).then((value) => setState(() {}));
+                                        },
+                                      ),
                                     ),
                                   ],
                                 ),
-                              ),
-                            ],
+                                SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Align(
+                                        alignment: AlignmentDirectional(-1, 0),
+                                        child: Container(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.2,
+                                          decoration: BoxDecoration(),
+                                          alignment: AlignmentDirectional(
+                                              0.050000000000000044, 0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    5, 0, 0, 0),
+                                            child: FlutterFlowCheckboxGroup(
+                                              options: [
+                                                'Artículo 83',
+                                                'Artículo 84',
+                                                'Artículo 85',
+                                                'Artículo 86',
+                                                'Artículo 87',
+                                                'Artículo 88',
+                                                'Artículo 89',
+                                                'Artículo 90',
+                                                'Artículo 91',
+                                                'Artículo 92',
+                                                'Artículo 93',
+                                                'Artículo 94',
+                                                'Artículo 95',
+                                                'Artículo 96',
+                                                'Artículo 97',
+                                                'Artículo 98',
+                                                'Artículo 99',
+                                                'Artículo 101',
+                                                'Artículo 107'
+                                              ],
+                                              onChanged: (val) => setState(() =>
+                                                  checkboxGroupAlcoholValues =
+                                                      val),
+                                              activeColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryColor,
+                                              checkColor: Colors.white,
+                                              checkboxBorderColor:
+                                                  Color(0xFF95A1AC),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1,
+                                              initialized:
+                                                  checkboxGroupAlcoholValues !=
+                                                      null,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 24, 0, 0),
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                await pageViewController
+                                                    ?.previousPage(
+                                                  duration: Duration(
+                                                      milliseconds: 300),
+                                                  curve: Curves.ease,
+                                                );
+                                              },
+                                              text: 'Volver',
+                                              options: FFButtonOptions(
+                                                width: 150,
+                                                height: 50,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBackground,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .subtitle2
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryColor,
+                                                        ),
+                                                elevation: 3,
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryColor,
+                                                  width: 2,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 24, 0, 0),
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                await pageViewController
+                                                    ?.nextPage(
+                                                  duration: Duration(
+                                                      milliseconds: 300),
+                                                  curve: Curves.ease,
+                                                );
+                                              },
+                                              text: 'Continuar',
+                                              options: FFButtonOptions(
+                                                width: 150,
+                                                height: 50,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .subtitle2
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                        ),
+                                                elevation: 3,
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         Padding(
