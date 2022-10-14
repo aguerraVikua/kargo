@@ -3981,7 +3981,7 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                               var taxpayerRecordReference =
                                                   TaxpayerRecord.collection
                                                       .doc();
-                                              await taxpayerRecordReference
+                                              taxpayerRecordReference
                                                   .set(taxpayerCreateData);
                                               tax = TaxpayerRecord
                                                   .getDocumentFromData(
