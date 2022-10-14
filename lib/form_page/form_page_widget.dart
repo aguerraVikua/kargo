@@ -372,9 +372,7 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                                         if (val.length < 5) {
                                                           return 'Requires at least 5 characters.';
                                                         }
-                                                        if (val.length > 10) {
-                                                          return 'Maximum 10 characters allowed, currently ${val.length}.';
-                                                        }
+
                                                         if (!RegExp(r"^[0-9]+$")
                                                             .hasMatch(val)) {
                                                           return 'Ingrese solo números';
@@ -700,7 +698,7 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                                           return 'Debe tener al menos 7 digitos.';
                                                         }
                                                         if (val.length > 10) {
-                                                          return 'Formato Inválido de teléfono. Debe seguir el siguiente formato 4141234567';
+                                                          return 'Debe seguir el formato 4141234567';
                                                         }
 
                                                         return null;
@@ -940,11 +938,6 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                                 return;
                                               }
 
-                                              if (uploadedFileUrl1 == null ||
-                                                  uploadedFileUrl1.isEmpty) {
-                                                return;
-                                              }
-
                                               await pageViewController
                                                   ?.nextPage(
                                                 duration:
@@ -1100,8 +1093,6 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                                                   .of(context)
                                                               .secondaryText,
                                                         ),
-                                                keyboardType:
-                                                    TextInputType.number,
                                                 validator: (val) {
                                                   if (val == null ||
                                                       val.isEmpty) {
@@ -1453,11 +1444,11 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                                     return 'Campo requerido';
                                                   }
 
-                                                  if (val.length < 6) {
-                                                    return 'Requires at least 6 characters.';
+                                                  if (val.length < 10) {
+                                                    return 'Debe seguir el formato 2121234567';
                                                   }
-                                                  if (val.length > 12) {
-                                                    return 'Maximum 12 characters allowed, currently ${val.length}.';
+                                                  if (val.length > 10) {
+                                                    return 'Debe seguir el formato 2121234567';
                                                   }
 
                                                   return null;
@@ -3406,64 +3397,56 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                     ),
                                   ],
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10, 10, 10, 0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Expanded(
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  5, 0, 0, 0),
-                                          child: FlutterFlowCheckboxGroup(
-                                            options: [
-                                              'Artículo 83',
-                                              'Artículo 84',
-                                              'Artículo 85',
-                                              'Artículo 86',
-                                              'Artículo 87',
-                                              'Artículo 88',
-                                              'Artículo 89',
-                                              'Artículo 90',
-                                              'Artículo 91',
-                                              'Artículo 92',
-                                              'Artículo 93',
-                                              'Artículo 94',
-                                              'Artículo 95',
-                                              'Artículo 96',
-                                              'Artículo 97',
-                                              'Artículo 98',
-                                              'Artículo 91',
-                                              'Artículo 99',
-                                              'Artículo 101',
-                                              'Artículo 107'
-                                            ],
-                                            onChanged: (val) => setState(() =>
-                                                checkboxGroupAlcoholValues =
-                                                    val),
-                                            activeColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryColor,
-                                            checkColor: Colors.white,
-                                            checkboxBorderColor:
-                                                Color(0xFF95A1AC),
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyText1,
-                                            initialized:
-                                                checkboxGroupAlcoholValues !=
-                                                    null,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
                                 Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
+                                    Container(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.78,
+                                      decoration: BoxDecoration(),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5, 0, 0, 0),
+                                        child: FlutterFlowCheckboxGroup(
+                                          options: [
+                                            'Artículo 83',
+                                            'Artículo 84',
+                                            'Artículo 85',
+                                            'Artículo 86',
+                                            'Artículo 87',
+                                            'Artículo 88',
+                                            'Artículo 89',
+                                            'Artículo 90',
+                                            'Artículo 91',
+                                            'Artículo 92',
+                                            'Artículo 93',
+                                            'Artículo 94',
+                                            'Artículo 95',
+                                            'Artículo 96',
+                                            'Artículo 97',
+                                            'Artículo 98',
+                                            'Artículo 99',
+                                            'Artículo 101',
+                                            'Artículo 107'
+                                          ],
+                                          onChanged: (val) => setState(() =>
+                                              checkboxGroupAlcoholValues = val),
+                                          activeColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryColor,
+                                          checkColor: Colors.white,
+                                          checkboxBorderColor:
+                                              Color(0xFF95A1AC),
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyText1,
+                                          initialized:
+                                              checkboxGroupAlcoholValues !=
+                                                  null,
+                                        ),
+                                      ),
+                                    ),
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -3561,75 +3544,75 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 0, 0, 0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Text(
-                                        'Selección de actividades econónimcas:',
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                                Text(
+                                  'Selección de actividades econónimcas:',
+                                  textAlign: TextAlign.start,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
                                       ),
-                                    ],
-                                  ),
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 0, 0, 0),
-                                  child: FlutterFlowCheckboxGroup(
-                                    options: [
-                                      '01.01-Pesca',
-                                      '01.02-Agricultura',
-                                      '01.03-Avicultura',
-                                      '01.04-Ganadería',
-                                      '01.05-Silvicultura',
-                                      '02.01-Extracción de Minerales',
-                                      '02.02-Mataderos y Frigoríficos, Fabricación de Aceites, Fabricación de Tapices, Aserraderos y talleres de acepilladura, Fabricación de sustancias químicas industriales, Fabricación de productos farmacéuticos, Fabricación de ceras, Construcción y ensamblaje de vehículos, ',
-                                      '02.03-Manufactura de licores, tabaco, cigarrillos y derivados',
-                                      '02.04-Industrias básicas del hierro y del acero',
-                                      '02.05-Construcción, servicios y suministros',
-                                      '03.01-Comercio al por mayor',
-                                      '03.02-Comercio al Detal',
-                                      '03.02.01-Venta al Detal y/o mayor de licores',
-                                      '03.03-Alimentos, bebidas y esparcimiento',
-                                      '03.04-Hoteles, pensiones y afines',
-                                      '03.05-Transporte de pasajero y carga terrestre, marítimo y aéreo',
-                                      '03.06-Servicios de salud',
-                                      '03.06.01-Servicios de estética y cuidado personal',
-                                      '03.07-Otros Servicios domésticos y  empresariales',
-                                      '03.08-Empresas con concesión o contrato para operar servicios de telecomunicaciones, tales como: telefonía fija, celular, voz y datos',
-                                      '03.09-Empresas con concesión o contrato para operar servicios de radiodifusión sonora',
-                                      '03.10-Servicio y programación de sistemas',
-                                      '03.11-Prestación de servicios mecánicos, eléctricos y de gas a domicilio o en talleres.',
-                                      '03.12-Agencias de bancos comerciales, asociaciones de ahorro y préstamo',
-                                      '03.13-Servicios inmobiliarios en la compra y venta de bienes inmuebles',
-                                      '03.14-Aparatos, máquinas y dispositivos para juegos ',
-                                      '03.15-Cualquier otra actividad que no especifique en el clasificador único de actividades económicas'
-                                    ],
-                                    onChanged: (val) => setState(
-                                        () => checkboxGroupIAEValues = val),
-                                    activeColor: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                    checkColor: Colors.white,
-                                    checkboxBorderColor: Color(0xFF95A1AC),
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 14,
-                                        ),
-                                    labelPadding:
-                                        EdgeInsetsDirectional.fromSTEB(
-                                            5, 5, 5, 5),
-                                    initialized: checkboxGroupIAEValues != null,
+                                Container(
+                                  height:
+                                      MediaQuery.of(context).size.height * 1,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5, 0, 0, 0),
+                                    child: FlutterFlowCheckboxGroup(
+                                      options: [
+                                        '01.01-Pesca',
+                                        '01.02-Agricultura',
+                                        '01.03-Avicultura',
+                                        '01.04-Ganadería',
+                                        '01.05-Silvicultura',
+                                        '02.01-Extracción de Minerales',
+                                        '02.02-Mataderos y Frigoríficos, Fabricación de Aceites, Fabricación de Tapices, Aserraderos y talleres de acepilladura, Fabricación de sustancias químicas industriales, Fabricación de productos farmacéuticos, Fabricación de ceras, Construcción y ensamblaje de vehículos, ',
+                                        '02.03-Manufactura de licores, tabaco, cigarrillos y derivados',
+                                        '02.04-Industrias básicas del hierro y del acero',
+                                        '02.05-Construcción, servicios y suministros',
+                                        '03.01-Comercio al por mayor',
+                                        '03.02-Comercio al Detal',
+                                        '03.02.01-Venta al Detal y/o mayor de licores',
+                                        '03.03-Alimentos, bebidas y esparcimiento',
+                                        '03.04-Hoteles, pensiones y afines',
+                                        '03.05-Transporte de pasajero y carga terrestre, marítimo y aéreo',
+                                        '03.06-Servicios de salud',
+                                        '03.06.01-Servicios de estética y cuidado personal',
+                                        '03.07-Otros Servicios domésticos y  empresariales',
+                                        '03.08-Empresas con concesión o contrato para operar servicios de telecomunicaciones, tales como: telefonía fija, celular, voz y datos',
+                                        '03.09-Empresas con concesión o contrato para operar servicios de radiodifusión sonora',
+                                        '03.10-Servicio y programación de sistemas',
+                                        '03.11-Prestación de servicios mecánicos, eléctricos y de gas a domicilio o en talleres.',
+                                        '03.12-Agencias de bancos comerciales, asociaciones de ahorro y préstamo',
+                                        '03.13-Servicios inmobiliarios en la compra y venta de bienes inmuebles',
+                                        '03.14-Aparatos, máquinas y dispositivos para juegos ',
+                                        '03.15-Cualquier otra actividad que no especifique en el clasificador único de actividades económicas'
+                                      ],
+                                      onChanged: (val) => setState(
+                                          () => checkboxGroupIAEValues = val),
+                                      activeColor: FlutterFlowTheme.of(context)
+                                          .primaryColor,
+                                      checkColor: Colors.white,
+                                      checkboxBorderColor: Color(0xFF95A1AC),
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 14,
+                                          ),
+                                      labelPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              5, 5, 5, 5),
+                                      initialized:
+                                          checkboxGroupIAEValues != null,
+                                    ),
                                   ),
                                 ),
                                 Row(
@@ -3891,7 +3874,10 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                                   businessEmail:
                                                       correoController!.text,
                                                   businessPicture:
-                                                      uploadedFileUrl1,
+                                                      valueOrDefault<String>(
+                                                    uploadedFileUrl1,
+                                                    'https://vikua.com/wp-content/uploads/2022/08/logo-web.png',
+                                                  ),
                                                   legalRepresentative:
                                                       nombreRepresentanteController!
                                                           .text,
@@ -3946,17 +3932,19 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText,
+                                                              .white,
                                                     ),
                                                   ),
                                                   duration: Duration(
                                                       milliseconds: 2000),
                                                   backgroundColor:
-                                                      Color(0x00000000),
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryColor,
                                                 ),
                                               );
 
-                                              context.goNamed(
+                                              context.pushNamed(
                                                 'HomePage',
                                                 extra: <String, dynamic>{
                                                   kTransitionInfoKey:
@@ -3964,7 +3952,9 @@ class _FormPageWidgetState extends State<FormPageWidget> {
                                                     hasTransition: true,
                                                     transitionType:
                                                         PageTransitionType
-                                                            .rightToLeft,
+                                                            .topToBottom,
+                                                    duration: Duration(
+                                                        milliseconds: 10),
                                                   ),
                                                 },
                                               );

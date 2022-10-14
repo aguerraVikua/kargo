@@ -212,7 +212,15 @@ class _SearchWidgetState extends State<SearchWidget> {
                                     listViewTaxpayerRecordList[listViewIndex];
                                 return InkWell(
                                   onTap: () async {
-                                    context.pushNamed('Activity');
+                                    context.pushNamed(
+                                      'Activity',
+                                      queryParams: {
+                                        'taxpayer': serializeParam(
+                                          listViewTaxpayerRecord.reference,
+                                          ParamType.DocumentReference,
+                                        ),
+                                      }.withoutNulls,
+                                    );
                                   },
                                   child: ListTile(
                                     title: Text(
