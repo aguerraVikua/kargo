@@ -349,7 +349,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                         controller: nombreController,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText: 'Nombre',
+                                          labelText: 'Nombre y apellido',
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodyText2,
@@ -625,6 +625,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                             ),
+                                        keyboardType: TextInputType.number,
                                       ),
                                     ),
                                     Padding(
@@ -650,8 +651,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                             email: emailController!.text,
                                             displayName: nombreController!.text,
                                             createdTime: getCurrentTimestamp,
-                                            cedula: int.parse(
-                                                cedulaController!.text),
+                                            cedula: cedulaController!.text,
                                           );
                                           await UsersRecord.collection
                                               .doc(user.uid)

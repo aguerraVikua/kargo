@@ -1,8 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:rxdart/rxdart.dart';
 
-import 'auth_util.dart';
-
 class KargoFirebaseUser {
   KargoFirebaseUser(this.user);
   User? user;
@@ -19,7 +17,6 @@ Stream<KargoFirebaseUser> kargoFirebaseUserStream() => FirebaseAuth.instance
         .map<KargoFirebaseUser>(
       (user) {
         currentUser = KargoFirebaseUser(user);
-        updateUserJwtTimer(user);
         return currentUser!;
       },
     );

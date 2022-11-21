@@ -5,6 +5,7 @@ import '../flutter_flow/flutter_flow_google_map.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -47,81 +48,190 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       endDrawer: Drawer(
         elevation: 16,
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 70, 0, 0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  AuthUserStreamWidget(
-                    child: Container(
-                      width: 100,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primaryBackground,
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: Image.network(
-                            currentUserPhoto,
-                          ).image,
+        child: Container(
+          width: 100,
+          height: 100,
+          decoration: BoxDecoration(
+            color: FlutterFlowTheme.of(context).secondaryBackground,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 70, 0, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AuthUserStreamWidget(
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: Image.network(
+                              currentUserPhoto,
+                            ).image,
+                          ),
+                          borderRadius: BorderRadius.circular(100),
                         ),
-                        borderRadius: BorderRadius.circular(100),
+                        child: Visibility(
+                          visible: currentUserPhoto == null ||
+                              currentUserPhoto == '',
+                          child: Icon(
+                            Icons.person,
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                            size: 70,
+                          ),
+                        ),
                       ),
-                      child: Visibility(
-                        visible:
-                            currentUserPhoto == null || currentUserPhoto == '',
-                        child: Icon(
-                          Icons.person,
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                      child: AuthUserStreamWidget(
+                        child: Text(
+                          currentUserDisplayName,
+                          style: FlutterFlowTheme.of(context).bodyText1,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                      child: Text(
+                        'Cédula: ',
+                        style: FlutterFlowTheme.of(context).bodyText1,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                      child: AuthUserStreamWidget(
+                        child: Text(
+                          valueOrDefault<String>(
+                            valueOrDefault(currentUserDocument?.cedula, ''),
+                            'No definida',
+                          ),
+                          style: FlutterFlowTheme.of(context).bodyText1,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 10),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          ListView(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                                child: InkWell(
+                                  onTap: () async {
+                                    context.pushNamed('profile');
+                                  },
+                                  child: ListTile(
+                                    leading: Icon(
+                                      Icons.person,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                    ),
+                                    title: Text(
+                                      'Editar perfil',
+                                      style: FlutterFlowTheme.of(context)
+                                          .title3
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            fontSize: 14,
+                                          ),
+                                    ),
+                                    trailing: Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      size: 14,
+                                    ),
+                                    tileColor: Color(0xFFF5F5F5),
+                                    dense: false,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      FFButtonWidget(
+                        onPressed: () async {
+                          GoRouter.of(context).prepareAuthEvent();
+                          await signOut();
+
+                          context.goNamedAuth('SignIn', mounted);
+                        },
+                        text: 'Cerrar Sesión',
+                        options: FFButtonOptions(
+                          width: 130,
+                          height: 40,
                           color: FlutterFlowTheme.of(context).primaryColor,
-                          size: 70,
+                          textStyle:
+                              FlutterFlowTheme.of(context).subtitle2.override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                  ),
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                       ),
-                    ),
+                    ],
                   ),
-                ],
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
-                    child: AuthUserStreamWidget(
-                      child: Text(
-                        currentUserDisplayName,
-                        style: FlutterFlowTheme.of(context).bodyText1,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
-                    child: AuthUserStreamWidget(
-                      child: Text(
-                        valueOrDefault(currentUserDocument?.cedula, 0)
-                            .toString(),
-                        style: FlutterFlowTheme.of(context).bodyText1,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       body: SafeArea(
@@ -271,7 +381,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           size: 30,
                         ),
                         onPressed: () async {
-                          context.pushNamed('formPage');
+                          context.pushNamed('formPageNuevo');
                         },
                       ),
                     ),

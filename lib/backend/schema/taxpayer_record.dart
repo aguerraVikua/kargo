@@ -60,6 +60,95 @@ abstract class TaxpayerRecord
 
   String? get comments;
 
+  String? get statusCadastral;
+
+  String? get cadastralCode;
+
+  String? get photoCadastral;
+
+  String? get statusConformityToUse;
+
+  DateTime? get dateIssueConformity;
+
+  DateTime? get expirationDateConformity;
+
+  String? get conformityCode;
+
+  String? get photoConformityUse;
+
+  String? get statusAlcohol;
+
+  DateTime? get dateIssueAlcohol;
+
+  DateTime? get expirationDateAlcohol;
+
+  String? get licenseCodeAlcohol;
+
+  String? get statusPaymentBusinessActTax;
+
+  DateTime? get dateIssueActTax;
+
+  DateTime? get expiratioDateActTax;
+
+  String? get statusPropertyPayment;
+
+  DateTime? get datePaymetProperty;
+
+  String? get statusAds;
+
+  DateTime? get dateIssueAds;
+
+  DateTime? get expirationDateAds;
+
+  String? get statusUrbanCleanliness;
+
+  DateTime? get dateIssueUrbanCleanliness;
+
+  DateTime? get expirationDateUrbanCleanliness;
+
+  String? get photoAlcohol;
+
+  String? get photoBusinessTax;
+
+  String? get photoPropertyTax;
+
+  String? get photoAds;
+
+  String? get photoUrbanCleaning;
+
+  String? get declaredAmountActTax;
+
+  String? get totalAmountActTax;
+
+  String? get totalAmountProperty;
+
+  String? get terrainAreaM2;
+
+  String? get constructionAreaM2;
+
+  String? get totalAmountAds;
+
+  String? get totalAmountUrbanCleanliness;
+
+  String? get receiptActTax;
+
+  String? get receiptPropertyPayment;
+
+  String? get receiptAds;
+
+  String? get receiptUrbanCleanliness;
+
+  bool? get licenseexpired;
+
+  String? get licenceCodeAct;
+
+  @BuiltValueField(wireName: 'DateIssueAct')
+  DateTime? get dateIssueAct;
+
+  DateTime? get expirationDateAct;
+
+  String? get photoEAct;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -85,7 +174,38 @@ abstract class TaxpayerRecord
     ..iAEApplied = ListBuilder()
     ..articles = ListBuilder()
     ..articlesAlcohol = ListBuilder()
-    ..comments = '';
+    ..comments = ''
+    ..statusCadastral = ''
+    ..cadastralCode = ''
+    ..photoCadastral = ''
+    ..statusConformityToUse = ''
+    ..conformityCode = ''
+    ..photoConformityUse = ''
+    ..statusAlcohol = ''
+    ..licenseCodeAlcohol = ''
+    ..statusPaymentBusinessActTax = ''
+    ..statusPropertyPayment = ''
+    ..statusAds = ''
+    ..statusUrbanCleanliness = ''
+    ..photoAlcohol = ''
+    ..photoBusinessTax = ''
+    ..photoPropertyTax = ''
+    ..photoAds = ''
+    ..photoUrbanCleaning = ''
+    ..declaredAmountActTax = ''
+    ..totalAmountActTax = ''
+    ..totalAmountProperty = ''
+    ..terrainAreaM2 = ''
+    ..constructionAreaM2 = ''
+    ..totalAmountAds = ''
+    ..totalAmountUrbanCleanliness = ''
+    ..receiptActTax = ''
+    ..receiptPropertyPayment = ''
+    ..receiptAds = ''
+    ..receiptUrbanCleanliness = ''
+    ..licenseexpired = false
+    ..licenceCodeAct = ''
+    ..photoEAct = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('taxpayer');
@@ -130,6 +250,50 @@ Map<String, dynamic> createTaxpayerRecordData({
   DateTime? createdAt,
   DocumentReference? reporter,
   String? comments,
+  String? statusCadastral,
+  String? cadastralCode,
+  String? photoCadastral,
+  String? statusConformityToUse,
+  DateTime? dateIssueConformity,
+  DateTime? expirationDateConformity,
+  String? conformityCode,
+  String? photoConformityUse,
+  String? statusAlcohol,
+  DateTime? dateIssueAlcohol,
+  DateTime? expirationDateAlcohol,
+  String? licenseCodeAlcohol,
+  String? statusPaymentBusinessActTax,
+  DateTime? dateIssueActTax,
+  DateTime? expiratioDateActTax,
+  String? statusPropertyPayment,
+  DateTime? datePaymetProperty,
+  String? statusAds,
+  DateTime? dateIssueAds,
+  DateTime? expirationDateAds,
+  String? statusUrbanCleanliness,
+  DateTime? dateIssueUrbanCleanliness,
+  DateTime? expirationDateUrbanCleanliness,
+  String? photoAlcohol,
+  String? photoBusinessTax,
+  String? photoPropertyTax,
+  String? photoAds,
+  String? photoUrbanCleaning,
+  String? declaredAmountActTax,
+  String? totalAmountActTax,
+  String? totalAmountProperty,
+  String? terrainAreaM2,
+  String? constructionAreaM2,
+  String? totalAmountAds,
+  String? totalAmountUrbanCleanliness,
+  String? receiptActTax,
+  String? receiptPropertyPayment,
+  String? receiptAds,
+  String? receiptUrbanCleanliness,
+  bool? licenseexpired,
+  String? licenceCodeAct,
+  DateTime? dateIssueAct,
+  DateTime? expirationDateAct,
+  String? photoEAct,
 }) {
   final firestoreData = serializers.toFirestore(
     TaxpayerRecord.serializer,
@@ -158,7 +322,51 @@ Map<String, dynamic> createTaxpayerRecordData({
         ..reporter = reporter
         ..articles = null
         ..articlesAlcohol = null
-        ..comments = comments,
+        ..comments = comments
+        ..statusCadastral = statusCadastral
+        ..cadastralCode = cadastralCode
+        ..photoCadastral = photoCadastral
+        ..statusConformityToUse = statusConformityToUse
+        ..dateIssueConformity = dateIssueConformity
+        ..expirationDateConformity = expirationDateConformity
+        ..conformityCode = conformityCode
+        ..photoConformityUse = photoConformityUse
+        ..statusAlcohol = statusAlcohol
+        ..dateIssueAlcohol = dateIssueAlcohol
+        ..expirationDateAlcohol = expirationDateAlcohol
+        ..licenseCodeAlcohol = licenseCodeAlcohol
+        ..statusPaymentBusinessActTax = statusPaymentBusinessActTax
+        ..dateIssueActTax = dateIssueActTax
+        ..expiratioDateActTax = expiratioDateActTax
+        ..statusPropertyPayment = statusPropertyPayment
+        ..datePaymetProperty = datePaymetProperty
+        ..statusAds = statusAds
+        ..dateIssueAds = dateIssueAds
+        ..expirationDateAds = expirationDateAds
+        ..statusUrbanCleanliness = statusUrbanCleanliness
+        ..dateIssueUrbanCleanliness = dateIssueUrbanCleanliness
+        ..expirationDateUrbanCleanliness = expirationDateUrbanCleanliness
+        ..photoAlcohol = photoAlcohol
+        ..photoBusinessTax = photoBusinessTax
+        ..photoPropertyTax = photoPropertyTax
+        ..photoAds = photoAds
+        ..photoUrbanCleaning = photoUrbanCleaning
+        ..declaredAmountActTax = declaredAmountActTax
+        ..totalAmountActTax = totalAmountActTax
+        ..totalAmountProperty = totalAmountProperty
+        ..terrainAreaM2 = terrainAreaM2
+        ..constructionAreaM2 = constructionAreaM2
+        ..totalAmountAds = totalAmountAds
+        ..totalAmountUrbanCleanliness = totalAmountUrbanCleanliness
+        ..receiptActTax = receiptActTax
+        ..receiptPropertyPayment = receiptPropertyPayment
+        ..receiptAds = receiptAds
+        ..receiptUrbanCleanliness = receiptUrbanCleanliness
+        ..licenseexpired = licenseexpired
+        ..licenceCodeAct = licenceCodeAct
+        ..dateIssueAct = dateIssueAct
+        ..expirationDateAct = expirationDateAct
+        ..photoEAct = photoEAct,
     ),
   );
 

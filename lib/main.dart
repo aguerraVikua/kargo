@@ -49,6 +49,7 @@ class _MyAppState extends State<MyApp> {
     _router = createRouter(_appStateNotifier);
     userStream = kargoFirebaseUserStream()
       ..listen((user) => _appStateNotifier.update(user));
+    jwtTokenStream.listen((_) {});
     Future.delayed(
       Duration(seconds: 1),
       () => _appStateNotifier.stopShowingSplashImage(),
@@ -62,8 +63,10 @@ class _MyAppState extends State<MyApp> {
     super.dispose();
   }
 
-  void setLocale(String language) =>
-      setState(() => _locale = createLocale(language));
+  void setLocale(String language) {
+    setState(() => _locale = createLocale(language));
+  }
+
   void setThemeMode(ThemeMode mode) => setState(() {
         _themeMode = mode;
         FlutterFlowTheme.saveThemeMode(mode);

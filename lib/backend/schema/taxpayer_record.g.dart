@@ -193,6 +193,314 @@ class _$TaxpayerRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.statusCadastral;
+    if (value != null) {
+      result
+        ..add('statusCadastral')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.cadastralCode;
+    if (value != null) {
+      result
+        ..add('cadastralCode')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.photoCadastral;
+    if (value != null) {
+      result
+        ..add('photoCadastral')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.statusConformityToUse;
+    if (value != null) {
+      result
+        ..add('statusConformityToUse')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.dateIssueConformity;
+    if (value != null) {
+      result
+        ..add('dateIssueConformity')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.expirationDateConformity;
+    if (value != null) {
+      result
+        ..add('expirationDateConformity')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.conformityCode;
+    if (value != null) {
+      result
+        ..add('conformityCode')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.photoConformityUse;
+    if (value != null) {
+      result
+        ..add('photoConformityUse')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.statusAlcohol;
+    if (value != null) {
+      result
+        ..add('statusAlcohol')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.dateIssueAlcohol;
+    if (value != null) {
+      result
+        ..add('dateIssueAlcohol')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.expirationDateAlcohol;
+    if (value != null) {
+      result
+        ..add('expirationDateAlcohol')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.licenseCodeAlcohol;
+    if (value != null) {
+      result
+        ..add('licenseCodeAlcohol')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.statusPaymentBusinessActTax;
+    if (value != null) {
+      result
+        ..add('statusPaymentBusinessActTax')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.dateIssueActTax;
+    if (value != null) {
+      result
+        ..add('dateIssueActTax')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.expiratioDateActTax;
+    if (value != null) {
+      result
+        ..add('expiratioDateActTax')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.statusPropertyPayment;
+    if (value != null) {
+      result
+        ..add('statusPropertyPayment')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.datePaymetProperty;
+    if (value != null) {
+      result
+        ..add('datePaymetProperty')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.statusAds;
+    if (value != null) {
+      result
+        ..add('statusAds')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.dateIssueAds;
+    if (value != null) {
+      result
+        ..add('dateIssueAds')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.expirationDateAds;
+    if (value != null) {
+      result
+        ..add('expirationDateAds')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.statusUrbanCleanliness;
+    if (value != null) {
+      result
+        ..add('statusUrbanCleanliness')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.dateIssueUrbanCleanliness;
+    if (value != null) {
+      result
+        ..add('dateIssueUrbanCleanliness')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.expirationDateUrbanCleanliness;
+    if (value != null) {
+      result
+        ..add('expirationDateUrbanCleanliness')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.photoAlcohol;
+    if (value != null) {
+      result
+        ..add('photoAlcohol')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.photoBusinessTax;
+    if (value != null) {
+      result
+        ..add('photoBusinessTax')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.photoPropertyTax;
+    if (value != null) {
+      result
+        ..add('photoPropertyTax')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.photoAds;
+    if (value != null) {
+      result
+        ..add('photoAds')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.photoUrbanCleaning;
+    if (value != null) {
+      result
+        ..add('photoUrbanCleaning')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.declaredAmountActTax;
+    if (value != null) {
+      result
+        ..add('declaredAmountActTax')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.totalAmountActTax;
+    if (value != null) {
+      result
+        ..add('totalAmountActTax')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.totalAmountProperty;
+    if (value != null) {
+      result
+        ..add('totalAmountProperty')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.terrainAreaM2;
+    if (value != null) {
+      result
+        ..add('terrainAreaM2')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.constructionAreaM2;
+    if (value != null) {
+      result
+        ..add('constructionAreaM2')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.totalAmountAds;
+    if (value != null) {
+      result
+        ..add('totalAmountAds')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.totalAmountUrbanCleanliness;
+    if (value != null) {
+      result
+        ..add('totalAmountUrbanCleanliness')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.receiptActTax;
+    if (value != null) {
+      result
+        ..add('receiptActTax')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.receiptPropertyPayment;
+    if (value != null) {
+      result
+        ..add('receiptPropertyPayment')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.receiptAds;
+    if (value != null) {
+      result
+        ..add('receiptAds')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.receiptUrbanCleanliness;
+    if (value != null) {
+      result
+        ..add('receiptUrbanCleanliness')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.licenseexpired;
+    if (value != null) {
+      result
+        ..add('licenseexpired')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.licenceCodeAct;
+    if (value != null) {
+      result
+        ..add('licenceCodeAct')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.dateIssueAct;
+    if (value != null) {
+      result
+        ..add('DateIssueAct')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.expirationDateAct;
+    if (value != null) {
+      result
+        ..add('expirationDateAct')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.photoEAct;
+    if (value != null) {
+      result
+        ..add('photoEAct')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -320,6 +628,182 @@ class _$TaxpayerRecordSerializer
           result.comments = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'statusCadastral':
+          result.statusCadastral = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'cadastralCode':
+          result.cadastralCode = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'photoCadastral':
+          result.photoCadastral = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'statusConformityToUse':
+          result.statusConformityToUse = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'dateIssueConformity':
+          result.dateIssueConformity = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'expirationDateConformity':
+          result.expirationDateConformity = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'conformityCode':
+          result.conformityCode = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'photoConformityUse':
+          result.photoConformityUse = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'statusAlcohol':
+          result.statusAlcohol = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'dateIssueAlcohol':
+          result.dateIssueAlcohol = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'expirationDateAlcohol':
+          result.expirationDateAlcohol = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'licenseCodeAlcohol':
+          result.licenseCodeAlcohol = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'statusPaymentBusinessActTax':
+          result.statusPaymentBusinessActTax = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'dateIssueActTax':
+          result.dateIssueActTax = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'expiratioDateActTax':
+          result.expiratioDateActTax = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'statusPropertyPayment':
+          result.statusPropertyPayment = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'datePaymetProperty':
+          result.datePaymetProperty = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'statusAds':
+          result.statusAds = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'dateIssueAds':
+          result.dateIssueAds = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'expirationDateAds':
+          result.expirationDateAds = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'statusUrbanCleanliness':
+          result.statusUrbanCleanliness = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'dateIssueUrbanCleanliness':
+          result.dateIssueUrbanCleanliness = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'expirationDateUrbanCleanliness':
+          result.expirationDateUrbanCleanliness = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'photoAlcohol':
+          result.photoAlcohol = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'photoBusinessTax':
+          result.photoBusinessTax = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'photoPropertyTax':
+          result.photoPropertyTax = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'photoAds':
+          result.photoAds = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'photoUrbanCleaning':
+          result.photoUrbanCleaning = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'declaredAmountActTax':
+          result.declaredAmountActTax = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'totalAmountActTax':
+          result.totalAmountActTax = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'totalAmountProperty':
+          result.totalAmountProperty = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'terrainAreaM2':
+          result.terrainAreaM2 = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'constructionAreaM2':
+          result.constructionAreaM2 = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'totalAmountAds':
+          result.totalAmountAds = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'totalAmountUrbanCleanliness':
+          result.totalAmountUrbanCleanliness = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'receiptActTax':
+          result.receiptActTax = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'receiptPropertyPayment':
+          result.receiptPropertyPayment = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'receiptAds':
+          result.receiptAds = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'receiptUrbanCleanliness':
+          result.receiptUrbanCleanliness = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'licenseexpired':
+          result.licenseexpired = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'licenceCodeAct':
+          result.licenceCodeAct = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'DateIssueAct':
+          result.dateIssueAct = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'expirationDateAct':
+          result.expirationDateAct = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'photoEAct':
+          result.photoEAct = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -383,6 +867,94 @@ class _$TaxpayerRecord extends TaxpayerRecord {
   @override
   final String? comments;
   @override
+  final String? statusCadastral;
+  @override
+  final String? cadastralCode;
+  @override
+  final String? photoCadastral;
+  @override
+  final String? statusConformityToUse;
+  @override
+  final DateTime? dateIssueConformity;
+  @override
+  final DateTime? expirationDateConformity;
+  @override
+  final String? conformityCode;
+  @override
+  final String? photoConformityUse;
+  @override
+  final String? statusAlcohol;
+  @override
+  final DateTime? dateIssueAlcohol;
+  @override
+  final DateTime? expirationDateAlcohol;
+  @override
+  final String? licenseCodeAlcohol;
+  @override
+  final String? statusPaymentBusinessActTax;
+  @override
+  final DateTime? dateIssueActTax;
+  @override
+  final DateTime? expiratioDateActTax;
+  @override
+  final String? statusPropertyPayment;
+  @override
+  final DateTime? datePaymetProperty;
+  @override
+  final String? statusAds;
+  @override
+  final DateTime? dateIssueAds;
+  @override
+  final DateTime? expirationDateAds;
+  @override
+  final String? statusUrbanCleanliness;
+  @override
+  final DateTime? dateIssueUrbanCleanliness;
+  @override
+  final DateTime? expirationDateUrbanCleanliness;
+  @override
+  final String? photoAlcohol;
+  @override
+  final String? photoBusinessTax;
+  @override
+  final String? photoPropertyTax;
+  @override
+  final String? photoAds;
+  @override
+  final String? photoUrbanCleaning;
+  @override
+  final String? declaredAmountActTax;
+  @override
+  final String? totalAmountActTax;
+  @override
+  final String? totalAmountProperty;
+  @override
+  final String? terrainAreaM2;
+  @override
+  final String? constructionAreaM2;
+  @override
+  final String? totalAmountAds;
+  @override
+  final String? totalAmountUrbanCleanliness;
+  @override
+  final String? receiptActTax;
+  @override
+  final String? receiptPropertyPayment;
+  @override
+  final String? receiptAds;
+  @override
+  final String? receiptUrbanCleanliness;
+  @override
+  final bool? licenseexpired;
+  @override
+  final String? licenceCodeAct;
+  @override
+  final DateTime? dateIssueAct;
+  @override
+  final DateTime? expirationDateAct;
+  @override
+  final String? photoEAct;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$TaxpayerRecord([void Function(TaxpayerRecordBuilder)? updates]) =>
@@ -413,6 +985,50 @@ class _$TaxpayerRecord extends TaxpayerRecord {
       this.articles,
       this.articlesAlcohol,
       this.comments,
+      this.statusCadastral,
+      this.cadastralCode,
+      this.photoCadastral,
+      this.statusConformityToUse,
+      this.dateIssueConformity,
+      this.expirationDateConformity,
+      this.conformityCode,
+      this.photoConformityUse,
+      this.statusAlcohol,
+      this.dateIssueAlcohol,
+      this.expirationDateAlcohol,
+      this.licenseCodeAlcohol,
+      this.statusPaymentBusinessActTax,
+      this.dateIssueActTax,
+      this.expiratioDateActTax,
+      this.statusPropertyPayment,
+      this.datePaymetProperty,
+      this.statusAds,
+      this.dateIssueAds,
+      this.expirationDateAds,
+      this.statusUrbanCleanliness,
+      this.dateIssueUrbanCleanliness,
+      this.expirationDateUrbanCleanliness,
+      this.photoAlcohol,
+      this.photoBusinessTax,
+      this.photoPropertyTax,
+      this.photoAds,
+      this.photoUrbanCleaning,
+      this.declaredAmountActTax,
+      this.totalAmountActTax,
+      this.totalAmountProperty,
+      this.terrainAreaM2,
+      this.constructionAreaM2,
+      this.totalAmountAds,
+      this.totalAmountUrbanCleanliness,
+      this.receiptActTax,
+      this.receiptPropertyPayment,
+      this.receiptAds,
+      this.receiptUrbanCleanliness,
+      this.licenseexpired,
+      this.licenceCodeAct,
+      this.dateIssueAct,
+      this.expirationDateAct,
+      this.photoEAct,
       this.ffRef})
       : super._();
 
@@ -452,6 +1068,51 @@ class _$TaxpayerRecord extends TaxpayerRecord {
         articles == other.articles &&
         articlesAlcohol == other.articlesAlcohol &&
         comments == other.comments &&
+        statusCadastral == other.statusCadastral &&
+        cadastralCode == other.cadastralCode &&
+        photoCadastral == other.photoCadastral &&
+        statusConformityToUse == other.statusConformityToUse &&
+        dateIssueConformity == other.dateIssueConformity &&
+        expirationDateConformity == other.expirationDateConformity &&
+        conformityCode == other.conformityCode &&
+        photoConformityUse == other.photoConformityUse &&
+        statusAlcohol == other.statusAlcohol &&
+        dateIssueAlcohol == other.dateIssueAlcohol &&
+        expirationDateAlcohol == other.expirationDateAlcohol &&
+        licenseCodeAlcohol == other.licenseCodeAlcohol &&
+        statusPaymentBusinessActTax == other.statusPaymentBusinessActTax &&
+        dateIssueActTax == other.dateIssueActTax &&
+        expiratioDateActTax == other.expiratioDateActTax &&
+        statusPropertyPayment == other.statusPropertyPayment &&
+        datePaymetProperty == other.datePaymetProperty &&
+        statusAds == other.statusAds &&
+        dateIssueAds == other.dateIssueAds &&
+        expirationDateAds == other.expirationDateAds &&
+        statusUrbanCleanliness == other.statusUrbanCleanliness &&
+        dateIssueUrbanCleanliness == other.dateIssueUrbanCleanliness &&
+        expirationDateUrbanCleanliness ==
+            other.expirationDateUrbanCleanliness &&
+        photoAlcohol == other.photoAlcohol &&
+        photoBusinessTax == other.photoBusinessTax &&
+        photoPropertyTax == other.photoPropertyTax &&
+        photoAds == other.photoAds &&
+        photoUrbanCleaning == other.photoUrbanCleaning &&
+        declaredAmountActTax == other.declaredAmountActTax &&
+        totalAmountActTax == other.totalAmountActTax &&
+        totalAmountProperty == other.totalAmountProperty &&
+        terrainAreaM2 == other.terrainAreaM2 &&
+        constructionAreaM2 == other.constructionAreaM2 &&
+        totalAmountAds == other.totalAmountAds &&
+        totalAmountUrbanCleanliness == other.totalAmountUrbanCleanliness &&
+        receiptActTax == other.receiptActTax &&
+        receiptPropertyPayment == other.receiptPropertyPayment &&
+        receiptAds == other.receiptAds &&
+        receiptUrbanCleanliness == other.receiptUrbanCleanliness &&
+        licenseexpired == other.licenseexpired &&
+        licenceCodeAct == other.licenceCodeAct &&
+        dateIssueAct == other.dateIssueAct &&
+        expirationDateAct == other.expirationDateAct &&
+        photoEAct == other.photoEAct &&
         ffRef == other.ffRef;
   }
 
@@ -475,25 +1136,25 @@ class _$TaxpayerRecord extends TaxpayerRecord {
                                                                 $jc(
                                                                     $jc(
                                                                         $jc(
-                                                                            $jc($jc($jc($jc($jc($jc($jc(0, businessName.hashCode), comercialDesignation.hashCode), rif.hashCode), location.hashCode), establishmentPhone.hashCode), businessEmail.hashCode),
-                                                                                businessPicture.hashCode),
-                                                                            legalRepresentative.hashCode),
-                                                                        idCardLegalRepresentative.hashCode),
-                                                                    phoneLegalRepresentative.hashCode),
-                                                                emailLegalRepresentative.hashCode),
-                                                            photoCadastralCertificate.hashCode),
-                                                        photoComformityToUse.hashCode),
-                                                    photoLEA.hashCode),
-                                                photoIEA.hashCode),
-                                            photoISLR.hashCode),
-                                        photoLastTaxEA.hashCode),
-                                    photoPaymentEA.hashCode),
-                                iAEApplied.hashCode),
-                            createdAt.hashCode),
-                        reporter.hashCode),
-                    articles.hashCode),
-                articlesAlcohol.hashCode),
-            comments.hashCode),
+                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, businessName.hashCode), comercialDesignation.hashCode), rif.hashCode), location.hashCode), establishmentPhone.hashCode), businessEmail.hashCode), businessPicture.hashCode), legalRepresentative.hashCode), idCardLegalRepresentative.hashCode), phoneLegalRepresentative.hashCode), emailLegalRepresentative.hashCode), photoCadastralCertificate.hashCode), photoComformityToUse.hashCode), photoLEA.hashCode), photoIEA.hashCode), photoISLR.hashCode), photoLastTaxEA.hashCode), photoPaymentEA.hashCode), iAEApplied.hashCode), createdAt.hashCode), reporter.hashCode), articles.hashCode), articlesAlcohol.hashCode), comments.hashCode), statusCadastral.hashCode), cadastralCode.hashCode), photoCadastral.hashCode), statusConformityToUse.hashCode), dateIssueConformity.hashCode), expirationDateConformity.hashCode), conformityCode.hashCode), photoConformityUse.hashCode), statusAlcohol.hashCode), dateIssueAlcohol.hashCode), expirationDateAlcohol.hashCode), licenseCodeAlcohol.hashCode), statusPaymentBusinessActTax.hashCode), dateIssueActTax.hashCode), expiratioDateActTax.hashCode), statusPropertyPayment.hashCode), datePaymetProperty.hashCode), statusAds.hashCode), dateIssueAds.hashCode), expirationDateAds.hashCode), statusUrbanCleanliness.hashCode), dateIssueUrbanCleanliness.hashCode), expirationDateUrbanCleanliness.hashCode), photoAlcohol.hashCode), photoBusinessTax.hashCode), photoPropertyTax.hashCode),
+                                                                                photoAds.hashCode),
+                                                                            photoUrbanCleaning.hashCode),
+                                                                        declaredAmountActTax.hashCode),
+                                                                    totalAmountActTax.hashCode),
+                                                                totalAmountProperty.hashCode),
+                                                            terrainAreaM2.hashCode),
+                                                        constructionAreaM2.hashCode),
+                                                    totalAmountAds.hashCode),
+                                                totalAmountUrbanCleanliness.hashCode),
+                                            receiptActTax.hashCode),
+                                        receiptPropertyPayment.hashCode),
+                                    receiptAds.hashCode),
+                                receiptUrbanCleanliness.hashCode),
+                            licenseexpired.hashCode),
+                        licenceCodeAct.hashCode),
+                    dateIssueAct.hashCode),
+                expirationDateAct.hashCode),
+            photoEAct.hashCode),
         ffRef.hashCode));
   }
 
@@ -524,6 +1185,51 @@ class _$TaxpayerRecord extends TaxpayerRecord {
           ..add('articles', articles)
           ..add('articlesAlcohol', articlesAlcohol)
           ..add('comments', comments)
+          ..add('statusCadastral', statusCadastral)
+          ..add('cadastralCode', cadastralCode)
+          ..add('photoCadastral', photoCadastral)
+          ..add('statusConformityToUse', statusConformityToUse)
+          ..add('dateIssueConformity', dateIssueConformity)
+          ..add('expirationDateConformity', expirationDateConformity)
+          ..add('conformityCode', conformityCode)
+          ..add('photoConformityUse', photoConformityUse)
+          ..add('statusAlcohol', statusAlcohol)
+          ..add('dateIssueAlcohol', dateIssueAlcohol)
+          ..add('expirationDateAlcohol', expirationDateAlcohol)
+          ..add('licenseCodeAlcohol', licenseCodeAlcohol)
+          ..add('statusPaymentBusinessActTax', statusPaymentBusinessActTax)
+          ..add('dateIssueActTax', dateIssueActTax)
+          ..add('expiratioDateActTax', expiratioDateActTax)
+          ..add('statusPropertyPayment', statusPropertyPayment)
+          ..add('datePaymetProperty', datePaymetProperty)
+          ..add('statusAds', statusAds)
+          ..add('dateIssueAds', dateIssueAds)
+          ..add('expirationDateAds', expirationDateAds)
+          ..add('statusUrbanCleanliness', statusUrbanCleanliness)
+          ..add('dateIssueUrbanCleanliness', dateIssueUrbanCleanliness)
+          ..add(
+              'expirationDateUrbanCleanliness', expirationDateUrbanCleanliness)
+          ..add('photoAlcohol', photoAlcohol)
+          ..add('photoBusinessTax', photoBusinessTax)
+          ..add('photoPropertyTax', photoPropertyTax)
+          ..add('photoAds', photoAds)
+          ..add('photoUrbanCleaning', photoUrbanCleaning)
+          ..add('declaredAmountActTax', declaredAmountActTax)
+          ..add('totalAmountActTax', totalAmountActTax)
+          ..add('totalAmountProperty', totalAmountProperty)
+          ..add('terrainAreaM2', terrainAreaM2)
+          ..add('constructionAreaM2', constructionAreaM2)
+          ..add('totalAmountAds', totalAmountAds)
+          ..add('totalAmountUrbanCleanliness', totalAmountUrbanCleanliness)
+          ..add('receiptActTax', receiptActTax)
+          ..add('receiptPropertyPayment', receiptPropertyPayment)
+          ..add('receiptAds', receiptAds)
+          ..add('receiptUrbanCleanliness', receiptUrbanCleanliness)
+          ..add('licenseexpired', licenseexpired)
+          ..add('licenceCodeAct', licenceCodeAct)
+          ..add('dateIssueAct', dateIssueAct)
+          ..add('expirationDateAct', expirationDateAct)
+          ..add('photoEAct', photoEAct)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -647,6 +1353,225 @@ class TaxpayerRecordBuilder
   String? get comments => _$this._comments;
   set comments(String? comments) => _$this._comments = comments;
 
+  String? _statusCadastral;
+  String? get statusCadastral => _$this._statusCadastral;
+  set statusCadastral(String? statusCadastral) =>
+      _$this._statusCadastral = statusCadastral;
+
+  String? _cadastralCode;
+  String? get cadastralCode => _$this._cadastralCode;
+  set cadastralCode(String? cadastralCode) =>
+      _$this._cadastralCode = cadastralCode;
+
+  String? _photoCadastral;
+  String? get photoCadastral => _$this._photoCadastral;
+  set photoCadastral(String? photoCadastral) =>
+      _$this._photoCadastral = photoCadastral;
+
+  String? _statusConformityToUse;
+  String? get statusConformityToUse => _$this._statusConformityToUse;
+  set statusConformityToUse(String? statusConformityToUse) =>
+      _$this._statusConformityToUse = statusConformityToUse;
+
+  DateTime? _dateIssueConformity;
+  DateTime? get dateIssueConformity => _$this._dateIssueConformity;
+  set dateIssueConformity(DateTime? dateIssueConformity) =>
+      _$this._dateIssueConformity = dateIssueConformity;
+
+  DateTime? _expirationDateConformity;
+  DateTime? get expirationDateConformity => _$this._expirationDateConformity;
+  set expirationDateConformity(DateTime? expirationDateConformity) =>
+      _$this._expirationDateConformity = expirationDateConformity;
+
+  String? _conformityCode;
+  String? get conformityCode => _$this._conformityCode;
+  set conformityCode(String? conformityCode) =>
+      _$this._conformityCode = conformityCode;
+
+  String? _photoConformityUse;
+  String? get photoConformityUse => _$this._photoConformityUse;
+  set photoConformityUse(String? photoConformityUse) =>
+      _$this._photoConformityUse = photoConformityUse;
+
+  String? _statusAlcohol;
+  String? get statusAlcohol => _$this._statusAlcohol;
+  set statusAlcohol(String? statusAlcohol) =>
+      _$this._statusAlcohol = statusAlcohol;
+
+  DateTime? _dateIssueAlcohol;
+  DateTime? get dateIssueAlcohol => _$this._dateIssueAlcohol;
+  set dateIssueAlcohol(DateTime? dateIssueAlcohol) =>
+      _$this._dateIssueAlcohol = dateIssueAlcohol;
+
+  DateTime? _expirationDateAlcohol;
+  DateTime? get expirationDateAlcohol => _$this._expirationDateAlcohol;
+  set expirationDateAlcohol(DateTime? expirationDateAlcohol) =>
+      _$this._expirationDateAlcohol = expirationDateAlcohol;
+
+  String? _licenseCodeAlcohol;
+  String? get licenseCodeAlcohol => _$this._licenseCodeAlcohol;
+  set licenseCodeAlcohol(String? licenseCodeAlcohol) =>
+      _$this._licenseCodeAlcohol = licenseCodeAlcohol;
+
+  String? _statusPaymentBusinessActTax;
+  String? get statusPaymentBusinessActTax =>
+      _$this._statusPaymentBusinessActTax;
+  set statusPaymentBusinessActTax(String? statusPaymentBusinessActTax) =>
+      _$this._statusPaymentBusinessActTax = statusPaymentBusinessActTax;
+
+  DateTime? _dateIssueActTax;
+  DateTime? get dateIssueActTax => _$this._dateIssueActTax;
+  set dateIssueActTax(DateTime? dateIssueActTax) =>
+      _$this._dateIssueActTax = dateIssueActTax;
+
+  DateTime? _expiratioDateActTax;
+  DateTime? get expiratioDateActTax => _$this._expiratioDateActTax;
+  set expiratioDateActTax(DateTime? expiratioDateActTax) =>
+      _$this._expiratioDateActTax = expiratioDateActTax;
+
+  String? _statusPropertyPayment;
+  String? get statusPropertyPayment => _$this._statusPropertyPayment;
+  set statusPropertyPayment(String? statusPropertyPayment) =>
+      _$this._statusPropertyPayment = statusPropertyPayment;
+
+  DateTime? _datePaymetProperty;
+  DateTime? get datePaymetProperty => _$this._datePaymetProperty;
+  set datePaymetProperty(DateTime? datePaymetProperty) =>
+      _$this._datePaymetProperty = datePaymetProperty;
+
+  String? _statusAds;
+  String? get statusAds => _$this._statusAds;
+  set statusAds(String? statusAds) => _$this._statusAds = statusAds;
+
+  DateTime? _dateIssueAds;
+  DateTime? get dateIssueAds => _$this._dateIssueAds;
+  set dateIssueAds(DateTime? dateIssueAds) =>
+      _$this._dateIssueAds = dateIssueAds;
+
+  DateTime? _expirationDateAds;
+  DateTime? get expirationDateAds => _$this._expirationDateAds;
+  set expirationDateAds(DateTime? expirationDateAds) =>
+      _$this._expirationDateAds = expirationDateAds;
+
+  String? _statusUrbanCleanliness;
+  String? get statusUrbanCleanliness => _$this._statusUrbanCleanliness;
+  set statusUrbanCleanliness(String? statusUrbanCleanliness) =>
+      _$this._statusUrbanCleanliness = statusUrbanCleanliness;
+
+  DateTime? _dateIssueUrbanCleanliness;
+  DateTime? get dateIssueUrbanCleanliness => _$this._dateIssueUrbanCleanliness;
+  set dateIssueUrbanCleanliness(DateTime? dateIssueUrbanCleanliness) =>
+      _$this._dateIssueUrbanCleanliness = dateIssueUrbanCleanliness;
+
+  DateTime? _expirationDateUrbanCleanliness;
+  DateTime? get expirationDateUrbanCleanliness =>
+      _$this._expirationDateUrbanCleanliness;
+  set expirationDateUrbanCleanliness(
+          DateTime? expirationDateUrbanCleanliness) =>
+      _$this._expirationDateUrbanCleanliness = expirationDateUrbanCleanliness;
+
+  String? _photoAlcohol;
+  String? get photoAlcohol => _$this._photoAlcohol;
+  set photoAlcohol(String? photoAlcohol) => _$this._photoAlcohol = photoAlcohol;
+
+  String? _photoBusinessTax;
+  String? get photoBusinessTax => _$this._photoBusinessTax;
+  set photoBusinessTax(String? photoBusinessTax) =>
+      _$this._photoBusinessTax = photoBusinessTax;
+
+  String? _photoPropertyTax;
+  String? get photoPropertyTax => _$this._photoPropertyTax;
+  set photoPropertyTax(String? photoPropertyTax) =>
+      _$this._photoPropertyTax = photoPropertyTax;
+
+  String? _photoAds;
+  String? get photoAds => _$this._photoAds;
+  set photoAds(String? photoAds) => _$this._photoAds = photoAds;
+
+  String? _photoUrbanCleaning;
+  String? get photoUrbanCleaning => _$this._photoUrbanCleaning;
+  set photoUrbanCleaning(String? photoUrbanCleaning) =>
+      _$this._photoUrbanCleaning = photoUrbanCleaning;
+
+  String? _declaredAmountActTax;
+  String? get declaredAmountActTax => _$this._declaredAmountActTax;
+  set declaredAmountActTax(String? declaredAmountActTax) =>
+      _$this._declaredAmountActTax = declaredAmountActTax;
+
+  String? _totalAmountActTax;
+  String? get totalAmountActTax => _$this._totalAmountActTax;
+  set totalAmountActTax(String? totalAmountActTax) =>
+      _$this._totalAmountActTax = totalAmountActTax;
+
+  String? _totalAmountProperty;
+  String? get totalAmountProperty => _$this._totalAmountProperty;
+  set totalAmountProperty(String? totalAmountProperty) =>
+      _$this._totalAmountProperty = totalAmountProperty;
+
+  String? _terrainAreaM2;
+  String? get terrainAreaM2 => _$this._terrainAreaM2;
+  set terrainAreaM2(String? terrainAreaM2) =>
+      _$this._terrainAreaM2 = terrainAreaM2;
+
+  String? _constructionAreaM2;
+  String? get constructionAreaM2 => _$this._constructionAreaM2;
+  set constructionAreaM2(String? constructionAreaM2) =>
+      _$this._constructionAreaM2 = constructionAreaM2;
+
+  String? _totalAmountAds;
+  String? get totalAmountAds => _$this._totalAmountAds;
+  set totalAmountAds(String? totalAmountAds) =>
+      _$this._totalAmountAds = totalAmountAds;
+
+  String? _totalAmountUrbanCleanliness;
+  String? get totalAmountUrbanCleanliness =>
+      _$this._totalAmountUrbanCleanliness;
+  set totalAmountUrbanCleanliness(String? totalAmountUrbanCleanliness) =>
+      _$this._totalAmountUrbanCleanliness = totalAmountUrbanCleanliness;
+
+  String? _receiptActTax;
+  String? get receiptActTax => _$this._receiptActTax;
+  set receiptActTax(String? receiptActTax) =>
+      _$this._receiptActTax = receiptActTax;
+
+  String? _receiptPropertyPayment;
+  String? get receiptPropertyPayment => _$this._receiptPropertyPayment;
+  set receiptPropertyPayment(String? receiptPropertyPayment) =>
+      _$this._receiptPropertyPayment = receiptPropertyPayment;
+
+  String? _receiptAds;
+  String? get receiptAds => _$this._receiptAds;
+  set receiptAds(String? receiptAds) => _$this._receiptAds = receiptAds;
+
+  String? _receiptUrbanCleanliness;
+  String? get receiptUrbanCleanliness => _$this._receiptUrbanCleanliness;
+  set receiptUrbanCleanliness(String? receiptUrbanCleanliness) =>
+      _$this._receiptUrbanCleanliness = receiptUrbanCleanliness;
+
+  bool? _licenseexpired;
+  bool? get licenseexpired => _$this._licenseexpired;
+  set licenseexpired(bool? licenseexpired) =>
+      _$this._licenseexpired = licenseexpired;
+
+  String? _licenceCodeAct;
+  String? get licenceCodeAct => _$this._licenceCodeAct;
+  set licenceCodeAct(String? licenceCodeAct) =>
+      _$this._licenceCodeAct = licenceCodeAct;
+
+  DateTime? _dateIssueAct;
+  DateTime? get dateIssueAct => _$this._dateIssueAct;
+  set dateIssueAct(DateTime? dateIssueAct) =>
+      _$this._dateIssueAct = dateIssueAct;
+
+  DateTime? _expirationDateAct;
+  DateTime? get expirationDateAct => _$this._expirationDateAct;
+  set expirationDateAct(DateTime? expirationDateAct) =>
+      _$this._expirationDateAct = expirationDateAct;
+
+  String? _photoEAct;
+  String? get photoEAct => _$this._photoEAct;
+  set photoEAct(String? photoEAct) => _$this._photoEAct = photoEAct;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -682,6 +1607,50 @@ class TaxpayerRecordBuilder
       _articles = $v.articles?.toBuilder();
       _articlesAlcohol = $v.articlesAlcohol?.toBuilder();
       _comments = $v.comments;
+      _statusCadastral = $v.statusCadastral;
+      _cadastralCode = $v.cadastralCode;
+      _photoCadastral = $v.photoCadastral;
+      _statusConformityToUse = $v.statusConformityToUse;
+      _dateIssueConformity = $v.dateIssueConformity;
+      _expirationDateConformity = $v.expirationDateConformity;
+      _conformityCode = $v.conformityCode;
+      _photoConformityUse = $v.photoConformityUse;
+      _statusAlcohol = $v.statusAlcohol;
+      _dateIssueAlcohol = $v.dateIssueAlcohol;
+      _expirationDateAlcohol = $v.expirationDateAlcohol;
+      _licenseCodeAlcohol = $v.licenseCodeAlcohol;
+      _statusPaymentBusinessActTax = $v.statusPaymentBusinessActTax;
+      _dateIssueActTax = $v.dateIssueActTax;
+      _expiratioDateActTax = $v.expiratioDateActTax;
+      _statusPropertyPayment = $v.statusPropertyPayment;
+      _datePaymetProperty = $v.datePaymetProperty;
+      _statusAds = $v.statusAds;
+      _dateIssueAds = $v.dateIssueAds;
+      _expirationDateAds = $v.expirationDateAds;
+      _statusUrbanCleanliness = $v.statusUrbanCleanliness;
+      _dateIssueUrbanCleanliness = $v.dateIssueUrbanCleanliness;
+      _expirationDateUrbanCleanliness = $v.expirationDateUrbanCleanliness;
+      _photoAlcohol = $v.photoAlcohol;
+      _photoBusinessTax = $v.photoBusinessTax;
+      _photoPropertyTax = $v.photoPropertyTax;
+      _photoAds = $v.photoAds;
+      _photoUrbanCleaning = $v.photoUrbanCleaning;
+      _declaredAmountActTax = $v.declaredAmountActTax;
+      _totalAmountActTax = $v.totalAmountActTax;
+      _totalAmountProperty = $v.totalAmountProperty;
+      _terrainAreaM2 = $v.terrainAreaM2;
+      _constructionAreaM2 = $v.constructionAreaM2;
+      _totalAmountAds = $v.totalAmountAds;
+      _totalAmountUrbanCleanliness = $v.totalAmountUrbanCleanliness;
+      _receiptActTax = $v.receiptActTax;
+      _receiptPropertyPayment = $v.receiptPropertyPayment;
+      _receiptAds = $v.receiptAds;
+      _receiptUrbanCleanliness = $v.receiptUrbanCleanliness;
+      _licenseexpired = $v.licenseexpired;
+      _licenceCodeAct = $v.licenceCodeAct;
+      _dateIssueAct = $v.dateIssueAct;
+      _expirationDateAct = $v.expirationDateAct;
+      _photoEAct = $v.photoEAct;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -731,6 +1700,50 @@ class TaxpayerRecordBuilder
               articles: _articles?.build(),
               articlesAlcohol: _articlesAlcohol?.build(),
               comments: comments,
+              statusCadastral: statusCadastral,
+              cadastralCode: cadastralCode,
+              photoCadastral: photoCadastral,
+              statusConformityToUse: statusConformityToUse,
+              dateIssueConformity: dateIssueConformity,
+              expirationDateConformity: expirationDateConformity,
+              conformityCode: conformityCode,
+              photoConformityUse: photoConformityUse,
+              statusAlcohol: statusAlcohol,
+              dateIssueAlcohol: dateIssueAlcohol,
+              expirationDateAlcohol: expirationDateAlcohol,
+              licenseCodeAlcohol: licenseCodeAlcohol,
+              statusPaymentBusinessActTax: statusPaymentBusinessActTax,
+              dateIssueActTax: dateIssueActTax,
+              expiratioDateActTax: expiratioDateActTax,
+              statusPropertyPayment: statusPropertyPayment,
+              datePaymetProperty: datePaymetProperty,
+              statusAds: statusAds,
+              dateIssueAds: dateIssueAds,
+              expirationDateAds: expirationDateAds,
+              statusUrbanCleanliness: statusUrbanCleanliness,
+              dateIssueUrbanCleanliness: dateIssueUrbanCleanliness,
+              expirationDateUrbanCleanliness: expirationDateUrbanCleanliness,
+              photoAlcohol: photoAlcohol,
+              photoBusinessTax: photoBusinessTax,
+              photoPropertyTax: photoPropertyTax,
+              photoAds: photoAds,
+              photoUrbanCleaning: photoUrbanCleaning,
+              declaredAmountActTax: declaredAmountActTax,
+              totalAmountActTax: totalAmountActTax,
+              totalAmountProperty: totalAmountProperty,
+              terrainAreaM2: terrainAreaM2,
+              constructionAreaM2: constructionAreaM2,
+              totalAmountAds: totalAmountAds,
+              totalAmountUrbanCleanliness: totalAmountUrbanCleanliness,
+              receiptActTax: receiptActTax,
+              receiptPropertyPayment: receiptPropertyPayment,
+              receiptAds: receiptAds,
+              receiptUrbanCleanliness: receiptUrbanCleanliness,
+              licenseexpired: licenseexpired,
+              licenceCodeAct: licenceCodeAct,
+              dateIssueAct: dateIssueAct,
+              expirationDateAct: expirationDateAct,
+              photoEAct: photoEAct,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

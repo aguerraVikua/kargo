@@ -65,8 +65,8 @@ class _SearchWidgetState extends State<SearchWidget> {
                   children: [
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                      child: FlutterFlowDropDown(
-                        initialOption: dropDownValue ??= 'J',
+                      child: FlutterFlowDropDown<String>(
+                        initialOption: dropDownValue ??= 'V',
                         options: ['V', 'J', 'E'],
                         onChanged: (val) => setState(() => dropDownValue = val),
                         width: MediaQuery.of(context).size.width * 0.18,
@@ -76,6 +76,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                             .override(
                               fontFamily: 'Poppins',
                               color: FlutterFlowTheme.of(context).secondaryText,
+                              fontSize: 12,
                             ),
                         fillColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
