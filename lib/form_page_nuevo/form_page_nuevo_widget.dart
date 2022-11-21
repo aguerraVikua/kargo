@@ -7423,7 +7423,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                               var taxpayerRecordReference =
                                                   TaxpayerRecord.collection
                                                       .doc();
-                                              await taxpayerRecordReference
+                                              taxpayerRecordReference
                                                   .set(taxpayerCreateData);
                                               tax = TaxpayerRecord
                                                   .getDocumentFromData(
