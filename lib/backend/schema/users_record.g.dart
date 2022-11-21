@@ -61,12 +61,6 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.cedula;
-    if (value != null) {
-      result
-        ..add('cedula')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
     value = object.listadoPrueba;
     if (value != null) {
       result
@@ -74,6 +68,13 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add(serializers.serialize(value,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(String)])));
+    }
+    value = object.cedula;
+    if (value != null) {
+      result
+        ..add('cedula')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.ffRef;
     if (value != null) {
@@ -121,15 +122,15 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.phoneNumber = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'cedula':
-          result.cedula = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
         case 'listadoPrueba':
           result.listadoPrueba.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(String)]))!
               as BuiltList<Object?>);
+          break;
+        case 'cedula':
+          result.cedula = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
@@ -158,9 +159,9 @@ class _$UsersRecord extends UsersRecord {
   @override
   final String? phoneNumber;
   @override
-  final int? cedula;
-  @override
   final BuiltList<String>? listadoPrueba;
+  @override
+  final String? cedula;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -174,8 +175,8 @@ class _$UsersRecord extends UsersRecord {
       this.uid,
       this.createdTime,
       this.phoneNumber,
-      this.cedula,
       this.listadoPrueba,
+      this.cedula,
       this.ffRef})
       : super._();
 
@@ -196,8 +197,8 @@ class _$UsersRecord extends UsersRecord {
         uid == other.uid &&
         createdTime == other.createdTime &&
         phoneNumber == other.phoneNumber &&
-        cedula == other.cedula &&
         listadoPrueba == other.listadoPrueba &&
+        cedula == other.cedula &&
         ffRef == other.ffRef;
   }
 
@@ -216,8 +217,8 @@ class _$UsersRecord extends UsersRecord {
                             uid.hashCode),
                         createdTime.hashCode),
                     phoneNumber.hashCode),
-                cedula.hashCode),
-            listadoPrueba.hashCode),
+                listadoPrueba.hashCode),
+            cedula.hashCode),
         ffRef.hashCode));
   }
 
@@ -230,8 +231,8 @@ class _$UsersRecord extends UsersRecord {
           ..add('uid', uid)
           ..add('createdTime', createdTime)
           ..add('phoneNumber', phoneNumber)
-          ..add('cedula', cedula)
           ..add('listadoPrueba', listadoPrueba)
+          ..add('cedula', cedula)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -264,15 +265,15 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   String? get phoneNumber => _$this._phoneNumber;
   set phoneNumber(String? phoneNumber) => _$this._phoneNumber = phoneNumber;
 
-  int? _cedula;
-  int? get cedula => _$this._cedula;
-  set cedula(int? cedula) => _$this._cedula = cedula;
-
   ListBuilder<String>? _listadoPrueba;
   ListBuilder<String> get listadoPrueba =>
       _$this._listadoPrueba ??= new ListBuilder<String>();
   set listadoPrueba(ListBuilder<String>? listadoPrueba) =>
       _$this._listadoPrueba = listadoPrueba;
+
+  String? _cedula;
+  String? get cedula => _$this._cedula;
+  set cedula(String? cedula) => _$this._cedula = cedula;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -291,8 +292,8 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _uid = $v.uid;
       _createdTime = $v.createdTime;
       _phoneNumber = $v.phoneNumber;
-      _cedula = $v.cedula;
       _listadoPrueba = $v.listadoPrueba?.toBuilder();
+      _cedula = $v.cedula;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -324,8 +325,8 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
               uid: uid,
               createdTime: createdTime,
               phoneNumber: phoneNumber,
-              cedula: cedula,
               listadoPrueba: _listadoPrueba?.build(),
+              cedula: cedula,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

@@ -84,16 +84,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   : HomePageWidget(),
             ),
             FFRoute(
+              name: 'SignIn',
+              path: 'signIn',
+              builder: (context, params) => SignInWidget(),
+            ),
+            FFRoute(
               name: 'List',
               path: 'list',
               builder: (context, params) => params.isEmpty
                   ? NavBarPage(initialPage: 'List')
                   : ListWidget(),
-            ),
-            FFRoute(
-              name: 'SignIn',
-              path: 'signIn',
-              builder: (context, params) => SignInWidget(),
             ),
             FFRoute(
               name: 'Activity',
@@ -116,9 +116,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => FormPageWidget(),
             ),
             FFRoute(
-              name: 'prueba',
-              path: 'prueba',
-              builder: (context, params) => PruebaWidget(),
+              name: 'pruebas',
+              path: 'pruebas',
+              builder: (context, params) => PruebasWidget(),
+            ),
+            FFRoute(
+              name: 'actividad2',
+              path: 'actividad2',
+              builder: (context, params) => Actividad2Widget(),
+            ),
+            FFRoute(
+              name: 'multas',
+              path: 'multas',
+              builder: (context, params) => MultasWidget(),
+            ),
+            FFRoute(
+              name: 'formPageNuevo',
+              path: 'formPageNuevo',
+              builder: (context, params) => FormPageNuevoWidget(),
+            ),
+            FFRoute(
+              name: 'profile',
+              path: 'profile',
+              builder: (context, params) => ProfileWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
