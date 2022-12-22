@@ -13,9 +13,11 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/upload_media.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class FormPageNuevoWidget extends StatefulWidget {
   const FormPageNuevoWidget({Key? key}) : super(key: key);
@@ -28,23 +30,30 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
   bool isMediaUploading1 = false;
   String uploadedFileUrl1 = '';
 
-  String? dropDownValue1;
+  String? dropDownValue2;
   TextEditingController? rifController;
+  String? dropDownValue1;
   TextEditingController? razonsocialController;
   TextEditingController? denominacioncomercialController;
   TextEditingController? telefonoController;
   TextEditingController? correoController;
-  PageController? pageViewController;
-  String? dropDownValue2;
-  TextEditingController? cedulaController;
-  TextEditingController? correoRepresentanteController;
-  TextEditingController? nombreRepresentanteController;
-  TextEditingController? telefonoRepresentanteController;
+  TextEditingController? empleadosController;
   bool isMediaUploading2 = false;
   String uploadedFileUrl2 = '';
 
+  bool? switchListTileValue1;
+  PageController? pageViewController;
+  String? dropDownValue3;
+  TextEditingController? cedulaController;
+  TextEditingController? nombreRepresentanteController;
+  TextEditingController? telefonoRepresentanteController;
+  TextEditingController? correoRepresentanteController;
+  bool? switchListTileValue2;
   bool isMediaUploading3 = false;
   String uploadedFileUrl3 = '';
+
+  bool isMediaUploading4 = false;
+  String uploadedFileUrl4 = '';
 
   DateTime? datePicked3;
   DateTime? datePicked4;
@@ -58,37 +67,37 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
   TextEditingController? codigodelicenciaController;
   List<String>? checkboxGroupIAEValues;
   String? choiceChipsImpuestoValue;
-  bool isMediaUploading4 = false;
-  String uploadedFileUrl4 = '';
+  bool isMediaUploading5 = false;
+  String uploadedFileUrl5 = '';
 
   TextEditingController? areaconstructccionController;
   TextEditingController? areaterrenoController;
   TextEditingController? codigocatastralController;
   String? choiceChipsCatastralValue;
-  bool isMediaUploading5 = false;
-  String uploadedFileUrl5 = '';
+  bool isMediaUploading6 = false;
+  String uploadedFileUrl6 = '';
 
   DateTime? datePicked5;
   DateTime? datePicked6;
   TextEditingController? codigodepermisoController;
   String? choiceChipsZonaValue;
-  bool isMediaUploading6 = false;
-  String uploadedFileUrl6 = '';
+  bool isMediaUploading7 = false;
+  String uploadedFileUrl7 = '';
 
   DateTime? datePicked7;
   TextEditingController? numreciboImpInmobiController;
   TextEditingController? montoTotalController;
   String? choiceChipsImInmobiValue;
-  bool isMediaUploading7 = false;
-  String uploadedFileUrl7 = '';
+  bool isMediaUploading8 = false;
+  String uploadedFileUrl8 = '';
 
   DateTime? datePicked8;
   DateTime? datePicked9;
   TextEditingController? reciboPublicController;
   TextEditingController? montoTotalPubliController;
   String? choiceChipPublicValue;
-  bool isMediaUploading8 = false;
-  String uploadedFileUrl8 = '';
+  bool isMediaUploading9 = false;
+  String uploadedFileUrl9 = '';
 
   DateTime? datePicked10;
   DateTime? datePicked11;
@@ -96,8 +105,8 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
   TextEditingController? montoTotalAseoController;
   String? choiceChipAseoValue;
   List<String>? checkboxGroupArticlesValues;
-  bool isMediaUploading9 = false;
-  String uploadedFileUrl9 = '';
+  bool isMediaUploading10 = false;
+  String uploadedFileUrl10 = '';
 
   DateTime? datePicked12;
   DateTime? datePicked13;
@@ -126,14 +135,15 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
     montoTotalAseoController = TextEditingController();
     reciboAseoController = TextEditingController();
     cedulaController = TextEditingController();
-    correoRepresentanteController = TextEditingController();
     nombreRepresentanteController = TextEditingController();
     telefonoRepresentanteController = TextEditingController();
+    correoRepresentanteController = TextEditingController();
     correoController = TextEditingController();
     denominacioncomercialController = TextEditingController();
     razonsocialController = TextEditingController();
     rifController = TextEditingController();
     telefonoController = TextEditingController();
+    empleadosController = TextEditingController();
     codigodelicenciaController = TextEditingController();
     montoCaneladoController = TextEditingController();
     montoDeclaradoController = TextEditingController();
@@ -155,14 +165,15 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
     montoTotalAseoController?.dispose();
     reciboAseoController?.dispose();
     cedulaController?.dispose();
-    correoRepresentanteController?.dispose();
     nombreRepresentanteController?.dispose();
     telefonoRepresentanteController?.dispose();
+    correoRepresentanteController?.dispose();
     correoController?.dispose();
     denominacioncomercialController?.dispose();
     razonsocialController?.dispose();
     rifController?.dispose();
     telefonoController?.dispose();
+    empleadosController?.dispose();
     codigodelicenciaController?.dispose();
     montoCaneladoController?.dispose();
     montoDeclaradoController?.dispose();
@@ -174,6 +185,8 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -288,6 +301,66 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                 ),
                                               ],
                                             ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(20, 0, 20, 0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 10, 0, 0),
+                                                      child:
+                                                          FlutterFlowDropDown<
+                                                              String>(
+                                                        initialOption:
+                                                            dropDownValue1 ??=
+                                                                'Pozuelos',
+                                                        options: [
+                                                          'Pozuelos',
+                                                          'Puerto la Cruz'
+                                                        ],
+                                                        onChanged: (val) =>
+                                                            setState(() =>
+                                                                dropDownValue1 =
+                                                                    val),
+                                                        width: 180,
+                                                        height: 50,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
+                                                        hintText:
+                                                            'Seleccione la parroquia...',
+                                                        fillColor: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        elevation: 2,
+                                                        borderColor:
+                                                            Colors.transparent,
+                                                        borderWidth: 0,
+                                                        borderRadius: 5,
+                                                        margin:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(12, 4,
+                                                                    12, 4),
+                                                        hidesUnderline: true,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -297,11 +370,11 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                   child: FlutterFlowDropDown<
                                                       String>(
                                                     initialOption:
-                                                        dropDownValue1 ??= 'J',
+                                                        dropDownValue2 ??= 'J',
                                                     options: ['J', 'V', 'E'],
                                                     onChanged: (val) =>
                                                         setState(() =>
-                                                            dropDownValue1 =
+                                                            dropDownValue2 =
                                                                 val),
                                                     width:
                                                         MediaQuery.of(context)
@@ -430,6 +503,113 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                               decimal: true),
                                                     ),
                                                   ),
+                                                ),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 20, 20, 0),
+                                                      child: InkWell(
+                                                        onTap: () async {
+                                                          final selectedMedia =
+                                                              await selectMediaWithSourceBottomSheet(
+                                                            context: context,
+                                                            allowPhoto: true,
+                                                            pickerFontFamily:
+                                                                'Poppins',
+                                                          );
+                                                          if (selectedMedia !=
+                                                                  null &&
+                                                              selectedMedia.every((m) =>
+                                                                  validateFileFormat(
+                                                                      m.storagePath,
+                                                                      context))) {
+                                                            setState(() =>
+                                                                isMediaUploading1 =
+                                                                    true);
+                                                            var downloadUrls =
+                                                                <String>[];
+                                                            try {
+                                                              showUploadMessage(
+                                                                context,
+                                                                'Cargando imagen...',
+                                                                showLoading:
+                                                                    true,
+                                                              );
+                                                              downloadUrls =
+                                                                  (await Future
+                                                                          .wait(
+                                                                selectedMedia
+                                                                    .map(
+                                                                  (m) async =>
+                                                                      await uploadData(
+                                                                          m.storagePath,
+                                                                          m.bytes),
+                                                                ),
+                                                              ))
+                                                                      .where((u) =>
+                                                                          u !=
+                                                                          null)
+                                                                      .map((u) =>
+                                                                          u!)
+                                                                      .toList();
+                                                            } finally {
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .hideCurrentSnackBar();
+                                                              isMediaUploading1 =
+                                                                  false;
+                                                            }
+                                                            if (downloadUrls
+                                                                    .length ==
+                                                                selectedMedia
+                                                                    .length) {
+                                                              setState(() =>
+                                                                  uploadedFileUrl1 =
+                                                                      downloadUrls
+                                                                          .first);
+                                                              showUploadMessage(
+                                                                  context,
+                                                                  '¡Carga exitosa!');
+                                                            } else {
+                                                              setState(() {});
+                                                              showUploadMessage(
+                                                                  context,
+                                                                  'Falló la carga, intente nuevamente.');
+                                                              return;
+                                                            }
+                                                          }
+                                                        },
+                                                        child: ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(15),
+                                                          child: Image.network(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              uploadedFileUrl1,
+                                                              'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/Vector%20(1).png?alt=media&token=c6df250b-25ee-4697-853d-ecbf6eaa076a',
+                                                            ),
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width *
+                                                                0.16,
+                                                            height: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .height *
+                                                                0.08,
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ],
                                             ),
@@ -833,119 +1013,303 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                             ),
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
                                               children: [
-                                                Text(
-                                                  'Ingrese una Imagen \ndel establecimiento',
-                                                  maxLines: 3,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                20, 20, 20, 0),
+                                                    child: TextFormField(
+                                                      controller:
+                                                          empleadosController,
+                                                      obscureText: false,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        labelText:
+                                                            'Cantidad de empleaados',
+                                                        labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .secondaryText,
-                                                      ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(20, 20, 0, 0),
-                                                  child: InkWell(
-                                                    onTap: () async {
-                                                      final selectedMedia =
-                                                          await selectMediaWithSourceBottomSheet(
-                                                        context: context,
-                                                        allowPhoto: true,
-                                                        pickerFontFamily:
-                                                            'Poppins',
-                                                      );
-                                                      if (selectedMedia !=
-                                                              null &&
-                                                          selectedMedia.every((m) =>
-                                                              validateFileFormat(
-                                                                  m.storagePath,
-                                                                  context))) {
-                                                        setState(() =>
-                                                            isMediaUploading1 =
-                                                                true);
-                                                        var downloadUrls =
-                                                            <String>[];
-                                                        try {
-                                                          showUploadMessage(
-                                                            context,
-                                                            'Cargando imagen...',
-                                                            showLoading: true,
-                                                          );
-                                                          downloadUrls =
-                                                              (await Future
-                                                                      .wait(
-                                                            selectedMedia.map(
-                                                              (m) async =>
-                                                                  await uploadData(
-                                                                      m.storagePath,
-                                                                      m.bytes),
-                                                            ),
-                                                          ))
-                                                                  .where((u) =>
-                                                                      u != null)
-                                                                  .map(
-                                                                      (u) => u!)
-                                                                  .toList();
-                                                        } finally {
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .hideCurrentSnackBar();
-                                                          isMediaUploading1 =
-                                                              false;
-                                                        }
-                                                        if (downloadUrls
-                                                                .length ==
-                                                            selectedMedia
-                                                                .length) {
-                                                          setState(() =>
-                                                              uploadedFileUrl1 =
-                                                                  downloadUrls
-                                                                      .first);
-                                                          showUploadMessage(
-                                                              context,
-                                                              '¡Carga exitosa!');
-                                                        } else {
-                                                          setState(() {});
-                                                          showUploadMessage(
-                                                              context,
-                                                              'Falló la carga, intente nuevamente.');
-                                                          return;
-                                                        }
-                                                      }
-                                                    },
-                                                    child: ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              15),
-                                                      child: Image.network(
-                                                        valueOrDefault<String>(
-                                                          uploadedFileUrl1,
-                                                          'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/Vector%20(1).png?alt=media&token=c6df250b-25ee-4697-853d-ecbf6eaa076a',
+                                                                .bodyText2,
+                                                        hintText:
+                                                            'Ingrese la cantidad de empleados...',
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyText2,
+                                                        enabledBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Colors.white,
+                                                            width: 1,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(8),
                                                         ),
-                                                        width: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .width *
-                                                            0.3,
-                                                        height: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.15,
-                                                        fit: BoxFit.cover,
+                                                        focusedBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Colors.white,
+                                                            width: 1,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(8),
+                                                        ),
+                                                        errorBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0x00000000),
+                                                            width: 1,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(8),
+                                                        ),
+                                                        focusedErrorBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0x00000000),
+                                                            width: 1,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(8),
+                                                        ),
+                                                        filled: true,
+                                                        fillColor: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        contentPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(20,
+                                                                    24, 20, 24),
+                                                        prefixIcon: Icon(
+                                                          Icons.group,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                        ),
                                                       ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                              ),
+                                                      keyboardType:
+                                                          TextInputType.number,
+                                                      inputFormatters: [
+                                                        FilteringTextInputFormatter
+                                                            .allow(
+                                                                RegExp('[0-9]'))
+                                                      ],
                                                     ),
                                                   ),
                                                 ),
                                               ],
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(20, 0, 20, 0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                children: [
+                                                  Text(
+                                                    'Ingrese una Imagen \ndel establecimiento',
+                                                    maxLines: 3,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                        ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                20, 20, 0, 0),
+                                                    child: InkWell(
+                                                      onTap: () async {
+                                                        final selectedMedia =
+                                                            await selectMediaWithSourceBottomSheet(
+                                                          context: context,
+                                                          allowPhoto: true,
+                                                          pickerFontFamily:
+                                                              'Poppins',
+                                                        );
+                                                        if (selectedMedia !=
+                                                                null &&
+                                                            selectedMedia.every((m) =>
+                                                                validateFileFormat(
+                                                                    m.storagePath,
+                                                                    context))) {
+                                                          setState(() =>
+                                                              isMediaUploading2 =
+                                                                  true);
+                                                          var downloadUrls =
+                                                              <String>[];
+                                                          try {
+                                                            showUploadMessage(
+                                                              context,
+                                                              'Cargando imagen...',
+                                                              showLoading: true,
+                                                            );
+                                                            downloadUrls =
+                                                                (await Future
+                                                                        .wait(
+                                                              selectedMedia.map(
+                                                                (m) async =>
+                                                                    await uploadData(
+                                                                        m.storagePath,
+                                                                        m.bytes),
+                                                              ),
+                                                            ))
+                                                                    .where((u) =>
+                                                                        u !=
+                                                                        null)
+                                                                    .map((u) =>
+                                                                        u!)
+                                                                    .toList();
+                                                          } finally {
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .hideCurrentSnackBar();
+                                                            isMediaUploading2 =
+                                                                false;
+                                                          }
+                                                          if (downloadUrls
+                                                                  .length ==
+                                                              selectedMedia
+                                                                  .length) {
+                                                            setState(() =>
+                                                                uploadedFileUrl2 =
+                                                                    downloadUrls
+                                                                        .first);
+                                                            showUploadMessage(
+                                                                context,
+                                                                '¡Carga exitosa!');
+                                                          } else {
+                                                            setState(() {});
+                                                            showUploadMessage(
+                                                                context,
+                                                                'Falló la carga, intente nuevamente.');
+                                                            return;
+                                                          }
+                                                        }
+                                                      },
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(15),
+                                                        child: Image.network(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            uploadedFileUrl2,
+                                                            'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/Vector%20(1).png?alt=media&token=c6df250b-25ee-4697-853d-ecbf6eaa076a',
+                                                          ),
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              0.2,
+                                                          height: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .height *
+                                                              0.1,
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(20, 0, 20, 0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 15, 0, 0),
+                                                      child: SwitchListTile(
+                                                        value:
+                                                            switchListTileValue1 ??=
+                                                                FFAppState()
+                                                                    .localAbierto,
+                                                        onChanged:
+                                                            (newValue) async {
+                                                          setState(() =>
+                                                              switchListTileValue1 =
+                                                                  newValue!);
+                                                          if (newValue!) {
+                                                            setState(() {
+                                                              FFAppState()
+                                                                      .localAbierto =
+                                                                  true;
+                                                            });
+                                                          } else {
+                                                            setState(() {
+                                                              FFAppState()
+                                                                      .localAbierto =
+                                                                  false;
+                                                            });
+                                                          }
+                                                        },
+                                                        title: Text(
+                                                          '¿El comercio está abierto?',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText1,
+                                                        ),
+                                                        tileColor: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        activeColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryColor,
+                                                        dense: false,
+                                                        controlAffinity:
+                                                            ListTileControlAffinity
+                                                                .trailing,
+                                                        shape:
+                                                            RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(5),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -968,19 +1332,37 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                   25, 20, 25, 0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
-                                              if (formKey2.currentState ==
-                                                      null ||
-                                                  !formKey2.currentState!
-                                                      .validate()) {
-                                                return;
-                                              }
+                                              if (FFAppState().localAbierto ==
+                                                  true) {
+                                                if (formKey2.currentState ==
+                                                        null ||
+                                                    !formKey2.currentState!
+                                                        .validate()) {
+                                                  return;
+                                                }
 
-                                              await pageViewController
-                                                  ?.nextPage(
-                                                duration:
-                                                    Duration(milliseconds: 300),
-                                                curve: Curves.ease,
-                                              );
+                                                await pageViewController
+                                                    ?.nextPage(
+                                                  duration: Duration(
+                                                      milliseconds: 300),
+                                                  curve: Curves.ease,
+                                                );
+                                              } else {
+                                                if (formKey2.currentState ==
+                                                        null ||
+                                                    !formKey2.currentState!
+                                                        .validate()) {
+                                                  return;
+                                                }
+
+                                                await pageViewController
+                                                    ?.animateToPage(
+                                                  6,
+                                                  duration: Duration(
+                                                      milliseconds: 500),
+                                                  curve: Curves.ease,
+                                                );
+                                              }
                                             },
                                             text: 'Continuar',
                                             options: FFButtonOptions(
@@ -1044,96 +1426,6 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                           fontFamily: 'Poppins',
                                                           fontSize: 16,
                                                         ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(20, 20, 20, 0),
-                                                child: TextFormField(
-                                                  controller:
-                                                      correoRepresentanteController,
-                                                  obscureText: false,
-                                                  decoration: InputDecoration(
-                                                    labelText:
-                                                        'Correo de contacto',
-                                                    labelStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyText2,
-                                                    hintText:
-                                                        'Ingrese un correo electronico...',
-                                                    hintStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyText2,
-                                                    enabledBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color: Colors.white,
-                                                        width: 1,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8),
-                                                    ),
-                                                    focusedBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color: Colors.white,
-                                                        width: 1,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8),
-                                                    ),
-                                                    errorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            Color(0x00000000),
-                                                        width: 1,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8),
-                                                    ),
-                                                    focusedErrorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            Color(0x00000000),
-                                                        width: 1,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8),
-                                                    ),
-                                                    filled: true,
-                                                    fillColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
-                                                    contentPadding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                20, 24, 20, 24),
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                      ),
-                                                ),
                                               ),
                                             ),
                                           ],
@@ -1237,10 +1529,10 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                               child:
                                                   FlutterFlowDropDown<String>(
                                                 initialOption:
-                                                    dropDownValue2 ??= 'V',
+                                                    dropDownValue3 ??= 'V',
                                                 options: ['V', 'E'],
                                                 onChanged: (val) => setState(
-                                                    () => dropDownValue2 = val),
+                                                    () => dropDownValue3 = val),
                                                 width: MediaQuery.of(context)
                                                         .size
                                                         .width *
@@ -1357,6 +1649,101 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                             ),
                                           ],
                                         ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 0, 0, 5),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(20, 20, 20, 0),
+                                                  child: TextFormField(
+                                                    controller:
+                                                        telefonoRepresentanteController,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      labelText:
+                                                          'Teléfono de contacto',
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText2,
+                                                      hintText: '4141234567',
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText2,
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: Colors.white,
+                                                          width: 1,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: Colors.white,
+                                                          width: 1,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8),
+                                                      ),
+                                                      errorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x00000000),
+                                                          width: 1,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8),
+                                                      ),
+                                                      focusedErrorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x00000000),
+                                                          width: 1,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8),
+                                                      ),
+                                                      filled: true,
+                                                      fillColor: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      contentPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(20, 24,
+                                                                  20, 24),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                        ),
+                                                    keyboardType:
+                                                        TextInputType.number,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -1366,16 +1753,17 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                     .fromSTEB(20, 20, 20, 0),
                                                 child: TextFormField(
                                                   controller:
-                                                      telefonoRepresentanteController,
+                                                      correoRepresentanteController,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     labelText:
-                                                        'Teléfono de contacto',
+                                                        'Correo de contacto',
                                                     labelStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .bodyText2,
-                                                    hintText: '4141234567',
+                                                    hintText:
+                                                        'Ingrese un correo electronico...',
                                                     hintStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -1441,12 +1829,75 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                     context)
                                                                 .secondaryText,
                                                       ),
-                                                  keyboardType:
-                                                      TextInputType.number,
                                                 ),
                                               ),
                                             ),
                                           ],
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  20, 0, 20, 0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 15, 0, 0),
+                                                  child: SwitchListTile(
+                                                    value:
+                                                        switchListTileValue2 ??=
+                                                            FFAppState()
+                                                                .documentacion,
+                                                    onChanged:
+                                                        (newValue) async {
+                                                      setState(() =>
+                                                          switchListTileValue2 =
+                                                              newValue!);
+                                                      if (newValue!) {
+                                                        setState(() {
+                                                          FFAppState()
+                                                                  .documentacion =
+                                                              true;
+                                                        });
+                                                      } else {
+                                                        setState(() {
+                                                          FFAppState()
+                                                                  .documentacion =
+                                                              false;
+                                                        });
+                                                      }
+                                                    },
+                                                    title: Text(
+                                                      '¿Posee documentación?',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1,
+                                                    ),
+                                                    tileColor: FlutterFlowTheme
+                                                            .of(context)
+                                                        .secondaryBackground,
+                                                    activeColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryColor,
+                                                    dense: false,
+                                                    controlAffinity:
+                                                        ListTileControlAffinity
+                                                            .trailing,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              5),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -1505,17 +1956,36 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                             0, 24, 0, 0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
-                                            if (formKey3.currentState == null ||
-                                                !formKey3.currentState!
-                                                    .validate()) {
-                                              return;
-                                            }
+                                            if (FFAppState().documentacion) {
+                                              if (formKey3.currentState ==
+                                                      null ||
+                                                  !formKey3.currentState!
+                                                      .validate()) {
+                                                return;
+                                              }
 
-                                            await pageViewController?.nextPage(
-                                              duration:
-                                                  Duration(milliseconds: 300),
-                                              curve: Curves.ease,
-                                            );
+                                              await pageViewController
+                                                  ?.nextPage(
+                                                duration:
+                                                    Duration(milliseconds: 300),
+                                                curve: Curves.ease,
+                                              );
+                                            } else {
+                                              if (formKey3.currentState ==
+                                                      null ||
+                                                  !formKey3.currentState!
+                                                      .validate()) {
+                                                return;
+                                              }
+
+                                              await pageViewController
+                                                  ?.animateToPage(
+                                                6,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                curve: Curves.ease,
+                                              );
+                                            }
                                           },
                                           text: 'Continuar',
                                           options: FFButtonOptions(
@@ -1700,7 +2170,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                             m.storagePath,
                                                                             context))) {
                                                                   setState(() =>
-                                                                      isMediaUploading2 =
+                                                                      isMediaUploading3 =
                                                                           true);
                                                                   var downloadUrls =
                                                                       <String>[];
@@ -1730,7 +2200,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                     ScaffoldMessenger.of(
                                                                             context)
                                                                         .hideCurrentSnackBar();
-                                                                    isMediaUploading2 =
+                                                                    isMediaUploading3 =
                                                                         false;
                                                                   }
                                                                   if (downloadUrls
@@ -1738,7 +2208,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                       selectedMedia
                                                                           .length) {
                                                                     setState(() =>
-                                                                        uploadedFileUrl2 =
+                                                                        uploadedFileUrl3 =
                                                                             downloadUrls.first);
                                                                     showUploadMessage(
                                                                         context,
@@ -1762,7 +2232,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                     .network(
                                                                   valueOrDefault<
                                                                       String>(
-                                                                    uploadedFileUrl2,
+                                                                    uploadedFileUrl3,
                                                                     'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/Vector%20(1).png?alt=media&token=c6df250b-25ee-4697-853d-ecbf6eaa076a',
                                                                   ),
                                                                   width: MediaQuery.of(
@@ -2469,7 +2939,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                                           allowPhoto: true,
                                                                                         );
                                                                                         if (selectedMedia != null && selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
-                                                                                          setState(() => isMediaUploading3 = true);
+                                                                                          setState(() => isMediaUploading4 = true);
                                                                                           var downloadUrls = <String>[];
                                                                                           try {
                                                                                             showUploadMessage(
@@ -2487,10 +2957,10 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                                                 .toList();
                                                                                           } finally {
                                                                                             ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                                                                                            isMediaUploading3 = false;
+                                                                                            isMediaUploading4 = false;
                                                                                           }
                                                                                           if (downloadUrls.length == selectedMedia.length) {
-                                                                                            setState(() => uploadedFileUrl3 = downloadUrls.first);
+                                                                                            setState(() => uploadedFileUrl4 = downloadUrls.first);
                                                                                             showUploadMessage(context, '¡Carga exitosa!');
                                                                                           } else {
                                                                                             setState(() {});
@@ -2503,7 +2973,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                                         borderRadius: BorderRadius.circular(10),
                                                                                         child: Image.network(
                                                                                           valueOrDefault<String>(
-                                                                                            uploadedFileUrl3,
+                                                                                            uploadedFileUrl4,
                                                                                             'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/Vector%20(1).png?alt=media&token=c6df250b-25ee-4697-853d-ecbf6eaa076a',
                                                                                           ),
                                                                                           width: MediaQuery.of(context).size.width * 0.15,
@@ -3125,7 +3595,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                               m.storagePath,
                                                                               context))) {
                                                                         setState(() =>
-                                                                            isMediaUploading4 =
+                                                                            isMediaUploading5 =
                                                                                 true);
                                                                         var downloadUrls =
                                                                             <String>[];
@@ -3147,13 +3617,13 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                         } finally {
                                                                           ScaffoldMessenger.of(context)
                                                                               .hideCurrentSnackBar();
-                                                                          isMediaUploading4 =
+                                                                          isMediaUploading5 =
                                                                               false;
                                                                         }
                                                                         if (downloadUrls.length ==
                                                                             selectedMedia.length) {
                                                                           setState(() =>
-                                                                              uploadedFileUrl4 = downloadUrls.first);
+                                                                              uploadedFileUrl5 = downloadUrls.first);
                                                                           showUploadMessage(
                                                                               context,
                                                                               '¡Carga exitosa!');
@@ -3176,7 +3646,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                           .network(
                                                                         valueOrDefault<
                                                                             String>(
-                                                                          uploadedFileUrl4,
+                                                                          uploadedFileUrl5,
                                                                           'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/Vector%20(1).png?alt=media&token=c6df250b-25ee-4697-853d-ecbf6eaa076a',
                                                                         ),
                                                                         width: MediaQuery.of(context).size.width *
@@ -3685,7 +4155,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                               m.storagePath,
                                                                               context))) {
                                                                         setState(() =>
-                                                                            isMediaUploading5 =
+                                                                            isMediaUploading6 =
                                                                                 true);
                                                                         var downloadUrls =
                                                                             <String>[];
@@ -3707,13 +4177,13 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                         } finally {
                                                                           ScaffoldMessenger.of(context)
                                                                               .hideCurrentSnackBar();
-                                                                          isMediaUploading5 =
+                                                                          isMediaUploading6 =
                                                                               false;
                                                                         }
                                                                         if (downloadUrls.length ==
                                                                             selectedMedia.length) {
                                                                           setState(() =>
-                                                                              uploadedFileUrl5 = downloadUrls.first);
+                                                                              uploadedFileUrl6 = downloadUrls.first);
                                                                           showUploadMessage(
                                                                               context,
                                                                               '¡Carga exitosa!');
@@ -3736,7 +4206,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                           .network(
                                                                         valueOrDefault<
                                                                             String>(
-                                                                          uploadedFileUrl5,
+                                                                          uploadedFileUrl6,
                                                                           'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/Vector%20(1).png?alt=media&token=c6df250b-25ee-4697-853d-ecbf6eaa076a',
                                                                         ),
                                                                         width: MediaQuery.of(context).size.width *
@@ -4228,7 +4698,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                               m.storagePath,
                                                                               context))) {
                                                                         setState(() =>
-                                                                            isMediaUploading6 =
+                                                                            isMediaUploading7 =
                                                                                 true);
                                                                         var downloadUrls =
                                                                             <String>[];
@@ -4250,13 +4720,13 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                         } finally {
                                                                           ScaffoldMessenger.of(context)
                                                                               .hideCurrentSnackBar();
-                                                                          isMediaUploading6 =
+                                                                          isMediaUploading7 =
                                                                               false;
                                                                         }
                                                                         if (downloadUrls.length ==
                                                                             selectedMedia.length) {
                                                                           setState(() =>
-                                                                              uploadedFileUrl6 = downloadUrls.first);
+                                                                              uploadedFileUrl7 = downloadUrls.first);
                                                                           showUploadMessage(
                                                                               context,
                                                                               '¡Carga exitosa!');
@@ -4279,7 +4749,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                           .network(
                                                                         valueOrDefault<
                                                                             String>(
-                                                                          uploadedFileUrl6,
+                                                                          uploadedFileUrl7,
                                                                           'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/Vector%20(1).png?alt=media&token=c6df250b-25ee-4697-853d-ecbf6eaa076a',
                                                                         ),
                                                                         width: MediaQuery.of(context).size.width *
@@ -4807,7 +5277,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                               m.storagePath,
                                                                               context))) {
                                                                         setState(() =>
-                                                                            isMediaUploading7 =
+                                                                            isMediaUploading8 =
                                                                                 true);
                                                                         var downloadUrls =
                                                                             <String>[];
@@ -4829,13 +5299,13 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                         } finally {
                                                                           ScaffoldMessenger.of(context)
                                                                               .hideCurrentSnackBar();
-                                                                          isMediaUploading7 =
+                                                                          isMediaUploading8 =
                                                                               false;
                                                                         }
                                                                         if (downloadUrls.length ==
                                                                             selectedMedia.length) {
                                                                           setState(() =>
-                                                                              uploadedFileUrl7 = downloadUrls.first);
+                                                                              uploadedFileUrl8 = downloadUrls.first);
                                                                           showUploadMessage(
                                                                               context,
                                                                               '¡Carga exitosa!');
@@ -4858,7 +5328,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                           .network(
                                                                         valueOrDefault<
                                                                             String>(
-                                                                          uploadedFileUrl7,
+                                                                          uploadedFileUrl8,
                                                                           'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/Vector%20(1).png?alt=media&token=c6df250b-25ee-4697-853d-ecbf6eaa076a',
                                                                         ),
                                                                         width: MediaQuery.of(context).size.width *
@@ -5456,7 +5926,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                               m.storagePath,
                                                                               context))) {
                                                                         setState(() =>
-                                                                            isMediaUploading8 =
+                                                                            isMediaUploading9 =
                                                                                 true);
                                                                         var downloadUrls =
                                                                             <String>[];
@@ -5478,13 +5948,13 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                         } finally {
                                                                           ScaffoldMessenger.of(context)
                                                                               .hideCurrentSnackBar();
-                                                                          isMediaUploading8 =
+                                                                          isMediaUploading9 =
                                                                               false;
                                                                         }
                                                                         if (downloadUrls.length ==
                                                                             selectedMedia.length) {
                                                                           setState(() =>
-                                                                              uploadedFileUrl8 = downloadUrls.first);
+                                                                              uploadedFileUrl9 = downloadUrls.first);
                                                                           showUploadMessage(
                                                                               context,
                                                                               '¡Carga exitosa!');
@@ -5507,7 +5977,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                           .network(
                                                                         valueOrDefault<
                                                                             String>(
-                                                                          uploadedFileUrl8,
+                                                                          uploadedFileUrl9,
                                                                           'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/Vector%20(1).png?alt=media&token=c6df250b-25ee-4697-853d-ecbf6eaa076a',
                                                                         ),
                                                                         width: MediaQuery.of(context).size.width *
@@ -6055,7 +6525,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(15, 5, 0, 0),
                                               child: Text(
-                                                'Cumplimiento de articulos',
+                                                'Incumplimiento de articulos (Multas)',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText1
@@ -6064,7 +6534,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          fontSize: 16,
+                                                          fontSize: 14,
                                                           fontWeight:
                                                               FontWeight.bold,
                                                         ),
@@ -6075,9 +6545,9 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                   .fromSTEB(15, 0, 0, 0),
                                               child: FlutterFlowIconButton(
                                                 borderColor: Colors.transparent,
-                                                borderRadius: 30,
+                                                borderRadius: 20,
                                                 borderWidth: 1,
-                                                buttonSize: 60,
+                                                buttonSize: 40,
                                                 fillColor:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryColor,
@@ -6087,7 +6557,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBackground,
-                                                  size: 25,
+                                                  size: 18,
                                                 ),
                                                 onPressed: () async {
                                                   await showModalBottomSheet(
@@ -6395,7 +6865,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                             m.storagePath,
                                                                             context))) {
                                                                   setState(() =>
-                                                                      isMediaUploading9 =
+                                                                      isMediaUploading10 =
                                                                           true);
                                                                   var downloadUrls =
                                                                       <String>[];
@@ -6425,7 +6895,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                     ScaffoldMessenger.of(
                                                                             context)
                                                                         .hideCurrentSnackBar();
-                                                                    isMediaUploading9 =
+                                                                    isMediaUploading10 =
                                                                         false;
                                                                   }
                                                                   if (downloadUrls
@@ -6433,7 +6903,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                       selectedMedia
                                                                           .length) {
                                                                     setState(() =>
-                                                                        uploadedFileUrl9 =
+                                                                        uploadedFileUrl10 =
                                                                             downloadUrls.first);
                                                                     showUploadMessage(
                                                                         context,
@@ -6457,7 +6927,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                     .network(
                                                                   valueOrDefault<
                                                                       String>(
-                                                                    uploadedFileUrl9,
+                                                                    uploadedFileUrl10,
                                                                     'https://firebasestorage.googleapis.com/v0/b/kargo-81c8c.appspot.com/o/Vector%20(1).png?alt=media&token=c6df250b-25ee-4697-853d-ecbf6eaa076a',
                                                                   ),
                                                                   width: MediaQuery.of(
@@ -6843,28 +7313,31 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                                   MainAxisAlignment
                                                                       .spaceBetween,
                                                               children: [
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          15,
-                                                                          5,
-                                                                          0,
-                                                                          0),
-                                                                  child: Text(
-                                                                    'Expendio de bebidas alcohólicas',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                          fontSize:
-                                                                              16,
-                                                                          fontWeight:
-                                                                              FontWeight.bold,
-                                                                        ),
+                                                                Expanded(
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            4,
+                                                                            5,
+                                                                            0,
+                                                                            0),
+                                                                    child: Text(
+                                                                      'Incumplimiento de expendio de bebidas alcohólicas',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyText1
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            fontSize:
+                                                                                16,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                          ),
+                                                                    ),
                                                                   ),
                                                                 ),
                                                                 Padding(
@@ -7286,7 +7759,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                       denominacioncomercialController!
                                                           .text,
                                                   rif:
-                                                      '${dropDownValue1}${rifController!.text}',
+                                                      '${dropDownValue2}${rifController!.text}',
                                                   location:
                                                       currentUserLocationValue,
                                                   establishmentPhone:
@@ -7295,14 +7768,14 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                       correoController!.text,
                                                   businessPicture:
                                                       valueOrDefault<String>(
-                                                    uploadedFileUrl1,
+                                                    uploadedFileUrl2,
                                                     'https://vikua.com/wp-content/uploads/2022/08/logo-web.png',
                                                   ),
                                                   legalRepresentative:
                                                       nombreRepresentanteController!
                                                           .text,
                                                   idCardLegalRepresentative:
-                                                      '${dropDownValue2}${cedulaController!.text}',
+                                                      '${dropDownValue3}${cedulaController!.text}',
                                                   phoneLegalRepresentative:
                                                       telefonoRepresentanteController!
                                                           .text,
@@ -7392,18 +7865,18 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                       montoTotalAseoController!
                                                           .text,
                                                   photoCadastral:
-                                                      uploadedFileUrl4,
-                                                  photoConformityUse:
                                                       uploadedFileUrl5,
-                                                  photoAlcohol:
-                                                      uploadedFileUrl9,
-                                                  photoBusinessTax:
-                                                      uploadedFileUrl3,
-                                                  photoPropertyTax:
+                                                  photoConformityUse:
                                                       uploadedFileUrl6,
-                                                  photoAds: uploadedFileUrl7,
+                                                  photoAlcohol:
+                                                      uploadedFileUrl10,
+                                                  photoBusinessTax:
+                                                      uploadedFileUrl4,
+                                                  photoPropertyTax:
+                                                      uploadedFileUrl7,
+                                                  photoAds: uploadedFileUrl8,
                                                   photoUrbanCleaning:
-                                                      uploadedFileUrl8,
+                                                      uploadedFileUrl9,
                                                   licenseexpired: vencidaValue,
                                                   licenceCodeAct:
                                                       codigodelicenciaController!
@@ -7411,7 +7884,14 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                   dateIssueAct: datePicked1,
                                                   expirationDateAct:
                                                       datePicked2,
-                                                  photoEAct: uploadedFileUrl2,
+                                                  photoEAct: uploadedFileUrl3,
+                                                  photoLEA: uploadedFileUrl4,
+                                                  statusLicense:
+                                                      choiceChipsImpuestoValue,
+                                                  photoRIF: uploadedFileUrl1,
+                                                  parish: dropDownValue1,
+                                                  employees:
+                                                      empleadosController!.text,
                                                 ),
                                                 'IAEApplied':
                                                     checkboxGroupIAEValues,

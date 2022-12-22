@@ -501,6 +501,34 @@ class _$TaxpayerRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.statusLicense;
+    if (value != null) {
+      result
+        ..add('statusLicense')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.photoRIF;
+    if (value != null) {
+      result
+        ..add('photoRIF')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.parish;
+    if (value != null) {
+      result
+        ..add('parish')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.employees;
+    if (value != null) {
+      result
+        ..add('employees')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -804,6 +832,22 @@ class _$TaxpayerRecordSerializer
           result.photoEAct = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'statusLicense':
+          result.statusLicense = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'photoRIF':
+          result.photoRIF = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'parish':
+          result.parish = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'employees':
+          result.employees = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -955,6 +999,14 @@ class _$TaxpayerRecord extends TaxpayerRecord {
   @override
   final String? photoEAct;
   @override
+  final String? statusLicense;
+  @override
+  final String? photoRIF;
+  @override
+  final String? parish;
+  @override
+  final String? employees;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$TaxpayerRecord([void Function(TaxpayerRecordBuilder)? updates]) =>
@@ -1029,6 +1081,10 @@ class _$TaxpayerRecord extends TaxpayerRecord {
       this.dateIssueAct,
       this.expirationDateAct,
       this.photoEAct,
+      this.statusLicense,
+      this.photoRIF,
+      this.parish,
+      this.employees,
       this.ffRef})
       : super._();
 
@@ -1113,6 +1169,10 @@ class _$TaxpayerRecord extends TaxpayerRecord {
         dateIssueAct == other.dateIssueAct &&
         expirationDateAct == other.expirationDateAct &&
         photoEAct == other.photoEAct &&
+        statusLicense == other.statusLicense &&
+        photoRIF == other.photoRIF &&
+        parish == other.parish &&
+        employees == other.employees &&
         ffRef == other.ffRef;
   }
 
@@ -1136,25 +1196,25 @@ class _$TaxpayerRecord extends TaxpayerRecord {
                                                                 $jc(
                                                                     $jc(
                                                                         $jc(
-                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, businessName.hashCode), comercialDesignation.hashCode), rif.hashCode), location.hashCode), establishmentPhone.hashCode), businessEmail.hashCode), businessPicture.hashCode), legalRepresentative.hashCode), idCardLegalRepresentative.hashCode), phoneLegalRepresentative.hashCode), emailLegalRepresentative.hashCode), photoCadastralCertificate.hashCode), photoComformityToUse.hashCode), photoLEA.hashCode), photoIEA.hashCode), photoISLR.hashCode), photoLastTaxEA.hashCode), photoPaymentEA.hashCode), iAEApplied.hashCode), createdAt.hashCode), reporter.hashCode), articles.hashCode), articlesAlcohol.hashCode), comments.hashCode), statusCadastral.hashCode), cadastralCode.hashCode), photoCadastral.hashCode), statusConformityToUse.hashCode), dateIssueConformity.hashCode), expirationDateConformity.hashCode), conformityCode.hashCode), photoConformityUse.hashCode), statusAlcohol.hashCode), dateIssueAlcohol.hashCode), expirationDateAlcohol.hashCode), licenseCodeAlcohol.hashCode), statusPaymentBusinessActTax.hashCode), dateIssueActTax.hashCode), expiratioDateActTax.hashCode), statusPropertyPayment.hashCode), datePaymetProperty.hashCode), statusAds.hashCode), dateIssueAds.hashCode), expirationDateAds.hashCode), statusUrbanCleanliness.hashCode), dateIssueUrbanCleanliness.hashCode), expirationDateUrbanCleanliness.hashCode), photoAlcohol.hashCode), photoBusinessTax.hashCode), photoPropertyTax.hashCode),
-                                                                                photoAds.hashCode),
-                                                                            photoUrbanCleaning.hashCode),
-                                                                        declaredAmountActTax.hashCode),
-                                                                    totalAmountActTax.hashCode),
-                                                                totalAmountProperty.hashCode),
-                                                            terrainAreaM2.hashCode),
-                                                        constructionAreaM2.hashCode),
-                                                    totalAmountAds.hashCode),
-                                                totalAmountUrbanCleanliness.hashCode),
-                                            receiptActTax.hashCode),
-                                        receiptPropertyPayment.hashCode),
-                                    receiptAds.hashCode),
-                                receiptUrbanCleanliness.hashCode),
-                            licenseexpired.hashCode),
-                        licenceCodeAct.hashCode),
-                    dateIssueAct.hashCode),
-                expirationDateAct.hashCode),
-            photoEAct.hashCode),
+                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, businessName.hashCode), comercialDesignation.hashCode), rif.hashCode), location.hashCode), establishmentPhone.hashCode), businessEmail.hashCode), businessPicture.hashCode), legalRepresentative.hashCode), idCardLegalRepresentative.hashCode), phoneLegalRepresentative.hashCode), emailLegalRepresentative.hashCode), photoCadastralCertificate.hashCode), photoComformityToUse.hashCode), photoLEA.hashCode), photoIEA.hashCode), photoISLR.hashCode), photoLastTaxEA.hashCode), photoPaymentEA.hashCode), iAEApplied.hashCode), createdAt.hashCode), reporter.hashCode), articles.hashCode), articlesAlcohol.hashCode), comments.hashCode), statusCadastral.hashCode), cadastralCode.hashCode), photoCadastral.hashCode), statusConformityToUse.hashCode), dateIssueConformity.hashCode), expirationDateConformity.hashCode), conformityCode.hashCode), photoConformityUse.hashCode), statusAlcohol.hashCode), dateIssueAlcohol.hashCode), expirationDateAlcohol.hashCode), licenseCodeAlcohol.hashCode), statusPaymentBusinessActTax.hashCode), dateIssueActTax.hashCode), expiratioDateActTax.hashCode), statusPropertyPayment.hashCode), datePaymetProperty.hashCode), statusAds.hashCode), dateIssueAds.hashCode), expirationDateAds.hashCode), statusUrbanCleanliness.hashCode), dateIssueUrbanCleanliness.hashCode), expirationDateUrbanCleanliness.hashCode), photoAlcohol.hashCode), photoBusinessTax.hashCode), photoPropertyTax.hashCode), photoAds.hashCode), photoUrbanCleaning.hashCode), declaredAmountActTax.hashCode), totalAmountActTax.hashCode),
+                                                                                totalAmountProperty.hashCode),
+                                                                            terrainAreaM2.hashCode),
+                                                                        constructionAreaM2.hashCode),
+                                                                    totalAmountAds.hashCode),
+                                                                totalAmountUrbanCleanliness.hashCode),
+                                                            receiptActTax.hashCode),
+                                                        receiptPropertyPayment.hashCode),
+                                                    receiptAds.hashCode),
+                                                receiptUrbanCleanliness.hashCode),
+                                            licenseexpired.hashCode),
+                                        licenceCodeAct.hashCode),
+                                    dateIssueAct.hashCode),
+                                expirationDateAct.hashCode),
+                            photoEAct.hashCode),
+                        statusLicense.hashCode),
+                    photoRIF.hashCode),
+                parish.hashCode),
+            employees.hashCode),
         ffRef.hashCode));
   }
 
@@ -1230,6 +1290,10 @@ class _$TaxpayerRecord extends TaxpayerRecord {
           ..add('dateIssueAct', dateIssueAct)
           ..add('expirationDateAct', expirationDateAct)
           ..add('photoEAct', photoEAct)
+          ..add('statusLicense', statusLicense)
+          ..add('photoRIF', photoRIF)
+          ..add('parish', parish)
+          ..add('employees', employees)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -1572,6 +1636,23 @@ class TaxpayerRecordBuilder
   String? get photoEAct => _$this._photoEAct;
   set photoEAct(String? photoEAct) => _$this._photoEAct = photoEAct;
 
+  String? _statusLicense;
+  String? get statusLicense => _$this._statusLicense;
+  set statusLicense(String? statusLicense) =>
+      _$this._statusLicense = statusLicense;
+
+  String? _photoRIF;
+  String? get photoRIF => _$this._photoRIF;
+  set photoRIF(String? photoRIF) => _$this._photoRIF = photoRIF;
+
+  String? _parish;
+  String? get parish => _$this._parish;
+  set parish(String? parish) => _$this._parish = parish;
+
+  String? _employees;
+  String? get employees => _$this._employees;
+  set employees(String? employees) => _$this._employees = employees;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -1651,6 +1732,10 @@ class TaxpayerRecordBuilder
       _dateIssueAct = $v.dateIssueAct;
       _expirationDateAct = $v.expirationDateAct;
       _photoEAct = $v.photoEAct;
+      _statusLicense = $v.statusLicense;
+      _photoRIF = $v.photoRIF;
+      _parish = $v.parish;
+      _employees = $v.employees;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -1744,6 +1829,10 @@ class TaxpayerRecordBuilder
               dateIssueAct: dateIssueAct,
               expirationDateAct: expirationDateAct,
               photoEAct: photoEAct,
+              statusLicense: statusLicense,
+              photoRIF: photoRIF,
+              parish: parish,
+              employees: employees,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

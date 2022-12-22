@@ -5,6 +5,7 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class PreviewMarkerWidget extends StatefulWidget {
   const PreviewMarkerWidget({
@@ -21,6 +22,8 @@ class PreviewMarkerWidget extends StatefulWidget {
 class _PreviewMarkerWidgetState extends State<PreviewMarkerWidget> {
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
       child: StreamBuilder<TaxpayerRecord>(
@@ -203,7 +206,7 @@ class _PreviewMarkerWidgetState extends State<PreviewMarkerWidget> {
                           },
                         );
                       },
-                      text: 'Ver actividad',
+                      text: 'Ver comercio',
                       options: FFButtonOptions(
                         width: 350,
                         height: 60,

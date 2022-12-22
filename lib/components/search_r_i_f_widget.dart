@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class SearchRIFWidget extends StatefulWidget {
   const SearchRIFWidget({Key? key}) : super(key: key);
@@ -28,6 +29,8 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: MediaQuery.of(context).size.width,
       height: 350,
@@ -187,12 +190,8 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                               ),
                             ),
                             FFButtonWidget(
-                              onPressed: () async {
-                                if (rifController!.text == '5') {
-                                  context.goNamed('formPage');
-                                } else {
-                                  context.goNamed('formPage');
-                                }
+                              onPressed: () {
+                                print('Button pressed ...');
                               },
                               text: 'Buscar',
                               options: FFButtonOptions(

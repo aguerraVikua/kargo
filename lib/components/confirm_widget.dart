@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class ConfirmWidget extends StatefulWidget {
   const ConfirmWidget({Key? key}) : super(key: key);
@@ -14,6 +15,8 @@ class ConfirmWidget extends StatefulWidget {
 class _ConfirmWidgetState extends State<ConfirmWidget> {
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: double.infinity,
       height: 280,
