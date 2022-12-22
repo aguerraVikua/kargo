@@ -149,6 +149,14 @@ abstract class TaxpayerRecord
 
   String? get photoEAct;
 
+  String? get statusLicense;
+
+  String? get photoRIF;
+
+  String? get parish;
+
+  String? get employees;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -205,7 +213,11 @@ abstract class TaxpayerRecord
     ..receiptUrbanCleanliness = ''
     ..licenseexpired = false
     ..licenceCodeAct = ''
-    ..photoEAct = '';
+    ..photoEAct = ''
+    ..statusLicense = ''
+    ..photoRIF = ''
+    ..parish = ''
+    ..employees = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('taxpayer');
@@ -294,6 +306,10 @@ Map<String, dynamic> createTaxpayerRecordData({
   DateTime? dateIssueAct,
   DateTime? expirationDateAct,
   String? photoEAct,
+  String? statusLicense,
+  String? photoRIF,
+  String? parish,
+  String? employees,
 }) {
   final firestoreData = serializers.toFirestore(
     TaxpayerRecord.serializer,
@@ -366,7 +382,11 @@ Map<String, dynamic> createTaxpayerRecordData({
         ..licenceCodeAct = licenceCodeAct
         ..dateIssueAct = dateIssueAct
         ..expirationDateAct = expirationDateAct
-        ..photoEAct = photoEAct,
+        ..photoEAct = photoEAct
+        ..statusLicense = statusLicense
+        ..photoRIF = photoRIF
+        ..parish = parish
+        ..employees = employees,
     ),
   );
 

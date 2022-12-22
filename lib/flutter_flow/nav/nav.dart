@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
 import '../flutter_flow_theme.dart';
 import '../../backend/backend.dart';
+
 import '../../auth/firebase_user_provider.dart';
 
 import '../../index.dart';
@@ -111,24 +112,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   : SearchWidget(),
             ),
             FFRoute(
-              name: 'formPage',
-              path: 'formPage',
-              builder: (context, params) => FormPageWidget(),
-            ),
-            FFRoute(
-              name: 'pruebas',
-              path: 'pruebas',
-              builder: (context, params) => PruebasWidget(),
-            ),
-            FFRoute(
-              name: 'actividad2',
-              path: 'actividad2',
-              builder: (context, params) => Actividad2Widget(),
-            ),
-            FFRoute(
               name: 'multas',
               path: 'multas',
-              builder: (context, params) => MultasWidget(),
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'multas')
+                  : MultasWidget(),
             ),
             FFRoute(
               name: 'formPageNuevo',
