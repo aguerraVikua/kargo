@@ -170,22 +170,6 @@ class _$TaxpayerRecordSerializer
             specifiedType: const FullType(
                 DocumentReference, const [const FullType.nullable(Object)])));
     }
-    value = object.articles;
-    if (value != null) {
-      result
-        ..add('articles')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(String)])));
-    }
-    value = object.articlesAlcohol;
-    if (value != null) {
-      result
-        ..add('articlesAlcohol')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(String)])));
-    }
     value = object.comments;
     if (value != null) {
       result
@@ -640,18 +624,6 @@ class _$TaxpayerRecordSerializer
                 const FullType.nullable(Object)
               ])) as DocumentReference<Object?>?;
           break;
-        case 'articles':
-          result.articles.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      BuiltList, const [const FullType(String)]))!
-              as BuiltList<Object?>);
-          break;
-        case 'articlesAlcohol':
-          result.articlesAlcohol.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      BuiltList, const [const FullType(String)]))!
-              as BuiltList<Object?>);
-          break;
         case 'comments':
           result.comments = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
@@ -905,10 +877,6 @@ class _$TaxpayerRecord extends TaxpayerRecord {
   @override
   final DocumentReference<Object?>? reporter;
   @override
-  final BuiltList<String>? articles;
-  @override
-  final BuiltList<String>? articlesAlcohol;
-  @override
   final String? comments;
   @override
   final String? statusCadastral;
@@ -1034,8 +1002,6 @@ class _$TaxpayerRecord extends TaxpayerRecord {
       this.iAEApplied,
       this.createdAt,
       this.reporter,
-      this.articles,
-      this.articlesAlcohol,
       this.comments,
       this.statusCadastral,
       this.cadastralCode,
@@ -1121,8 +1087,6 @@ class _$TaxpayerRecord extends TaxpayerRecord {
         iAEApplied == other.iAEApplied &&
         createdAt == other.createdAt &&
         reporter == other.reporter &&
-        articles == other.articles &&
-        articlesAlcohol == other.articlesAlcohol &&
         comments == other.comments &&
         statusCadastral == other.statusCadastral &&
         cadastralCode == other.cadastralCode &&
@@ -1196,7 +1160,7 @@ class _$TaxpayerRecord extends TaxpayerRecord {
                                                                 $jc(
                                                                     $jc(
                                                                         $jc(
-                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, businessName.hashCode), comercialDesignation.hashCode), rif.hashCode), location.hashCode), establishmentPhone.hashCode), businessEmail.hashCode), businessPicture.hashCode), legalRepresentative.hashCode), idCardLegalRepresentative.hashCode), phoneLegalRepresentative.hashCode), emailLegalRepresentative.hashCode), photoCadastralCertificate.hashCode), photoComformityToUse.hashCode), photoLEA.hashCode), photoIEA.hashCode), photoISLR.hashCode), photoLastTaxEA.hashCode), photoPaymentEA.hashCode), iAEApplied.hashCode), createdAt.hashCode), reporter.hashCode), articles.hashCode), articlesAlcohol.hashCode), comments.hashCode), statusCadastral.hashCode), cadastralCode.hashCode), photoCadastral.hashCode), statusConformityToUse.hashCode), dateIssueConformity.hashCode), expirationDateConformity.hashCode), conformityCode.hashCode), photoConformityUse.hashCode), statusAlcohol.hashCode), dateIssueAlcohol.hashCode), expirationDateAlcohol.hashCode), licenseCodeAlcohol.hashCode), statusPaymentBusinessActTax.hashCode), dateIssueActTax.hashCode), expiratioDateActTax.hashCode), statusPropertyPayment.hashCode), datePaymetProperty.hashCode), statusAds.hashCode), dateIssueAds.hashCode), expirationDateAds.hashCode), statusUrbanCleanliness.hashCode), dateIssueUrbanCleanliness.hashCode), expirationDateUrbanCleanliness.hashCode), photoAlcohol.hashCode), photoBusinessTax.hashCode), photoPropertyTax.hashCode), photoAds.hashCode), photoUrbanCleaning.hashCode), declaredAmountActTax.hashCode), totalAmountActTax.hashCode),
+                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, businessName.hashCode), comercialDesignation.hashCode), rif.hashCode), location.hashCode), establishmentPhone.hashCode), businessEmail.hashCode), businessPicture.hashCode), legalRepresentative.hashCode), idCardLegalRepresentative.hashCode), phoneLegalRepresentative.hashCode), emailLegalRepresentative.hashCode), photoCadastralCertificate.hashCode), photoComformityToUse.hashCode), photoLEA.hashCode), photoIEA.hashCode), photoISLR.hashCode), photoLastTaxEA.hashCode), photoPaymentEA.hashCode), iAEApplied.hashCode), createdAt.hashCode), reporter.hashCode), comments.hashCode), statusCadastral.hashCode), cadastralCode.hashCode), photoCadastral.hashCode), statusConformityToUse.hashCode), dateIssueConformity.hashCode), expirationDateConformity.hashCode), conformityCode.hashCode), photoConformityUse.hashCode), statusAlcohol.hashCode), dateIssueAlcohol.hashCode), expirationDateAlcohol.hashCode), licenseCodeAlcohol.hashCode), statusPaymentBusinessActTax.hashCode), dateIssueActTax.hashCode), expiratioDateActTax.hashCode), statusPropertyPayment.hashCode), datePaymetProperty.hashCode), statusAds.hashCode), dateIssueAds.hashCode), expirationDateAds.hashCode), statusUrbanCleanliness.hashCode), dateIssueUrbanCleanliness.hashCode), expirationDateUrbanCleanliness.hashCode), photoAlcohol.hashCode), photoBusinessTax.hashCode), photoPropertyTax.hashCode), photoAds.hashCode), photoUrbanCleaning.hashCode), declaredAmountActTax.hashCode), totalAmountActTax.hashCode),
                                                                                 totalAmountProperty.hashCode),
                                                                             terrainAreaM2.hashCode),
                                                                         constructionAreaM2.hashCode),
@@ -1242,8 +1206,6 @@ class _$TaxpayerRecord extends TaxpayerRecord {
           ..add('iAEApplied', iAEApplied)
           ..add('createdAt', createdAt)
           ..add('reporter', reporter)
-          ..add('articles', articles)
-          ..add('articlesAlcohol', articlesAlcohol)
           ..add('comments', comments)
           ..add('statusCadastral', statusCadastral)
           ..add('cadastralCode', cadastralCode)
@@ -1401,17 +1363,6 @@ class TaxpayerRecordBuilder
   DocumentReference<Object?>? get reporter => _$this._reporter;
   set reporter(DocumentReference<Object?>? reporter) =>
       _$this._reporter = reporter;
-
-  ListBuilder<String>? _articles;
-  ListBuilder<String> get articles =>
-      _$this._articles ??= new ListBuilder<String>();
-  set articles(ListBuilder<String>? articles) => _$this._articles = articles;
-
-  ListBuilder<String>? _articlesAlcohol;
-  ListBuilder<String> get articlesAlcohol =>
-      _$this._articlesAlcohol ??= new ListBuilder<String>();
-  set articlesAlcohol(ListBuilder<String>? articlesAlcohol) =>
-      _$this._articlesAlcohol = articlesAlcohol;
 
   String? _comments;
   String? get comments => _$this._comments;
@@ -1685,8 +1636,6 @@ class TaxpayerRecordBuilder
       _iAEApplied = $v.iAEApplied?.toBuilder();
       _createdAt = $v.createdAt;
       _reporter = $v.reporter;
-      _articles = $v.articles?.toBuilder();
-      _articlesAlcohol = $v.articlesAlcohol?.toBuilder();
       _comments = $v.comments;
       _statusCadastral = $v.statusCadastral;
       _cadastralCode = $v.cadastralCode;
@@ -1782,8 +1731,6 @@ class TaxpayerRecordBuilder
               iAEApplied: _iAEApplied?.build(),
               createdAt: createdAt,
               reporter: reporter,
-              articles: _articles?.build(),
-              articlesAlcohol: _articlesAlcohol?.build(),
               comments: comments,
               statusCadastral: statusCadastral,
               cadastralCode: cadastralCode,
@@ -1839,11 +1786,6 @@ class TaxpayerRecordBuilder
       try {
         _$failedField = 'iAEApplied';
         _iAEApplied?.build();
-
-        _$failedField = 'articles';
-        _articles?.build();
-        _$failedField = 'articlesAlcohol';
-        _articlesAlcohol?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'TaxpayerRecord', _$failedField, e.toString());

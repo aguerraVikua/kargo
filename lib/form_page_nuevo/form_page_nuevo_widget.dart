@@ -1,8 +1,6 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../backend/firebase_storage/storage.dart';
-import '../components/info_alcohol_widget.dart';
-import '../components/info_articles_widget.dart';
 import '../flutter_flow/flutter_flow_checkbox_group.dart';
 import '../flutter_flow/flutter_flow_choice_chips.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
@@ -15,7 +13,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -104,22 +101,20 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
   TextEditingController? reciboAseoController;
   TextEditingController? montoTotalAseoController;
   String? choiceChipAseoValue;
-  List<String>? checkboxGroupArticlesValues;
   bool isMediaUploading10 = false;
   String uploadedFileUrl10 = '';
 
   DateTime? datePicked12;
   DateTime? datePicked13;
   TextEditingController? codigolicbebidasController;
-  List<String>? checkboxGroupAlcoholValues;
   String? choiceChipsBebidaValue;
   TaxpayerRecord? tax;
   TextEditingController? commentsController;
   LatLng? currentUserLocationValue;
+  final _unfocusNode = FocusNode();
+  final scaffoldKey = GlobalKey<ScaffoldState>();
   final formKey1 = GlobalKey<FormState>();
   final formKey2 = GlobalKey<FormState>();
-  final scaffoldKey = GlobalKey<ScaffoldState>();
-  final formKey3 = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -154,6 +149,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
 
   @override
   void dispose() {
+    _unfocusNode.dispose();
     areaconstructccionController?.dispose();
     areaterrenoController?.dispose();
     codigocatastralController?.dispose();
@@ -247,7 +243,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
       ),
       body: SafeArea(
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -276,7 +272,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Form(
-                                        key: formKey2,
+                                        key: formKey1,
                                         autovalidateMode:
                                             AutovalidateMode.disabled,
                                         child: Column(
@@ -1269,13 +1265,15 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                               switchListTileValue1 =
                                                                   newValue!);
                                                           if (newValue!) {
-                                                            setState(() {
+                                                            FFAppState()
+                                                                .update(() {
                                                               FFAppState()
                                                                       .localAbierto =
                                                                   true;
                                                             });
                                                           } else {
-                                                            setState(() {
+                                                            FFAppState()
+                                                                .update(() {
                                                               FFAppState()
                                                                       .localAbierto =
                                                                   false;
@@ -1334,9 +1332,9 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                             onPressed: () async {
                                               if (FFAppState().localAbierto ==
                                                   true) {
-                                                if (formKey2.currentState ==
+                                                if (formKey1.currentState ==
                                                         null ||
-                                                    !formKey2.currentState!
+                                                    !formKey1.currentState!
                                                         .validate()) {
                                                   return;
                                                 }
@@ -1348,16 +1346,16 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                   curve: Curves.ease,
                                                 );
                                               } else {
-                                                if (formKey2.currentState ==
+                                                if (formKey1.currentState ==
                                                         null ||
-                                                    !formKey2.currentState!
+                                                    !formKey1.currentState!
                                                         .validate()) {
                                                   return;
                                                 }
 
                                                 await pageViewController
                                                     ?.animateToPage(
-                                                  6,
+                                                  5,
                                                   duration: Duration(
                                                       milliseconds: 500),
                                                   curve: Curves.ease,
@@ -1400,7 +1398,7 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Form(
-                                key: formKey3,
+                                key: formKey2,
                                 autovalidateMode: AutovalidateMode.disabled,
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -1856,13 +1854,13 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                           switchListTileValue2 =
                                                               newValue!);
                                                       if (newValue!) {
-                                                        setState(() {
+                                                        FFAppState().update(() {
                                                           FFAppState()
                                                                   .documentacion =
                                                               true;
                                                         });
                                                       } else {
-                                                        setState(() {
+                                                        FFAppState().update(() {
                                                           FFAppState()
                                                                   .documentacion =
                                                               false;
@@ -1957,9 +1955,9 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             if (FFAppState().documentacion) {
-                                              if (formKey3.currentState ==
+                                              if (formKey2.currentState ==
                                                       null ||
-                                                  !formKey3.currentState!
+                                                  !formKey2.currentState!
                                                       .validate()) {
                                                 return;
                                               }
@@ -1971,16 +1969,16 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                 curve: Curves.ease,
                                               );
                                             } else {
-                                              if (formKey3.currentState ==
+                                              if (formKey2.currentState ==
                                                       null ||
-                                                  !formKey3.currentState!
+                                                  !formKey2.currentState!
                                                       .validate()) {
                                                 return;
                                               }
 
                                               await pageViewController
                                                   ?.animateToPage(
-                                                6,
+                                                5,
                                                 duration:
                                                     Duration(milliseconds: 500),
                                                 curve: Curves.ease,
@@ -6507,216 +6505,6 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                           child: SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Form(
-                                  key: formKey1,
-                                  autovalidateMode: AutovalidateMode.disabled,
-                                  child: SingleChildScrollView(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(15, 5, 0, 0),
-                                              child: Text(
-                                                'Incumplimiento de articulos (Multas)',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          fontSize: 14,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(15, 0, 0, 0),
-                                              child: FlutterFlowIconButton(
-                                                borderColor: Colors.transparent,
-                                                borderRadius: 20,
-                                                borderWidth: 1,
-                                                buttonSize: 40,
-                                                fillColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                                icon: FaIcon(
-                                                  FontAwesomeIcons
-                                                      .questionCircle,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  size: 18,
-                                                ),
-                                                onPressed: () async {
-                                                  await showModalBottomSheet(
-                                                    isScrollControlled: true,
-                                                    backgroundColor:
-                                                        Colors.transparent,
-                                                    context: context,
-                                                    builder: (context) {
-                                                      return Padding(
-                                                        padding: MediaQuery.of(
-                                                                context)
-                                                            .viewInsets,
-                                                        child: Container(
-                                                          height:
-                                                              double.infinity,
-                                                          child:
-                                                              InfoArticlesWidget(),
-                                                        ),
-                                                      );
-                                                    },
-                                                  ).then((value) =>
-                                                      setState(() {}));
-                                                },
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15, 10, 0, 0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Expanded(
-                                                child: FlutterFlowCheckboxGroup(
-                                                  options: [
-                                                    'Artículo 94 - #1',
-                                                    'Artículo 94 - #3',
-                                                    'Artículo 94 - #6',
-                                                    'Artículo 96 - #1',
-                                                    'Artículo 97 - #1',
-                                                    'Artículo 97 - #3',
-                                                    'Artículo 97 - #6',
-                                                    'Artículo 98 - #1',
-                                                    'Artículo 99 - #1'
-                                                  ],
-                                                  onChanged: (val) => setState(() =>
-                                                      checkboxGroupArticlesValues =
-                                                          val),
-                                                  activeColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primaryColor,
-                                                  checkColor: Colors.white,
-                                                  checkboxBorderColor:
-                                                      Color(0xFF95A1AC),
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyText1,
-                                                  initialized:
-                                                      checkboxGroupArticlesValues !=
-                                                          null,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 24, 0, 0),
-                                      child: FFButtonWidget(
-                                        onPressed: () async {
-                                          await pageViewController
-                                              ?.previousPage(
-                                            duration:
-                                                Duration(milliseconds: 300),
-                                            curve: Curves.ease,
-                                          );
-                                        },
-                                        text: 'Volver',
-                                        options: FFButtonOptions(
-                                          width: 150,
-                                          height: 50,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .subtitle2
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                              ),
-                                          elevation: 3,
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
-                                            width: 1,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 24, 0, 0),
-                                      child: FFButtonWidget(
-                                        onPressed: () async {
-                                          await pageViewController?.nextPage(
-                                            duration:
-                                                Duration(milliseconds: 300),
-                                            curve: Curves.ease,
-                                          );
-                                        },
-                                        text: 'Continuar',
-                                        options: FFButtonOptions(
-                                          width: 150,
-                                          height: 50,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .subtitle2
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    color: Colors.white,
-                                                  ),
-                                          elevation: 3,
-                                          borderSide: BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                          child: SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
                               children: [
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -7300,173 +7088,6 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                           ),
                                                         ],
                                                       ),
-                                                      SingleChildScrollView(
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                Expanded(
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            4,
-                                                                            5,
-                                                                            0,
-                                                                            0),
-                                                                    child: Text(
-                                                                      'Incumplimiento de expendio de bebidas alcohólicas',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyText1
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                            fontSize:
-                                                                                16,
-                                                                            fontWeight:
-                                                                                FontWeight.bold,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          15,
-                                                                          0,
-                                                                          0,
-                                                                          0),
-                                                                  child:
-                                                                      FlutterFlowIconButton(
-                                                                    borderColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    borderRadius:
-                                                                        30,
-                                                                    borderWidth:
-                                                                        1,
-                                                                    buttonSize:
-                                                                        60,
-                                                                    icon: Icon(
-                                                                      Icons
-                                                                          .info_outlined,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText,
-                                                                      size: 23,
-                                                                    ),
-                                                                    onPressed:
-                                                                        () async {
-                                                                      await showModalBottomSheet(
-                                                                        isScrollControlled:
-                                                                            true,
-                                                                        backgroundColor:
-                                                                            Colors.transparent,
-                                                                        context:
-                                                                            context,
-                                                                        builder:
-                                                                            (context) {
-                                                                          return Padding(
-                                                                            padding:
-                                                                                MediaQuery.of(context).viewInsets,
-                                                                            child:
-                                                                                Container(
-                                                                              height: double.infinity,
-                                                                              child: InfoAlcoholWidget(),
-                                                                            ),
-                                                                          );
-                                                                        },
-                                                                      ).then((value) =>
-                                                                          setState(
-                                                                              () {}));
-                                                                    },
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      -1, 0),
-                                                              child: Container(
-                                                                width: MediaQuery.of(
-                                                                            context)
-                                                                        .size
-                                                                        .width *
-                                                                    0.15,
-                                                                decoration:
-                                                                    BoxDecoration(),
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        0.050000000000000044,
-                                                                        0),
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          5,
-                                                                          0,
-                                                                          0,
-                                                                          0),
-                                                                  child:
-                                                                      FlutterFlowCheckboxGroup(
-                                                                    options: [
-                                                                      'Artículo 83',
-                                                                      'Artículo 84',
-                                                                      'Artículo 85',
-                                                                      'Artículo 86',
-                                                                      'Artículo 87',
-                                                                      'Artículo 88',
-                                                                      'Artículo 89',
-                                                                      'Artículo 90',
-                                                                      'Artículo 91',
-                                                                      'Artículo 92',
-                                                                      'Artículo 93',
-                                                                      'Artículo 94',
-                                                                      'Artículo 95',
-                                                                      'Artículo 96',
-                                                                      'Artículo 97',
-                                                                      'Artículo 98',
-                                                                      'Artículo 99',
-                                                                      'Artículo 101',
-                                                                      'Artículo 107'
-                                                                    ],
-                                                                    onChanged: (val) =>
-                                                                        setState(() =>
-                                                                            checkboxGroupAlcoholValues =
-                                                                                val),
-                                                                    activeColor:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .primaryColor,
-                                                                    checkColor:
-                                                                        Colors
-                                                                            .white,
-                                                                    checkboxBorderColor:
-                                                                        Color(
-                                                                            0xFF95A1AC),
-                                                                    textStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1,
-                                                                    initialized:
-                                                                        checkboxGroupAlcoholValues !=
-                                                                            null,
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
                                                     ],
                                                   ),
                                               ],
@@ -7895,10 +7516,6 @@ class _FormPageNuevoWidgetState extends State<FormPageNuevoWidget> {
                                                 ),
                                                 'IAEApplied':
                                                     checkboxGroupIAEValues,
-                                                'articles':
-                                                    checkboxGroupArticlesValues,
-                                                'articlesAlcohol':
-                                                    checkboxGroupAlcoholValues,
                                               };
                                               var taxpayerRecordReference =
                                                   TaxpayerRecord.collection

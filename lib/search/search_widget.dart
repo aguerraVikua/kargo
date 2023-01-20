@@ -23,6 +23,7 @@ class _SearchWidgetState extends State<SearchWidget> {
   final rifKey = GlobalKey();
   TextEditingController? rifController;
   String? rifSelectedOption;
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -30,12 +31,18 @@ class _SearchWidgetState extends State<SearchWidget> {
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
+      FFAppState().update(() {
         FFAppState().searchActive = false;
       });
     });
 
     rifController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
   }
 
   @override
@@ -78,7 +85,7 @@ class _SearchWidgetState extends State<SearchWidget> {
           ),
           body: SafeArea(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -99,7 +106,8 @@ class _SearchWidgetState extends State<SearchWidget> {
                                   return const Iterable<String>.empty();
                                 }
                                 return searchTaxpayerRecordList
-                                    .map((e) => e.rif!)
+                                    .map((e) => e.rif)
+                                    .withoutNulls
                                     .toList()
                                     .toList()
                                     .where((option) {
@@ -164,7 +172,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                             .map((r) => r.object)
                                             .toList();
                                       });
-                                      setState(() {
+                                      FFAppState().update(() {
                                         FFAppState().searchActive = true;
                                       });
                                     },
@@ -246,7 +254,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                               setState(() {
                                 rifController?.clear();
                               });
-                              setState(() {
+                              FFAppState().update(() {
                                 FFAppState().searchActive = false;
                               });
                             },
