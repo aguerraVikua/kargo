@@ -11,10 +11,6 @@ import '../backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../auth/auth_util.dart';
 
-String upperCase(String string) {
-  return string.toUpperCase();
-}
-
 double? sumatorias(List<double> montos) {
   double suma = montos.fold(0, (previous, current) => previous + current);
   String inString = suma.toStringAsFixed(5); // '2.35'

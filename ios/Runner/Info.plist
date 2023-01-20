@@ -54,12 +54,13 @@
 	<true/>
 
 	<key>NSLocationWhenInUseUsageDescription</key>
-      <string>In order to search nearby, this app requires access to your current location.</string>
+    <string>Tu ubicación es utilizada para localizar y ubicar geográficamente contribuyentes al momento de su creación.</string>
 	<key>NSCameraUsageDescription</key>
-      <string>In order to take a picture or video, this app requires permission to access the camera.</string>
+    <string>Tu cámara es utilizada para adjuntar una foto capturada con la misma a la incidencia.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-      <string>In order to upload media, this app requires permission to access the photo library.</string>
-
+    <string>Tu galeria es utilizada para adjuntar una imagen que tengas previamente almacenada a la incidencia.</string>
+	<key>PermissionGroupNotification</key>
+    <string>Se requieren enviar notificaciones para indicarte cambios en tu gestion diaria.</string>
 
 
 	<key>UILaunchStoryboardName</key>

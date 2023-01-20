@@ -1,6 +1,7 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../components/preview_marker_widget.dart';
+import '../components/search_r_i_f_widget.dart';
 import '../flutter_flow/flutter_flow_google_map.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -19,6 +20,7 @@ class HomePageWidget extends StatefulWidget {
 
 class _HomePageWidgetState extends State<HomePageWidget> {
   LatLng? currentUserLocationValue;
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
@@ -28,6 +30,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     super.initState();
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
+  }
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
   }
 
   @override
@@ -70,7 +78,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     AuthUserStreamWidget(
-                      child: Container(
+                      builder: (context) => Container(
                         width: 100,
                         height: 100,
                         decoration: BoxDecoration(
@@ -106,7 +114,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                       child: AuthUserStreamWidget(
-                        child: Text(
+                        builder: (context) => Text(
                           currentUserDisplayName,
                           style: FlutterFlowTheme.of(context).bodyText1,
                         ),
@@ -131,7 +139,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                       child: AuthUserStreamWidget(
-                        child: Text(
+                        builder: (context) => Text(
                           valueOrDefault<String>(
                             valueOrDefault(currentUserDocument?.cedula, ''),
                             'No definida',
@@ -242,7 +250,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       ),
       body: SafeArea(
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -336,7 +344,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
                               child: AuthUserStreamWidget(
-                                child: InkWell(
+                                builder: (context) => InkWell(
                                   onTap: () async {
                                     scaffoldKey.currentState!.openEndDrawer();
                                   },
@@ -388,7 +396,21 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           size: 30,
                         ),
                         onPressed: () async {
-                          context.pushNamed('formPageNuevo');
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            context: context,
+                            builder: (context) {
+                              return Padding(
+                                padding: MediaQuery.of(context).viewInsets,
+                                child: Container(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.45,
+                                  child: SearchRIFWidget(),
+                                ),
+                              );
+                            },
+                          ).then((value) => setState(() {}));
                         },
                       ),
                     ),

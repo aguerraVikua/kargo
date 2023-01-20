@@ -127,7 +127,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       AuthUserStreamWidget(
-                        child: Container(
+                        builder: (context) => Container(
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
@@ -230,7 +230,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 16),
               child: AuthUserStreamWidget(
-                child: TextFormField(
+                builder: (context) => TextFormField(
                   controller: yourNameController,
                   obscureText: false,
                   decoration: InputDecoration(
@@ -278,7 +278,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 12),
               child: AuthUserStreamWidget(
-                child: TextFormField(
+                builder: (context) => TextFormField(
                   controller: cedulasController,
                   obscureText: false,
                   decoration: InputDecoration(
@@ -327,7 +327,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 12),
               child: AuthUserStreamWidget(
-                child: TextFormField(
+                builder: (context) => TextFormField(
                   controller: telfonoController,
                   obscureText: false,
                   decoration: InputDecoration(

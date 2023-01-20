@@ -22,25 +22,26 @@ class FFAppState extends ChangeNotifier {
             _activity;
   }
 
+  void update(VoidCallback callback) {
+    callback();
+    notifyListeners();
+  }
+
   late SharedPreferences prefs;
 
   List<DocumentReference> _activity = [];
   List<DocumentReference> get activity => _activity;
   set activity(List<DocumentReference> _value) {
-    notifyListeners();
-
     _activity = _value;
     prefs.setStringList('ff_activity', _value.map((x) => x.path).toList());
   }
 
   void addToActivity(DocumentReference _value) {
-    notifyListeners();
     _activity.add(_value);
     prefs.setStringList('ff_activity', _activity.map((x) => x.path).toList());
   }
 
   void removeFromActivity(DocumentReference _value) {
-    notifyListeners();
     _activity.remove(_value);
     prefs.setStringList('ff_activity', _activity.map((x) => x.path).toList());
   }
@@ -48,25 +49,37 @@ class FFAppState extends ChangeNotifier {
   bool _localAbierto = true;
   bool get localAbierto => _localAbierto;
   set localAbierto(bool _value) {
-    notifyListeners();
-
     _localAbierto = _value;
   }
 
   bool _documentacion = false;
   bool get documentacion => _documentacion;
   set documentacion(bool _value) {
-    notifyListeners();
-
     _documentacion = _value;
   }
 
   bool _searchActive = false;
   bool get searchActive => _searchActive;
   set searchActive(bool _value) {
-    notifyListeners();
-
     _searchActive = _value;
+  }
+
+  String _rifLocal = '';
+  String get rifLocal => _rifLocal;
+  set rifLocal(String _value) {
+    _rifLocal = _value;
+  }
+
+  bool _rifexists = false;
+  bool get rifexists => _rifexists;
+  set rifexists(bool _value) {
+    _rifexists = _value;
+  }
+
+  String _taxpayerEmail = '';
+  String get taxpayerEmail => _taxpayerEmail;
+  set taxpayerEmail(String _value) {
+    _taxpayerEmail = _value;
   }
 }
 

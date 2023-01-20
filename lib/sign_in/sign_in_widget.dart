@@ -23,6 +23,7 @@ class _SignInWidgetState extends State<SignInWidget> {
   TextEditingController? emailAddressController;
   TextEditingController? passwordController;
   late bool passwordVisibility;
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -40,6 +41,7 @@ class _SignInWidgetState extends State<SignInWidget> {
 
   @override
   void dispose() {
+    _unfocusNode.dispose();
     cedulaController?.dispose();
     nombreController?.dispose();
     emailController?.dispose();
@@ -57,7 +59,7 @@ class _SignInWidgetState extends State<SignInWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
+        onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
           child: Column(
@@ -626,7 +628,6 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                             ),
-                                        keyboardType: TextInputType.number,
                                       ),
                                     ),
                                     Padding(

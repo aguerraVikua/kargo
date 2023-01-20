@@ -54,10 +54,6 @@ abstract class TaxpayerRecord
 
   DocumentReference? get reporter;
 
-  BuiltList<String>? get articles;
-
-  BuiltList<String>? get articlesAlcohol;
-
   String? get comments;
 
   String? get statusCadastral;
@@ -180,8 +176,6 @@ abstract class TaxpayerRecord
     ..photoLastTaxEA = ''
     ..photoPaymentEA = ''
     ..iAEApplied = ListBuilder()
-    ..articles = ListBuilder()
-    ..articlesAlcohol = ListBuilder()
     ..comments = ''
     ..statusCadastral = ''
     ..cadastralCode = ''
@@ -336,8 +330,6 @@ Map<String, dynamic> createTaxpayerRecordData({
         ..iAEApplied = null
         ..createdAt = createdAt
         ..reporter = reporter
-        ..articles = null
-        ..articlesAlcohol = null
         ..comments = comments
         ..statusCadastral = statusCadastral
         ..cadastralCode = cadastralCode

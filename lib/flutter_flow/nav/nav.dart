@@ -100,8 +100,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Activity',
               path: 'activity',
               builder: (context, params) => ActivityWidget(
-                taxpayer: params.getParam(
-                    'taxpayer', ParamType.DocumentReference, false, 'taxpayer'),
+                taxpayer: params.getParam('taxpayer',
+                    ParamType.DocumentReference, false, ['taxpayer']),
               ),
             ),
             FFRoute(
@@ -112,11 +112,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   : SearchWidget(),
             ),
             FFRoute(
-              name: 'multas',
-              path: 'multas',
+              name: 'EstadoDeCuenta',
+              path: 'estadoDeCuenta',
               builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'multas')
-                  : MultasWidget(),
+                  ? NavBarPage(initialPage: 'EstadoDeCuenta')
+                  : EstadoDeCuentaWidget(
+                      rif: params.getParam('rif', ParamType.String),
+                    ),
+            ),
+            FFRoute(
+              name: 'registro_pago',
+              path: 'registroPago',
+              builder: (context, params) => RegistroPagoWidget(
+                rif: params.getParam('rif', ParamType.String),
+                taxpayerbname:
+                    params.getParam('taxpayerbname', ParamType.String),
+                exchangerateBCV:
+                    params.getParam('exchangerateBCV', ParamType.double),
+              ),
+            ),
+            FFRoute(
+              name: 'registro_basico',
+              path: 'registroBasico',
+              builder: (context, params) => RegistroBasicoWidget(
+                rif: params.getParam('rif', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'formPageNuevo',
@@ -127,6 +147,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'profile',
               path: 'profile',
               builder: (context, params) => ProfileWidget(),
+            ),
+            FFRoute(
+              name: 'Multas',
+              path: 'multas',
+              builder: (context, params) => MultasWidget(
+                rif: params.getParam('rif', ParamType.String),
+                taxpayerEmail:
+                    params.getParam('taxpayerEmail', ParamType.String),
+              ),
+            ),
+            FFRoute(
+              name: 'EstadoDeCuenta2',
+              path: 'estadoDeCuenta2',
+              builder: (context, params) => EstadoDeCuenta2Widget(
+                rif: params.getParam('rif', ParamType.String),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
@@ -239,7 +275,7 @@ class FFParameters {
     String paramName,
     ParamType type, [
     bool isList = false,
-    String? collectionName,
+    List<String>? collectionNamePath,
   ]) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -253,7 +289,7 @@ class FFParameters {
       return param;
     }
     // Return serialized value.
-    return deserializeParam<T>(param, type, isList, collectionName);
+    return deserializeParam<T>(param, type, isList, collectionNamePath);
   }
 }
 

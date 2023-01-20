@@ -6,6 +6,8 @@ import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 import 'package:equatable/equatable.dart';
 
+import '../../flutter_flow/local_file.dart';
+
 enum ApiCallType {
   GET,
   POST,
@@ -123,13 +125,15 @@ class ApiManager {
     String? body,
     BodyType? bodyType,
     bool returnBody,
+    bool encodeBodyUtf8,
     bool decodeUtf8,
   ) async {
     assert(
       {ApiCallType.POST, ApiCallType.PUT, ApiCallType.PATCH}.contains(type),
       'Invalid ApiCallType $type for request with body',
     );
-    final postBody = createBody(headers, params, body, bodyType);
+    final postBody =
+        createBody(headers, params, body, bodyType, encodeBodyUtf8);
 
     if (bodyType == BodyType.MULTIPART) {
       return multipartRequest(
@@ -159,10 +163,15 @@ class ApiManager {
       'Invalid ApiCallType $type for request with body',
     );
     final nonFileParams = toStringMap(
-        Map.fromEntries(params.entries.where((e) => e.value is! Uint8List)));
-    final files = params.entries
-        .where((e) => e.value is Uint8List)
-        .map((e) => http.MultipartFile.fromBytes(e.key, e.value as Uint8List));
+        Map.fromEntries(params.entries.where((e) => e.value is! FFLocalFile)));
+    final files = params.entries.where((e) => e.value is FFLocalFile).map((e) {
+      final localFile = e.value as FFLocalFile;
+      return http.MultipartFile.fromBytes(
+        e.key,
+        localFile.bytes ?? Uint8List.fromList([]),
+        filename: localFile.name,
+      );
+    });
     final request = http.MultipartRequest(
         type.toString().split('.').last, Uri.parse(apiUrl))
       ..headers.addAll(toStringMap(headers))
@@ -178,6 +187,7 @@ class ApiManager {
     Map<String, dynamic>? params,
     String? body,
     BodyType? bodyType,
+    bool encodeBodyUtf8,
   ) {
     String? contentType;
     dynamic postBody;
@@ -202,10 +212,14 @@ class ApiManager {
       case null:
         break;
     }
-    if (contentType != null) {
+    // Set "Content-Type" header if it was previously unset.
+    if (contentType != null &&
+        !headers.keys.any((h) => h.toLowerCase() == 'content-type')) {
       headers['Content-Type'] = contentType;
     }
-    return postBody;
+    return encodeBodyUtf8 && postBody is String
+        ? utf8.encode(postBody)
+        : postBody;
   }
 
   Future<ApiCallResponse> makeApiCall({
@@ -217,6 +231,7 @@ class ApiManager {
     String? body,
     BodyType? bodyType,
     bool returnBody = true,
+    bool encodeBodyUtf8 = false,
     bool decodeUtf8 = false,
     bool cache = false,
   }) async {
@@ -260,6 +275,7 @@ class ApiManager {
           body,
           bodyType,
           returnBody,
+          encodeBodyUtf8,
           decodeUtf8,
         );
         break;
