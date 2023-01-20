@@ -904,7 +904,7 @@ class _MultasWidgetState extends State<MultasWidget> {
                                                 'articlesAlcohol':
                                                     checkboxGroupAlcoholValues,
                                               };
-                                              await FinesRecord.collection
+                                              FinesRecord.collection
                                                   .doc()
                                                   .set(finesCreateData);
                                               ScaffoldMessenger.of(context)

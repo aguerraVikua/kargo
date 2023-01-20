@@ -1207,7 +1207,7 @@ class _RegistroPagoWidgetState extends State<RegistroPagoWidget> {
                                                 'bill_type':
                                                     checkboxGroupValues,
                                               };
-                                              await PaymentReportRecord
+                                              PaymentReportRecord
                                                   .collection
                                                   .doc()
                                                   .set(paymentReportCreateData);

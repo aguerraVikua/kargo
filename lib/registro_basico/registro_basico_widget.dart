@@ -1913,7 +1913,7 @@ class _RegistroBasicoWidgetState extends State<RegistroBasicoWidget> {
                                                       reporter:
                                                           currentUserReference,
                                                     );
-                                                    await rowTaxpayerRecord!
+                                                    rowTaxpayerRecord!
                                                         .reference
                                                         .update(
                                                             taxpayerUpdateData);
@@ -2055,7 +2055,7 @@ class _RegistroBasicoWidgetState extends State<RegistroBasicoWidget> {
                                                   reporter:
                                                       currentUserReference,
                                                 );
-                                                await TaxpayerRecord.collection
+                                                TaxpayerRecord.collection
                                                     .doc()
                                                     .set(taxpayerCreateData);
                                                 ScaffoldMessenger.of(context)
