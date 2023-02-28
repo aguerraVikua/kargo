@@ -104,6 +104,34 @@ class _$PaymentReportRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(double)));
     }
+    value = object.reporterName;
+    if (value != null) {
+      result
+        ..add('reporter_name')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.reporterIdCard;
+    if (value != null) {
+      result
+        ..add('reporter_id_card')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.createdAt;
+    if (value != null) {
+      result
+        ..add('created_at')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.taxpayerEmail;
+    if (value != null) {
+      result
+        ..add('taxpayer_email')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -175,6 +203,22 @@ class _$PaymentReportRecordSerializer
           result.dailyExchangeRate = serializers.deserialize(value,
               specifiedType: const FullType(double)) as double?;
           break;
+        case 'reporter_name':
+          result.reporterName = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'reporter_id_card':
+          result.reporterIdCard = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'created_at':
+          result.createdAt = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'taxpayer_email':
+          result.taxpayerEmail = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -212,6 +256,14 @@ class _$PaymentReportRecord extends PaymentReportRecord {
   @override
   final double? dailyExchangeRate;
   @override
+  final String? reporterName;
+  @override
+  final String? reporterIdCard;
+  @override
+  final DateTime? createdAt;
+  @override
+  final String? taxpayerEmail;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$PaymentReportRecord(
@@ -230,6 +282,10 @@ class _$PaymentReportRecord extends PaymentReportRecord {
       this.billType,
       this.reporter,
       this.dailyExchangeRate,
+      this.reporterName,
+      this.reporterIdCard,
+      this.createdAt,
+      this.taxpayerEmail,
       this.ffRef})
       : super._();
 
@@ -257,6 +313,10 @@ class _$PaymentReportRecord extends PaymentReportRecord {
         billType == other.billType &&
         reporter == other.reporter &&
         dailyExchangeRate == other.dailyExchangeRate &&
+        reporterName == other.reporterName &&
+        reporterIdCard == other.reporterIdCard &&
+        createdAt == other.createdAt &&
+        taxpayerEmail == other.taxpayerEmail &&
         ffRef == other.ffRef;
   }
 
@@ -272,17 +332,31 @@ class _$PaymentReportRecord extends PaymentReportRecord {
                                 $jc(
                                     $jc(
                                         $jc(
-                                            $jc($jc(0, rif.hashCode),
-                                                paymentDate.hashCode),
-                                            receiptNumber.hashCode),
-                                        amountPayed.hashCode),
-                                    bankOrigin.hashCode),
-                                bankDestiny.hashCode),
-                            receiptPhoto.hashCode),
-                        commerceLocation.hashCode),
-                    billType.hashCode),
-                reporter.hashCode),
-            dailyExchangeRate.hashCode),
+                                            $jc(
+                                                $jc(
+                                                    $jc(
+                                                        $jc(
+                                                            $jc(
+                                                                $jc(
+                                                                    0,
+                                                                    rif
+                                                                        .hashCode),
+                                                                paymentDate
+                                                                    .hashCode),
+                                                            receiptNumber
+                                                                .hashCode),
+                                                        amountPayed.hashCode),
+                                                    bankOrigin.hashCode),
+                                                bankDestiny.hashCode),
+                                            receiptPhoto.hashCode),
+                                        commerceLocation.hashCode),
+                                    billType.hashCode),
+                                reporter.hashCode),
+                            dailyExchangeRate.hashCode),
+                        reporterName.hashCode),
+                    reporterIdCard.hashCode),
+                createdAt.hashCode),
+            taxpayerEmail.hashCode),
         ffRef.hashCode));
   }
 
@@ -300,6 +374,10 @@ class _$PaymentReportRecord extends PaymentReportRecord {
           ..add('billType', billType)
           ..add('reporter', reporter)
           ..add('dailyExchangeRate', dailyExchangeRate)
+          ..add('reporterName', reporterName)
+          ..add('reporterIdCard', reporterIdCard)
+          ..add('createdAt', createdAt)
+          ..add('taxpayerEmail', taxpayerEmail)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -358,6 +436,24 @@ class PaymentReportRecordBuilder
   set dailyExchangeRate(double? dailyExchangeRate) =>
       _$this._dailyExchangeRate = dailyExchangeRate;
 
+  String? _reporterName;
+  String? get reporterName => _$this._reporterName;
+  set reporterName(String? reporterName) => _$this._reporterName = reporterName;
+
+  String? _reporterIdCard;
+  String? get reporterIdCard => _$this._reporterIdCard;
+  set reporterIdCard(String? reporterIdCard) =>
+      _$this._reporterIdCard = reporterIdCard;
+
+  DateTime? _createdAt;
+  DateTime? get createdAt => _$this._createdAt;
+  set createdAt(DateTime? createdAt) => _$this._createdAt = createdAt;
+
+  String? _taxpayerEmail;
+  String? get taxpayerEmail => _$this._taxpayerEmail;
+  set taxpayerEmail(String? taxpayerEmail) =>
+      _$this._taxpayerEmail = taxpayerEmail;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -380,6 +476,10 @@ class PaymentReportRecordBuilder
       _billType = $v.billType?.toBuilder();
       _reporter = $v.reporter;
       _dailyExchangeRate = $v.dailyExchangeRate;
+      _reporterName = $v.reporterName;
+      _reporterIdCard = $v.reporterIdCard;
+      _createdAt = $v.createdAt;
+      _taxpayerEmail = $v.taxpayerEmail;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -416,6 +516,10 @@ class PaymentReportRecordBuilder
               billType: _billType?.build(),
               reporter: reporter,
               dailyExchangeRate: dailyExchangeRate,
+              reporterName: reporterName,
+              reporterIdCard: reporterIdCard,
+              createdAt: createdAt,
+              taxpayerEmail: taxpayerEmail,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

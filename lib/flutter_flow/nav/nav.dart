@@ -78,52 +78,80 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? NavBarPage() : SignInWidget(),
           routes: [
             FFRoute(
-              name: 'HomePage',
-              path: 'homePage',
+              name: 'mapa',
+              path: 'mapa',
               builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'HomePage')
-                  : HomePageWidget(),
+                  ? NavBarPage(initialPage: 'mapa')
+                  : MapaWidget(),
             ),
             FFRoute(
-              name: 'SignIn',
+              name: 'sign_in',
               path: 'signIn',
               builder: (context, params) => SignInWidget(),
             ),
             FFRoute(
-              name: 'List',
-              path: 'list',
+              name: 'listado_contribuyentes',
+              path: 'listadoContribuyentes',
               builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'List')
-                  : ListWidget(),
+                  ? NavBarPage(initialPage: 'listado_contribuyentes')
+                  : ListadoContribuyentesWidget(),
             ),
             FFRoute(
-              name: 'Activity',
-              path: 'activity',
-              builder: (context, params) => ActivityWidget(
+              name: 'detalles_contribuyente',
+              path: 'detallesContribuyente',
+              builder: (context, params) => DetallesContribuyenteWidget(
                 taxpayer: params.getParam('taxpayer',
                     ParamType.DocumentReference, false, ['taxpayer']),
               ),
             ),
             FFRoute(
-              name: 'search',
-              path: 'search',
+              name: 'busqueda_cotribuyente',
+              path: 'busquedaCotribuyente',
               builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'search')
-                  : SearchWidget(),
+                  ? NavBarPage(initialPage: 'busqueda_cotribuyente')
+                  : BusquedaCotribuyenteWidget(),
             ),
             FFRoute(
-              name: 'EstadoDeCuenta',
-              path: 'estadoDeCuenta',
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'EstadoDeCuenta')
-                  : EstadoDeCuentaWidget(
-                      rif: params.getParam('rif', ParamType.String),
-                    ),
+              name: 'registro_contribuyente',
+              path: 'registroContribuyente',
+              builder: (context, params) => RegistroContribuyenteWidget(),
             ),
             FFRoute(
-              name: 'registro_pago',
-              path: 'registroPago',
-              builder: (context, params) => RegistroPagoWidget(
+              name: 'registro_basico_contribuyente',
+              path: 'registroBasicoContribuyente',
+              builder: (context, params) => RegistroBasicoContribuyenteWidget(
+                rif: params.getParam('rif', ParamType.String),
+              ),
+            ),
+            FFRoute(
+              name: 'profile',
+              path: 'profile',
+              builder: (context, params) => ProfileWidget(),
+            ),
+            FFRoute(
+              name: 'registro_de_multas',
+              path: 'registroDeMultas',
+              builder: (context, params) => RegistroDeMultasWidget(
+                rif: params.getParam('rif', ParamType.String),
+                taxpayeBname: params.getParam('taxpayeBname', ParamType.String),
+              ),
+            ),
+            FFRoute(
+              name: 'PanelDirector',
+              path: 'panelDirector',
+              builder: (context, params) => PanelDirectorWidget(),
+            ),
+            FFRoute(
+              name: 'estado_de_cuentas',
+              path: 'estadoDeCuentas',
+              builder: (context, params) => EstadoDeCuentasWidget(
+                rif: params.getParam('rif', ParamType.String),
+              ),
+            ),
+            FFRoute(
+              name: 'registro_de_pagos',
+              path: 'registroDePagos',
+              builder: (context, params) => RegistroDePagosWidget(
                 rif: params.getParam('rif', ParamType.String),
                 taxpayerbname:
                     params.getParam('taxpayerbname', ParamType.String),
@@ -132,35 +160,51 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'registro_basico',
-              path: 'registroBasico',
-              builder: (context, params) => RegistroBasicoWidget(
+              name: 'AsignarRutas',
+              path: 'asignarRutas',
+              builder: (context, params) => AsignarRutasWidget(),
+            ),
+            FFRoute(
+              name: 'Monitoreo',
+              path: 'monitoreo',
+              builder: (context, params) => MonitoreoWidget(),
+            ),
+            FFRoute(
+              name: 'fiscalizacion_punto_prueba',
+              path: 'fiscalizacionPuntoPrueba',
+              builder: (context, params) => FiscalizacionPuntoPruebaWidget(
                 rif: params.getParam('rif', ParamType.String),
+                taxpayerbname:
+                    params.getParam('taxpayerbname', ParamType.String),
+                exchangerateBCV:
+                    params.getParam('exchangerateBCV', ParamType.double),
               ),
             ),
             FFRoute(
-              name: 'formPageNuevo',
-              path: 'formPageNuevo',
-              builder: (context, params) => FormPageNuevoWidget(),
-            ),
-            FFRoute(
-              name: 'profile',
-              path: 'profile',
-              builder: (context, params) => ProfileWidget(),
-            ),
-            FFRoute(
-              name: 'Multas',
-              path: 'multas',
-              builder: (context, params) => MultasWidget(
+              name: 'citaciones_contribuyente',
+              path: 'citacionesContribuyente',
+              builder: (context, params) => CitacionesContribuyenteWidget(
                 rif: params.getParam('rif', ParamType.String),
-                taxpayerEmail:
-                    params.getParam('taxpayerEmail', ParamType.String),
+                taxpayerbname:
+                    params.getParam('taxpayerbname', ParamType.String),
+                exchangerateBCV:
+                    params.getParam('exchangerateBCV', ParamType.double),
               ),
             ),
             FFRoute(
-              name: 'EstadoDeCuenta2',
-              path: 'estadoDeCuenta2',
-              builder: (context, params) => EstadoDeCuenta2Widget(
+              name: 'InitRoute',
+              path: 'initRoute',
+              builder: (context, params) => InitRouteWidget(),
+            ),
+            FFRoute(
+              name: 'update_contribuyente',
+              path: 'updateContribuyente',
+              builder: (context, params) => UpdateContribuyenteWidget(),
+            ),
+            FFRoute(
+              name: 'update_basico_contribuyente',
+              path: 'updateBasicoContribuyente',
+              builder: (context, params) => UpdateBasicoContribuyenteWidget(
                 rif: params.getParam('rif', ParamType.String),
               ),
             )

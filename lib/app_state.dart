@@ -46,6 +46,11 @@ class FFAppState extends ChangeNotifier {
     prefs.setStringList('ff_activity', _activity.map((x) => x.path).toList());
   }
 
+  void removeAtIndexFromActivity(int _index) {
+    _activity.removeAt(_index);
+    prefs.setStringList('ff_activity', _activity.map((x) => x.path).toList());
+  }
+
   bool _localAbierto = true;
   bool get localAbierto => _localAbierto;
   set localAbierto(bool _value) {
@@ -80,6 +85,42 @@ class FFAppState extends ChangeNotifier {
   String get taxpayerEmail => _taxpayerEmail;
   set taxpayerEmail(String _value) {
     _taxpayerEmail = _value;
+  }
+
+  List<String> _cedulas = [];
+  List<String> get cedulas => _cedulas;
+  set cedulas(List<String> _value) {
+    _cedulas = _value;
+  }
+
+  void addToCedulas(String _value) {
+    _cedulas.add(_value);
+  }
+
+  void removeFromCedulas(String _value) {
+    _cedulas.remove(_value);
+  }
+
+  void removeAtIndexFromCedulas(int _index) {
+    _cedulas.removeAt(_index);
+  }
+
+  List<DocumentReference> _taxpayers = [];
+  List<DocumentReference> get taxpayers => _taxpayers;
+  set taxpayers(List<DocumentReference> _value) {
+    _taxpayers = _value;
+  }
+
+  void addToTaxpayers(DocumentReference _value) {
+    _taxpayers.add(_value);
+  }
+
+  void removeFromTaxpayers(DocumentReference _value) {
+    _taxpayers.remove(_value);
+  }
+
+  void removeAtIndexFromTaxpayers(int _index) {
+    _taxpayers.removeAt(_index);
   }
 }
 

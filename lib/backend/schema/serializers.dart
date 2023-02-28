@@ -5,6 +5,10 @@ import 'users_record.dart';
 import 'taxpayer_record.dart';
 import 'payment_report_record.dart';
 import 'fines_record.dart';
+import 'taxpayer_audit_record.dart';
+import 'citation_record.dart';
+import 'taxpayers_record.dart';
+import 'tax_payer_to_visit_record.dart';
 
 import 'index.dart';
 
@@ -19,6 +23,10 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   TaxpayerRecord,
   PaymentReportRecord,
   FinesRecord,
+  TaxpayerAuditRecord,
+  CitationRecord,
+  TaxpayersRecord,
+  TaxPayerToVisitRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

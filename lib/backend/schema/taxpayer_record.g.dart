@@ -513,6 +513,34 @@ class _$TaxpayerRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.buildingTypeDeclared;
+    if (value != null) {
+      result
+        ..add('building_type_declared')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.buildingTypeObserved;
+    if (value != null) {
+      result
+        ..add('building_type_observed')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.reporterName;
+    if (value != null) {
+      result
+        ..add('reporter_name')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.reporterIdCard;
+    if (value != null) {
+      result
+        ..add('reporter_id_card')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -820,6 +848,22 @@ class _$TaxpayerRecordSerializer
           result.employees = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'building_type_declared':
+          result.buildingTypeDeclared = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'building_type_observed':
+          result.buildingTypeObserved = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'reporter_name':
+          result.reporterName = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'reporter_id_card':
+          result.reporterIdCard = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -975,6 +1019,14 @@ class _$TaxpayerRecord extends TaxpayerRecord {
   @override
   final String? employees;
   @override
+  final String? buildingTypeDeclared;
+  @override
+  final String? buildingTypeObserved;
+  @override
+  final String? reporterName;
+  @override
+  final String? reporterIdCard;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$TaxpayerRecord([void Function(TaxpayerRecordBuilder)? updates]) =>
@@ -1051,6 +1103,10 @@ class _$TaxpayerRecord extends TaxpayerRecord {
       this.photoRIF,
       this.parish,
       this.employees,
+      this.buildingTypeDeclared,
+      this.buildingTypeObserved,
+      this.reporterName,
+      this.reporterIdCard,
       this.ffRef})
       : super._();
 
@@ -1137,6 +1193,10 @@ class _$TaxpayerRecord extends TaxpayerRecord {
         photoRIF == other.photoRIF &&
         parish == other.parish &&
         employees == other.employees &&
+        buildingTypeDeclared == other.buildingTypeDeclared &&
+        buildingTypeObserved == other.buildingTypeObserved &&
+        reporterName == other.reporterName &&
+        reporterIdCard == other.reporterIdCard &&
         ffRef == other.ffRef;
   }
 
@@ -1160,25 +1220,25 @@ class _$TaxpayerRecord extends TaxpayerRecord {
                                                                 $jc(
                                                                     $jc(
                                                                         $jc(
-                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, businessName.hashCode), comercialDesignation.hashCode), rif.hashCode), location.hashCode), establishmentPhone.hashCode), businessEmail.hashCode), businessPicture.hashCode), legalRepresentative.hashCode), idCardLegalRepresentative.hashCode), phoneLegalRepresentative.hashCode), emailLegalRepresentative.hashCode), photoCadastralCertificate.hashCode), photoComformityToUse.hashCode), photoLEA.hashCode), photoIEA.hashCode), photoISLR.hashCode), photoLastTaxEA.hashCode), photoPaymentEA.hashCode), iAEApplied.hashCode), createdAt.hashCode), reporter.hashCode), comments.hashCode), statusCadastral.hashCode), cadastralCode.hashCode), photoCadastral.hashCode), statusConformityToUse.hashCode), dateIssueConformity.hashCode), expirationDateConformity.hashCode), conformityCode.hashCode), photoConformityUse.hashCode), statusAlcohol.hashCode), dateIssueAlcohol.hashCode), expirationDateAlcohol.hashCode), licenseCodeAlcohol.hashCode), statusPaymentBusinessActTax.hashCode), dateIssueActTax.hashCode), expiratioDateActTax.hashCode), statusPropertyPayment.hashCode), datePaymetProperty.hashCode), statusAds.hashCode), dateIssueAds.hashCode), expirationDateAds.hashCode), statusUrbanCleanliness.hashCode), dateIssueUrbanCleanliness.hashCode), expirationDateUrbanCleanliness.hashCode), photoAlcohol.hashCode), photoBusinessTax.hashCode), photoPropertyTax.hashCode), photoAds.hashCode), photoUrbanCleaning.hashCode), declaredAmountActTax.hashCode), totalAmountActTax.hashCode),
-                                                                                totalAmountProperty.hashCode),
-                                                                            terrainAreaM2.hashCode),
-                                                                        constructionAreaM2.hashCode),
-                                                                    totalAmountAds.hashCode),
-                                                                totalAmountUrbanCleanliness.hashCode),
-                                                            receiptActTax.hashCode),
-                                                        receiptPropertyPayment.hashCode),
-                                                    receiptAds.hashCode),
-                                                receiptUrbanCleanliness.hashCode),
-                                            licenseexpired.hashCode),
-                                        licenceCodeAct.hashCode),
-                                    dateIssueAct.hashCode),
-                                expirationDateAct.hashCode),
-                            photoEAct.hashCode),
-                        statusLicense.hashCode),
-                    photoRIF.hashCode),
-                parish.hashCode),
-            employees.hashCode),
+                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, businessName.hashCode), comercialDesignation.hashCode), rif.hashCode), location.hashCode), establishmentPhone.hashCode), businessEmail.hashCode), businessPicture.hashCode), legalRepresentative.hashCode), idCardLegalRepresentative.hashCode), phoneLegalRepresentative.hashCode), emailLegalRepresentative.hashCode), photoCadastralCertificate.hashCode), photoComformityToUse.hashCode), photoLEA.hashCode), photoIEA.hashCode), photoISLR.hashCode), photoLastTaxEA.hashCode), photoPaymentEA.hashCode), iAEApplied.hashCode), createdAt.hashCode), reporter.hashCode), comments.hashCode), statusCadastral.hashCode), cadastralCode.hashCode), photoCadastral.hashCode), statusConformityToUse.hashCode), dateIssueConformity.hashCode), expirationDateConformity.hashCode), conformityCode.hashCode), photoConformityUse.hashCode), statusAlcohol.hashCode), dateIssueAlcohol.hashCode), expirationDateAlcohol.hashCode), licenseCodeAlcohol.hashCode), statusPaymentBusinessActTax.hashCode), dateIssueActTax.hashCode), expiratioDateActTax.hashCode), statusPropertyPayment.hashCode), datePaymetProperty.hashCode), statusAds.hashCode), dateIssueAds.hashCode), expirationDateAds.hashCode), statusUrbanCleanliness.hashCode), dateIssueUrbanCleanliness.hashCode), expirationDateUrbanCleanliness.hashCode), photoAlcohol.hashCode), photoBusinessTax.hashCode), photoPropertyTax.hashCode), photoAds.hashCode), photoUrbanCleaning.hashCode), declaredAmountActTax.hashCode), totalAmountActTax.hashCode), totalAmountProperty.hashCode), terrainAreaM2.hashCode), constructionAreaM2.hashCode), totalAmountAds.hashCode),
+                                                                                totalAmountUrbanCleanliness.hashCode),
+                                                                            receiptActTax.hashCode),
+                                                                        receiptPropertyPayment.hashCode),
+                                                                    receiptAds.hashCode),
+                                                                receiptUrbanCleanliness.hashCode),
+                                                            licenseexpired.hashCode),
+                                                        licenceCodeAct.hashCode),
+                                                    dateIssueAct.hashCode),
+                                                expirationDateAct.hashCode),
+                                            photoEAct.hashCode),
+                                        statusLicense.hashCode),
+                                    photoRIF.hashCode),
+                                parish.hashCode),
+                            employees.hashCode),
+                        buildingTypeDeclared.hashCode),
+                    buildingTypeObserved.hashCode),
+                reporterName.hashCode),
+            reporterIdCard.hashCode),
         ffRef.hashCode));
   }
 
@@ -1256,6 +1316,10 @@ class _$TaxpayerRecord extends TaxpayerRecord {
           ..add('photoRIF', photoRIF)
           ..add('parish', parish)
           ..add('employees', employees)
+          ..add('buildingTypeDeclared', buildingTypeDeclared)
+          ..add('buildingTypeObserved', buildingTypeObserved)
+          ..add('reporterName', reporterName)
+          ..add('reporterIdCard', reporterIdCard)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -1604,6 +1668,25 @@ class TaxpayerRecordBuilder
   String? get employees => _$this._employees;
   set employees(String? employees) => _$this._employees = employees;
 
+  String? _buildingTypeDeclared;
+  String? get buildingTypeDeclared => _$this._buildingTypeDeclared;
+  set buildingTypeDeclared(String? buildingTypeDeclared) =>
+      _$this._buildingTypeDeclared = buildingTypeDeclared;
+
+  String? _buildingTypeObserved;
+  String? get buildingTypeObserved => _$this._buildingTypeObserved;
+  set buildingTypeObserved(String? buildingTypeObserved) =>
+      _$this._buildingTypeObserved = buildingTypeObserved;
+
+  String? _reporterName;
+  String? get reporterName => _$this._reporterName;
+  set reporterName(String? reporterName) => _$this._reporterName = reporterName;
+
+  String? _reporterIdCard;
+  String? get reporterIdCard => _$this._reporterIdCard;
+  set reporterIdCard(String? reporterIdCard) =>
+      _$this._reporterIdCard = reporterIdCard;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -1685,6 +1768,10 @@ class TaxpayerRecordBuilder
       _photoRIF = $v.photoRIF;
       _parish = $v.parish;
       _employees = $v.employees;
+      _buildingTypeDeclared = $v.buildingTypeDeclared;
+      _buildingTypeObserved = $v.buildingTypeObserved;
+      _reporterName = $v.reporterName;
+      _reporterIdCard = $v.reporterIdCard;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -1780,6 +1867,10 @@ class TaxpayerRecordBuilder
               photoRIF: photoRIF,
               parish: parish,
               employees: employees,
+              buildingTypeDeclared: buildingTypeDeclared,
+              buildingTypeObserved: buildingTypeObserved,
+              reporterName: reporterName,
+              reporterIdCard: reporterIdCard,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

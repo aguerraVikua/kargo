@@ -11,7 +11,6 @@ import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
@@ -115,7 +114,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'HomePage';
+  String _currentPageName = 'mapa';
   late Widget? _currentPage;
 
   @override
@@ -128,10 +127,9 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'HomePage': HomePageWidget(),
-      'List': ListWidget(),
-      'search': SearchWidget(),
-      'EstadoDeCuenta': EstadoDeCuentaWidget(),
+      'mapa': MapaWidget(),
+      'listado_contribuyentes': ListadoContribuyentesWidget(),
+      'busqueda_cotribuyente': BusquedaCotribuyenteWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
     return Scaffold(
@@ -152,7 +150,7 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home_outlined,
-              size: 24,
+              size: 24.0,
             ),
             label: 'Home',
             tooltip: '',
@@ -160,7 +158,7 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.list,
-              size: 24,
+              size: 24.0,
             ),
             label: 'Home',
             tooltip: '',
@@ -168,15 +166,7 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.search,
-              size: 20,
-            ),
-            label: 'Home',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.searchDollar,
-              size: 20,
+              size: 20.0,
             ),
             label: 'Home',
             tooltip: '',

@@ -11,9 +11,9 @@ import '../backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../auth/auth_util.dart';
 
-double? sumatorias(List<double> montos) {
-  double suma = montos.fold(0, (previous, current) => previous + current);
-  String inString = suma.toStringAsFixed(5); // '2.35'
-  double inDouble = double.parse(inString); // 2.35
-  return inDouble;
+LatLng? getLatLongFromString(
+  String latitud,
+  String longitud,
+) {
+  return new LatLng(double.parse(latitud), double.parse(longitud));
 }

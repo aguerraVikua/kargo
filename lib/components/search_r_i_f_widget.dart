@@ -1,12 +1,14 @@
-import '../backend/api_requests/api_calls.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'search_r_i_f_model.dart';
+export 'search_r_i_f_model.dart';
 
 class SearchRIFWidget extends StatefulWidget {
   const SearchRIFWidget({Key? key}) : super(key: key);
@@ -16,23 +18,27 @@ class SearchRIFWidget extends StatefulWidget {
 }
 
 class _SearchRIFWidgetState extends State<SearchRIFWidget> {
-  ApiCallResponse? api2;
-  TextEditingController? contribuyenteController;
-  ApiCallResponse? api;
-  TextEditingController? rifController;
-  PageController? pageViewController;
+  late SearchRIFModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
-    contribuyenteController = TextEditingController();
-    rifController = TextEditingController();
+    _model = createModel(context, () => SearchRIFModel());
+
+    _model.rifController ??= TextEditingController();
+    _model.contribuyenteController ??= TextEditingController();
   }
 
   @override
   void dispose() {
-    contribuyenteController?.dispose();
-    rifController?.dispose();
+    _model.maybeDispose();
+
     super.dispose();
   }
 
@@ -41,36 +47,36 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
     context.watch<FFAppState>();
 
     return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 438.7,
+      width: MediaQuery.of(context).size.width * 1.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primaryBackground,
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(0),
-          bottomRight: Radius.circular(0),
-          topLeft: Radius.circular(16),
-          topRight: Radius.circular(16),
+          bottomLeft: Radius.circular(0.0),
+          bottomRight: Radius.circular(0.0),
+          topLeft: Radius.circular(16.0),
+          topRight: Radius.circular(16.0),
         ),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
+        padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
             Expanded(
               child: Container(
                 width: double.infinity,
-                height: 500,
+                height: 800.0,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
                   child: PageView(
                     physics: const NeverScrollableScrollPhysics(),
-                    controller: pageViewController ??=
+                    controller: _model.pageViewController ??=
                         PageController(initialPage: 0),
                     scrollDirection: Axis.horizontal,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 20.0, 20.0, 20.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -84,19 +90,19 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Poppins',
-                                        fontSize: 14,
+                                        fontSize: 14.0,
                                       ),
                                 ),
                                 FlutterFlowIconButton(
                                   borderColor: Colors.transparent,
-                                  borderRadius: 30,
-                                  borderWidth: 1,
-                                  buttonSize: 40,
+                                  borderRadius: 30.0,
+                                  borderWidth: 1.0,
+                                  buttonSize: 40.0,
                                   icon: Icon(
                                     Icons.close_rounded,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    size: 20,
+                                    size: 20.0,
                                   ),
                                   onPressed: () async {
                                     Navigator.pop(context);
@@ -105,32 +111,33 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                               ],
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Expanded(
                                     child: InkWell(
                                       onTap: () async {
-                                        await pageViewController?.nextPage(
+                                        await _model.pageViewController
+                                            ?.nextPage(
                                           duration: Duration(milliseconds: 300),
                                           curve: Curves.ease,
                                         );
                                       },
                                       child: Container(
-                                        width: 100,
-                                        height: 70,
+                                        width: 100.0,
+                                        height: 70.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(15),
+                                              BorderRadius.circular(15.0),
                                         ),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  15, 15, 15, 15),
+                                                  15.0, 15.0, 15.0, 15.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -139,12 +146,13 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryColor,
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(10, 0, 0, 0),
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
                                                   child: Text(
                                                     'Buscar contribuyente',
                                                     style: FlutterFlowTheme.of(
@@ -152,7 +160,7 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                         .bodyText1
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 14,
+                                                          fontSize: 14.0,
                                                         ),
                                                   ),
                                                 ),
@@ -167,29 +175,30 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Expanded(
                                     child: InkWell(
                                       onTap: () async {
-                                        context.pushNamed('formPageNuevo');
+                                        context.pushNamed(
+                                            'registro_contribuyente');
                                       },
                                       child: Container(
-                                        width: 100,
-                                        height: 70,
+                                        width: 100.0,
+                                        height: 70.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(15),
+                                              BorderRadius.circular(15.0),
                                         ),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  15, 15, 15, 15),
+                                                  15.0, 15.0, 15.0, 15.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -198,12 +207,13 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryColor,
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(10, 0, 0, 0),
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
                                                   child: Text(
                                                     'Registrar contribuyente',
                                                     style: FlutterFlowTheme.of(
@@ -211,7 +221,7 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                         .bodyText1
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 14,
+                                                          fontSize: 14.0,
                                                         ),
                                                   ),
                                                 ),
@@ -257,7 +267,7 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            20, 8, 20, 0),
+                                            20.0, 8.0, 20.0, 0.0),
                                         child: SingleChildScrollView(
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -267,9 +277,9 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Divider(
-                                                thickness: 3,
-                                                indent: 150,
-                                                endIndent: 150,
+                                                thickness: 3.0,
+                                                indent: 150.0,
+                                                endIndent: 150.0,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
@@ -285,7 +295,10 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 4, 16, 0),
+                                                                  0.0,
+                                                                  4.0,
+                                                                  16.0,
+                                                                  0.0),
                                                       child: Text(
                                                         'Búsqueda de RIF del contriubyente ',
                                                         style:
@@ -298,7 +311,8 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
-                                                                  fontSize: 16,
+                                                                  fontSize:
+                                                                      16.0,
                                                                 ),
                                                       ),
                                                     ),
@@ -313,7 +327,10 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 8, 0, 0),
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Text(
                                                         'Valide la existencia del contribuyente',
                                                         style:
@@ -327,7 +344,8 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 10, 0, 0),
+                                                    .fromSTEB(
+                                                        0.0, 10.0, 0.0, 0.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -338,11 +356,14 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(0, 20,
-                                                                    0, 0),
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    20.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: TextFormField(
-                                                          controller:
-                                                              rifController,
+                                                          controller: _model
+                                                              .rifController,
                                                           obscureText: false,
                                                           decoration:
                                                               InputDecoration(
@@ -365,26 +386,25 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
                                                               borderSide:
                                                                   BorderSide(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                width: 1,
+                                                                color: Color(
+                                                                    0x00000000),
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -392,12 +412,12 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                                   BorderSide(
                                                                 color: Color(
                                                                     0x00000000),
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -405,12 +425,12 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                                   BorderSide(
                                                                 color: Color(
                                                                     0x00000000),
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                             ),
                                                             filled: true,
                                                             fillColor: FlutterFlowTheme
@@ -419,10 +439,10 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                             contentPadding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        20,
-                                                                        24,
-                                                                        20,
-                                                                        24),
+                                                                        20.0,
+                                                                        24.0,
+                                                                        20.0,
+                                                                        24.0),
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -434,6 +454,10 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                                         context)
                                                                     .secondaryText,
                                                               ),
+                                                          validator: _model
+                                                              .rifControllerValidator
+                                                              .asValidator(
+                                                                  context),
                                                         ),
                                                       ),
                                                     ),
@@ -442,7 +466,8 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 24, 0, 44),
+                                                    .fromSTEB(
+                                                        0.0, 24.0, 0.0, 44.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -456,8 +481,22 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                       },
                                                       text: 'Cancelar',
                                                       options: FFButtonOptions(
-                                                        width: 150,
-                                                        height: 50,
+                                                        width: 150.0,
+                                                        height: 50.0,
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .primaryBackground,
@@ -465,12 +504,12 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .subtitle2,
-                                                        elevation: 2,
+                                                        elevation: 2.0,
                                                         borderSide: BorderSide(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryText,
-                                                          width: 1,
+                                                          width: 1.0,
                                                         ),
                                                       ),
                                                     ),
@@ -498,19 +537,21 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                                     0xFFE0310E),
                                                           ),
                                                         );
-                                                        api =
+                                                        _model.api =
                                                             await GuiririContribuyenteByRifCall
                                                                 .call(
-                                                          rif: rifController!
+                                                          rif: _model
+                                                              .rifController
                                                               .text,
                                                         );
                                                         _shouldSetState = true;
                                                         if (GuiririContribuyenteByRifCall
                                                                 .rif(
-                                                              (api?.jsonBody ??
+                                                              (_model.api
+                                                                      ?.jsonBody ??
                                                                   ''),
-                                                            ) ==
-                                                            rifController!
+                                                            ).toString() ==
+                                                            _model.rifController
                                                                 .text) {
                                                           ScaffoldMessenger.of(
                                                                   context)
@@ -538,18 +579,21 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                                     .rifLocal =
                                                                 GuiririContribuyenteByRifCall
                                                                     .rif(
-                                                              (api?.jsonBody ??
+                                                              (_model.api
+                                                                      ?.jsonBody ??
                                                                   ''),
                                                             ).toString();
                                                             FFAppState()
                                                                     .taxpayerEmail =
                                                                 GuiririContribuyenteByRifCall
                                                                     .email(
-                                                              (api?.jsonBody ??
+                                                              (_model.api
+                                                                      ?.jsonBody ??
                                                                   ''),
                                                             ).toString();
                                                           });
-                                                          await pageViewController
+                                                          await _model
+                                                              .pageViewController
                                                               ?.nextPage(
                                                             duration: Duration(
                                                                 milliseconds:
@@ -588,7 +632,7 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                                         title: Text(
                                                                             'No se encontro el contribuyente'),
                                                                         content:
-                                                                            Text('No encontramos el contribuyente: ${rifController!.text} en nuestra base de datos'),
+                                                                            Text('No encontramos el contribuyente: ${_model.rifController.text} en nuestra base de datos'),
                                                                         actions: [
                                                                           TextButton(
                                                                             onPressed: () =>
@@ -609,7 +653,7 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                                   false;
                                                           if (confirmDialogResponse) {
                                                             context.pushNamed(
-                                                                'formPageNuevo');
+                                                                'registro_contribuyente');
                                                           } else {
                                                             if (_shouldSetState)
                                                               setState(() {});
@@ -622,8 +666,22 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                       },
                                                       text: 'Buscar',
                                                       options: FFButtonOptions(
-                                                        width: 150,
-                                                        height: 50,
+                                                        width: 150.0,
+                                                        height: 50.0,
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -637,16 +695,17 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                                       'Lexend Deca',
                                                                   color: Colors
                                                                       .white,
-                                                                  fontSize: 16,
+                                                                  fontSize:
+                                                                      16.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
                                                                 ),
-                                                        elevation: 2,
+                                                        elevation: 2.0,
                                                         borderSide: BorderSide(
                                                           color: Colors
                                                               .transparent,
-                                                          width: 1,
+                                                          width: 1.0,
                                                         ),
                                                       ),
                                                     ),
@@ -659,8 +718,8 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                       ),
                                       Expanded(
                                         child: Container(
-                                          width: 100,
-                                          height: 100,
+                                          width: 100.0,
+                                          height: 100.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -671,7 +730,7 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 8, 20, 0),
+                                        20.0, 8.0, 20.0, 0.0),
                                     child: SingleChildScrollView(
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -681,9 +740,9 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Divider(
-                                            thickness: 3,
-                                            indent: 150,
-                                            endIndent: 150,
+                                            thickness: 3.0,
+                                            indent: 150.0,
+                                            endIndent: 150.0,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                           ),
@@ -695,7 +754,8 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 4, 16, 0),
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 16.0, 0.0),
                                                   child: Text(
                                                     'Busqueda del nombre del  contribuyente',
                                                     style: FlutterFlowTheme.of(
@@ -706,7 +766,7 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          fontSize: 16,
+                                                          fontSize: 16.0,
                                                         ),
                                                   ),
                                                 ),
@@ -719,7 +779,8 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 8, 0, 0),
+                                                      .fromSTEB(
+                                                          0.0, 8.0, 0.0, 0.0),
                                                   child: Text(
                                                     'Valide la existencia del contribuyente',
                                                     style: FlutterFlowTheme.of(
@@ -733,7 +794,7 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 10, 0, 0),
+                                                    0.0, 10.0, 0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -743,11 +804,11 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 20, 0, 0),
+                                                            .fromSTEB(0.0, 20.0,
+                                                                0.0, 0.0),
                                                     child: TextFormField(
-                                                      controller:
-                                                          contribuyenteController,
+                                                      controller: _model
+                                                          .contribuyenteController,
                                                       obscureText: false,
                                                       decoration:
                                                           InputDecoration(
@@ -770,24 +831,25 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryText,
-                                                            width: 1,
+                                                            width: 1.0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                         ),
                                                         focusedBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
                                                               BorderSide(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryText,
-                                                            width: 1,
+                                                            color: Color(
+                                                                0x00000000),
+                                                            width: 1.0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                         ),
                                                         errorBorder:
                                                             OutlineInputBorder(
@@ -795,11 +857,12 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                               BorderSide(
                                                             color: Color(
                                                                 0x00000000),
-                                                            width: 1,
+                                                            width: 1.0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                         ),
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
@@ -807,11 +870,12 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                               BorderSide(
                                                             color: Color(
                                                                 0x00000000),
-                                                            width: 1,
+                                                            width: 1.0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(8),
+                                                                  .circular(
+                                                                      8.0),
                                                         ),
                                                         filled: true,
                                                         fillColor: FlutterFlowTheme
@@ -819,8 +883,11 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                             .secondaryBackground,
                                                         contentPadding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(20,
-                                                                    24, 20, 24),
+                                                                .fromSTEB(
+                                                                    20.0,
+                                                                    24.0,
+                                                                    20.0,
+                                                                    24.0),
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -833,6 +900,9 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                                         context)
                                                                     .secondaryText,
                                                               ),
+                                                      validator: _model
+                                                          .contribuyenteControllerValidator
+                                                          .asValidator(context),
                                                     ),
                                                   ),
                                                 ),
@@ -842,7 +912,7 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 24, 0, 44),
+                                                    0.0, 24.0, 0.0, 44.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -855,8 +925,16 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                   },
                                                   text: 'Cancelar',
                                                   options: FFButtonOptions(
-                                                    width: 150,
-                                                    height: 50,
+                                                    width: 150.0,
+                                                    height: 50.0,
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
+                                                    iconPadding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryBackground,
@@ -864,13 +942,13 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .subtitle2,
-                                                    elevation: 2,
+                                                    elevation: 2.0,
                                                     borderSide: BorderSide(
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .secondaryText,
-                                                      width: 1,
+                                                      width: 1.0,
                                                     ),
                                                   ),
                                                 ),
@@ -895,21 +973,23 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                             Color(0xFFE0310E),
                                                       ),
                                                     );
-                                                    api2 =
+                                                    _model.api2 =
                                                         await GuiririContribuyenteByNameCall
                                                             .call(
-                                                      nombre:
-                                                          contribuyenteController!
-                                                              .text,
+                                                      nombre: _model
+                                                          .contribuyenteController
+                                                          .text,
                                                     );
                                                     _shouldSetState = true;
-                                                    if (contribuyenteController!
+                                                    if (_model
+                                                            .contribuyenteController
                                                             .text ==
                                                         GuiririContribuyenteByNameCall
                                                             .contribuyente(
-                                                          (api2?.jsonBody ??
+                                                          (_model.api2
+                                                                  ?.jsonBody ??
                                                               ''),
-                                                        )) {
+                                                        ).toString()) {
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .showSnackBar(
@@ -932,18 +1012,21 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                         FFAppState().rifLocal =
                                                             GuiririContribuyenteByNameCall
                                                                 .rif(
-                                                          (api2?.jsonBody ??
+                                                          (_model.api2
+                                                                  ?.jsonBody ??
                                                               ''),
                                                         ).toString();
                                                         FFAppState()
                                                                 .taxpayerEmail =
                                                             GuiririContribuyenteByNameCall
                                                                 .email(
-                                                          (api2?.jsonBody ??
+                                                          (_model.api2
+                                                                  ?.jsonBody ??
                                                               ''),
                                                         ).toString();
                                                       });
-                                                      await pageViewController
+                                                      await _model
+                                                          .pageViewController
                                                           ?.nextPage(
                                                         duration: Duration(
                                                             milliseconds: 300),
@@ -979,7 +1062,7 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                                     title: Text(
                                                                         'No se encontro el contribuyente'),
                                                                     content: Text(
-                                                                        'No encontramos el contribuyente: ${contribuyenteController!.text} en nuestra base de datos'),
+                                                                        'No encontramos el contribuyente: ${_model.contribuyenteController.text} en nuestra base de datos'),
                                                                     actions: [
                                                                       TextButton(
                                                                         onPressed: () => Navigator.pop(
@@ -1002,7 +1085,7 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                               false;
                                                       if (confirmDialogResponse) {
                                                         context.pushNamed(
-                                                            'formPageNuevo');
+                                                            'registro_contribuyente');
                                                       } else {
                                                         if (_shouldSetState)
                                                           setState(() {});
@@ -1015,8 +1098,16 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                   },
                                                   text: 'Buscar',
                                                   options: FFButtonOptions(
-                                                    width: 150,
-                                                    height: 50,
+                                                    width: 150.0,
+                                                    height: 50.0,
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
+                                                    iconPadding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryColor,
@@ -1027,14 +1118,14 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                           fontFamily:
                                                               'Lexend Deca',
                                                           color: Colors.white,
-                                                          fontSize: 16,
+                                                          fontSize: 16.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
-                                                    elevation: 2,
+                                                    elevation: 2.0,
                                                     borderSide: BorderSide(
                                                       color: Colors.transparent,
-                                                      width: 1,
+                                                      width: 1.0,
                                                     ),
                                                   ),
                                                 ),
@@ -1052,7 +1143,8 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 20.0, 20.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -1061,23 +1153,24 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Contribuyente encontrado: ${FFAppState().rifLocal}',
+                                  'Contribuyente: ${FFAppState().rifLocal}',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Poppins',
-                                        fontSize: 14,
+                                        fontSize: 14.0,
                                       ),
                                 ),
                                 FlutterFlowIconButton(
                                   borderColor: Colors.transparent,
-                                  borderWidth: 1,
-                                  buttonSize: 40,
+                                  borderRadius: 30.0,
+                                  borderWidth: 1.0,
+                                  buttonSize: 40.0,
                                   icon: Icon(
                                     Icons.close_rounded,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    size: 20,
+                                    size: 20.0,
                                   ),
                                   onPressed: () async {
                                     Navigator.pop(context);
@@ -1086,11 +1179,11 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                               ],
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 0.0),
                               child: InkWell(
                                 onTap: () async {
-                                  context.pushNamed('registro_basico');
+                                  context.pushNamed('registro_contribuyente');
                                 },
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -1099,7 +1192,7 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                       child: InkWell(
                                         onTap: () async {
                                           context.pushNamed(
-                                            'registro_basico',
+                                            'registro_basico_contribuyente',
                                             queryParams: {
                                               'rif': serializeParam(
                                                 FFAppState().rifLocal,
@@ -1109,18 +1202,18 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                           );
                                         },
                                         child: Container(
-                                          width: 100,
-                                          height: 70,
+                                          width: 100.0,
+                                          height: 70.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(15),
+                                                BorderRadius.circular(15.0),
                                           ),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    15, 15, 15, 15),
+                                                    15.0, 15.0, 15.0, 15.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -1129,16 +1222,16 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryColor,
-                                                  size: 24,
+                                                  size: 24.0,
                                                 ),
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10, 0, 0, 0),
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
                                                     child: Text(
-                                                      'Actualización de información del contribuyene',
+                                                      'Actualización de información del contribuyente',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1146,7 +1239,7 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                fontSize: 14,
+                                                                fontSize: 14.0,
                                                               ),
                                                     ),
                                                   ),
@@ -1162,8 +1255,96 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 0.0),
+                              child: InkWell(
+                                onTap: () async {
+                                  context.pushNamed(
+                                    'registro_basico_contribuyente',
+                                    queryParams: {
+                                      'rif': serializeParam(
+                                        FFAppState().rifLocal,
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
+                                  );
+                                },
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    if (false)
+                                      Expanded(
+                                        child: InkWell(
+                                          onTap: () async {
+                                            context.pushNamed(
+                                              'registro_basico_contribuyente',
+                                              queryParams: {
+                                                'rif': serializeParam(
+                                                  FFAppState().rifLocal,
+                                                  ParamType.String,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          },
+                                          child: Container(
+                                            width: 100.0,
+                                            height: 70.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(15.0),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 15.0, 15.0, 15.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Icon(
+                                                    Icons.threesixty,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryColor,
+                                                    size: 24.0,
+                                                  ),
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        'Actualización parcial de información del contribuyente',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyText1
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontSize: 14.0,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -1171,7 +1352,7 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                     child: InkWell(
                                       onTap: () async {
                                         context.pushNamed(
-                                          'EstadoDeCuenta2',
+                                          'estado_de_cuentas',
                                           queryParams: {
                                             'rif': serializeParam(
                                               FFAppState().rifLocal,
@@ -1181,18 +1362,18 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                         );
                                       },
                                       child: Container(
-                                        width: 100,
-                                        height: 70,
+                                        width: 100.0,
+                                        height: 70.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(15),
+                                              BorderRadius.circular(15.0),
                                         ),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  18, 15, 15, 15),
+                                                  18.0, 15.0, 15.0, 15.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -1202,12 +1383,13 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryColor,
-                                                size: 22,
+                                                size: 22.0,
                                               ),
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(10, 0, 0, 0),
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
                                                   child: Text(
                                                     'Facturas abiertas',
                                                     style: FlutterFlowTheme.of(
@@ -1215,7 +1397,7 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                         .bodyText1
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 14,
+                                                          fontSize: 14.0,
                                                         ),
                                                   ),
                                                 ),
@@ -1230,8 +1412,8 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -1239,32 +1421,28 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                     child: InkWell(
                                       onTap: () async {
                                         context.pushNamed(
-                                          'Multas',
+                                          'registro_de_multas',
                                           queryParams: {
                                             'rif': serializeParam(
                                               FFAppState().rifLocal,
-                                              ParamType.String,
-                                            ),
-                                            'taxpayerEmail': serializeParam(
-                                              FFAppState().taxpayerEmail,
                                               ParamType.String,
                                             ),
                                           }.withoutNulls,
                                         );
                                       },
                                       child: Container(
-                                        width: 100,
-                                        height: 70,
+                                        width: 100.0,
+                                        height: 70.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(15),
+                                              BorderRadius.circular(15.0),
                                         ),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  15, 15, 15, 15),
+                                                  15.0, 15.0, 15.0, 15.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -1273,12 +1451,13 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryColor,
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(10, 0, 0, 0),
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
                                                   child: Text(
                                                     'Multas',
                                                     style: FlutterFlowTheme.of(
@@ -1286,7 +1465,143 @@ class _SearchRIFWidgetState extends State<SearchRIFWidget> {
                                                         .bodyText1
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 14,
+                                                          fontSize: 14.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Expanded(
+                                    child: InkWell(
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          'citaciones_contribuyente',
+                                          queryParams: {
+                                            'rif': serializeParam(
+                                              FFAppState().rifLocal,
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      },
+                                      child: Container(
+                                        width: 100.0,
+                                        height: 70.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(15.0),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  15.0, 15.0, 15.0, 15.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Icon(
+                                                Icons.flag_outlined,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
+                                                size: 24.0,
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    'CItaciones',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 14.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Expanded(
+                                    child: InkWell(
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          'citaciones_contribuyente',
+                                          queryParams: {
+                                            'rif': serializeParam(
+                                              FFAppState().rifLocal,
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      },
+                                      child: Container(
+                                        width: 100.0,
+                                        height: 70.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(15.0),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  15.0, 15.0, 15.0, 15.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Icon(
+                                                Icons.flag_outlined,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
+                                                size: 24.0,
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    'Fiscalización de Punto',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 14.0,
                                                         ),
                                                   ),
                                                 ),

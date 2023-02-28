@@ -23,6 +23,30 @@ abstract class FinesRecord implements Built<FinesRecord, FinesRecordBuilder> {
 
   DocumentReference? get reporter;
 
+  @BuiltValueField(wireName: 'reporter_name')
+  String? get reporterName;
+
+  @BuiltValueField(wireName: 'reporter_id_card')
+  String? get reporterIdCard;
+
+  @BuiltValueField(wireName: 'created_at')
+  DateTime? get createdAt;
+
+  @BuiltValueField(wireName: 'taxpayer_bussiness_name')
+  String? get taxpayerBussinessName;
+
+  @BuiltValueField(wireName: 'representative_name')
+  String? get representativeName;
+
+  @BuiltValueField(wireName: 'representative_id_card')
+  String? get representativeIdCard;
+
+  @BuiltValueField(wireName: 'representative_position')
+  String? get representativePosition;
+
+  @BuiltValueField(wireName: 'representative_phone')
+  String? get representativePhone;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -33,7 +57,14 @@ abstract class FinesRecord implements Built<FinesRecord, FinesRecordBuilder> {
     ..comments = ''
     ..taxpayerSignature = ''
     ..rif = ''
-    ..taxPayerEmail = '';
+    ..taxPayerEmail = ''
+    ..reporterName = ''
+    ..reporterIdCard = ''
+    ..taxpayerBussinessName = ''
+    ..representativeName = ''
+    ..representativeIdCard = ''
+    ..representativePosition = ''
+    ..representativePhone = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('fines');
@@ -62,6 +93,14 @@ Map<String, dynamic> createFinesRecordData({
   String? rif,
   String? taxPayerEmail,
   DocumentReference? reporter,
+  String? reporterName,
+  String? reporterIdCard,
+  DateTime? createdAt,
+  String? taxpayerBussinessName,
+  String? representativeName,
+  String? representativeIdCard,
+  String? representativePosition,
+  String? representativePhone,
 }) {
   final firestoreData = serializers.toFirestore(
     FinesRecord.serializer,
@@ -73,7 +112,15 @@ Map<String, dynamic> createFinesRecordData({
         ..taxpayerSignature = taxpayerSignature
         ..rif = rif
         ..taxPayerEmail = taxPayerEmail
-        ..reporter = reporter,
+        ..reporter = reporter
+        ..reporterName = reporterName
+        ..reporterIdCard = reporterIdCard
+        ..createdAt = createdAt
+        ..taxpayerBussinessName = taxpayerBussinessName
+        ..representativeName = representativeName
+        ..representativeIdCard = representativeIdCard
+        ..representativePosition = representativePosition
+        ..representativePhone = representativePhone,
     ),
   );
 

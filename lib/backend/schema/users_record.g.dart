@@ -76,6 +76,13 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.userRole;
+    if (value != null) {
+      result
+        ..add('user_role')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -132,6 +139,10 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.cedula = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'user_role':
+          result.userRole = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -163,6 +174,8 @@ class _$UsersRecord extends UsersRecord {
   @override
   final String? cedula;
   @override
+  final String? userRole;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UsersRecord([void Function(UsersRecordBuilder)? updates]) =>
@@ -177,6 +190,7 @@ class _$UsersRecord extends UsersRecord {
       this.phoneNumber,
       this.listadoPrueba,
       this.cedula,
+      this.userRole,
       this.ffRef})
       : super._();
 
@@ -199,6 +213,7 @@ class _$UsersRecord extends UsersRecord {
         phoneNumber == other.phoneNumber &&
         listadoPrueba == other.listadoPrueba &&
         cedula == other.cedula &&
+        userRole == other.userRole &&
         ffRef == other.ffRef;
   }
 
@@ -211,14 +226,16 @@ class _$UsersRecord extends UsersRecord {
                     $jc(
                         $jc(
                             $jc(
-                                $jc($jc(0, email.hashCode),
-                                    displayName.hashCode),
-                                photoUrl.hashCode),
-                            uid.hashCode),
-                        createdTime.hashCode),
-                    phoneNumber.hashCode),
-                listadoPrueba.hashCode),
-            cedula.hashCode),
+                                $jc(
+                                    $jc($jc(0, email.hashCode),
+                                        displayName.hashCode),
+                                    photoUrl.hashCode),
+                                uid.hashCode),
+                            createdTime.hashCode),
+                        phoneNumber.hashCode),
+                    listadoPrueba.hashCode),
+                cedula.hashCode),
+            userRole.hashCode),
         ffRef.hashCode));
   }
 
@@ -233,6 +250,7 @@ class _$UsersRecord extends UsersRecord {
           ..add('phoneNumber', phoneNumber)
           ..add('listadoPrueba', listadoPrueba)
           ..add('cedula', cedula)
+          ..add('userRole', userRole)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -275,6 +293,10 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   String? get cedula => _$this._cedula;
   set cedula(String? cedula) => _$this._cedula = cedula;
 
+  String? _userRole;
+  String? get userRole => _$this._userRole;
+  set userRole(String? userRole) => _$this._userRole = userRole;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -294,6 +316,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _phoneNumber = $v.phoneNumber;
       _listadoPrueba = $v.listadoPrueba?.toBuilder();
       _cedula = $v.cedula;
+      _userRole = $v.userRole;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -327,6 +350,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
               phoneNumber: phoneNumber,
               listadoPrueba: _listadoPrueba?.build(),
               cedula: cedula,
+              userRole: userRole,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

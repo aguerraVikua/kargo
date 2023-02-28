@@ -42,6 +42,18 @@ abstract class PaymentReportRecord
   @BuiltValueField(wireName: 'daily_exchange_rate')
   double? get dailyExchangeRate;
 
+  @BuiltValueField(wireName: 'reporter_name')
+  String? get reporterName;
+
+  @BuiltValueField(wireName: 'reporter_id_card')
+  String? get reporterIdCard;
+
+  @BuiltValueField(wireName: 'created_at')
+  DateTime? get createdAt;
+
+  @BuiltValueField(wireName: 'taxpayer_email')
+  String? get taxpayerEmail;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -55,7 +67,10 @@ abstract class PaymentReportRecord
     ..receiptPhoto = ''
     ..commerceLocation = ''
     ..billType = ListBuilder()
-    ..dailyExchangeRate = 0.0;
+    ..dailyExchangeRate = 0.0
+    ..reporterName = ''
+    ..reporterIdCard = ''
+    ..taxpayerEmail = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('payment_report');
@@ -90,6 +105,10 @@ Map<String, dynamic> createPaymentReportRecordData({
   String? commerceLocation,
   DocumentReference? reporter,
   double? dailyExchangeRate,
+  String? reporterName,
+  String? reporterIdCard,
+  DateTime? createdAt,
+  String? taxpayerEmail,
 }) {
   final firestoreData = serializers.toFirestore(
     PaymentReportRecord.serializer,
@@ -105,7 +124,11 @@ Map<String, dynamic> createPaymentReportRecordData({
         ..commerceLocation = commerceLocation
         ..billType = null
         ..reporter = reporter
-        ..dailyExchangeRate = dailyExchangeRate,
+        ..dailyExchangeRate = dailyExchangeRate
+        ..reporterName = reporterName
+        ..reporterIdCard = reporterIdCard
+        ..createdAt = createdAt
+        ..taxpayerEmail = taxpayerEmail,
     ),
   );
 

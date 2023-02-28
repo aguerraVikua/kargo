@@ -1,11 +1,13 @@
-import '../auth/auth_util.dart';
-import '../backend/backend.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import '/auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'sign_in_model.dart';
+export 'sign_in_model.dart';
 
 class SignInWidget extends StatefulWidget {
   const SignInWidget({Key? key}) : super(key: key);
@@ -15,39 +17,29 @@ class SignInWidget extends StatefulWidget {
 }
 
 class _SignInWidgetState extends State<SignInWidget> {
-  TextEditingController? cedulaController;
-  TextEditingController? nombreController;
-  TextEditingController? emailController;
-  TextEditingController? contraseaController;
-  late bool contraseaVisibility;
-  TextEditingController? emailAddressController;
-  TextEditingController? passwordController;
-  late bool passwordVisibility;
-  final _unfocusNode = FocusNode();
+  late SignInModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
-    cedulaController = TextEditingController();
-    nombreController = TextEditingController();
-    emailController = TextEditingController();
-    contraseaController = TextEditingController();
-    contraseaVisibility = false;
-    emailAddressController = TextEditingController();
-    passwordController = TextEditingController();
-    passwordVisibility = false;
+    _model = createModel(context, () => SignInModel());
+
+    _model.emailAddressController ??= TextEditingController();
+    _model.passwordController ??= TextEditingController();
+    _model.nombreController ??= TextEditingController();
+    _model.cedulaController ??= TextEditingController();
+    _model.emailController ??= TextEditingController();
+    _model.contraseaController ??= TextEditingController();
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    cedulaController?.dispose();
-    nombreController?.dispose();
-    emailController?.dispose();
-    contraseaController?.dispose();
-    emailAddressController?.dispose();
-    passwordController?.dispose();
     super.dispose();
   }
 
@@ -61,19 +53,19 @@ class _SignInWidgetState extends State<SignInWidget> {
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 40),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 40.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
                       'assets/images/logokargo_(1).png',
-                      width: 180,
+                      width: 180.0,
                       fit: BoxFit.contain,
                     ),
                   ],
@@ -88,8 +80,8 @@ class _SignInWidgetState extends State<SignInWidget> {
                       TabBar(
                         isScrollable: true,
                         labelColor: FlutterFlowTheme.of(context).primaryColor,
-                        labelPadding:
-                            EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                        labelPadding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
                         labelStyle: FlutterFlowTheme.of(context).subtitle1,
                         indicatorColor:
                             FlutterFlowTheme.of(context).primaryColor,
@@ -107,16 +99,17 @@ class _SignInWidgetState extends State<SignInWidget> {
                           children: [
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  24, 24, 24, 24),
+                                  24.0, 24.0, 24.0, 24.0),
                               child: SingleChildScrollView(
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          20, 20, 20, 0),
+                                          20.0, 20.0, 20.0, 0.0),
                                       child: TextFormField(
-                                        controller: emailAddressController,
+                                        controller:
+                                            _model.emailAddressController,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'Correo electronico',
@@ -130,35 +123,35 @@ class _SignInWidgetState extends State<SignInWidget> {
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Colors.white,
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
-                                              color: Colors.white,
-                                              width: 1,
+                                              color: Color(0x00000000),
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           errorBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           filled: true,
                                           fillColor:
@@ -166,7 +159,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                   .secondaryBackground,
                                           contentPadding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  20, 24, 20, 24),
+                                                  20.0, 24.0, 20.0, 24.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
@@ -176,14 +169,17 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                             ),
+                                        validator: _model
+                                            .emailAddressControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          20, 12, 20, 0),
+                                          20.0, 12.0, 20.0, 0.0),
                                       child: TextFormField(
-                                        controller: passwordController,
-                                        obscureText: !passwordVisibility,
+                                        controller: _model.passwordController,
+                                        obscureText: !_model.passwordVisibility,
                                         decoration: InputDecoration(
                                           labelText: 'Contraseña',
                                           labelStyle:
@@ -196,35 +192,35 @@ class _SignInWidgetState extends State<SignInWidget> {
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Colors.white,
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
-                                              color: Colors.white,
-                                              width: 1,
+                                              color: Color(0x00000000),
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           errorBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           filled: true,
                                           fillColor:
@@ -232,23 +228,23 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                   .secondaryBackground,
                                           contentPadding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  20, 24, 20, 24),
+                                                  20.0, 24.0, 20.0, 24.0),
                                           suffixIcon: InkWell(
                                             onTap: () => setState(
-                                              () => passwordVisibility =
-                                                  !passwordVisibility,
+                                              () => _model.passwordVisibility =
+                                                  !_model.passwordVisibility,
                                             ),
                                             focusNode:
                                                 FocusNode(skipTraversal: true),
                                             child: Icon(
-                                              passwordVisibility
+                                              _model.passwordVisibility
                                                   ? Icons.visibility_outlined
                                                   : Icons
                                                       .visibility_off_outlined,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
-                                              size: 20,
+                                              size: 20.0,
                                             ),
                                           ),
                                         ),
@@ -260,11 +256,14 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                             ),
+                                        validator: _model
+                                            .passwordControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 24, 0, 0),
+                                          0.0, 24.0, 0.0, 0.0),
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           GoRouter.of(context)
@@ -272,20 +271,25 @@ class _SignInWidgetState extends State<SignInWidget> {
 
                                           final user = await signInWithEmail(
                                             context,
-                                            emailAddressController!.text,
-                                            passwordController!.text,
+                                            _model.emailAddressController.text,
+                                            _model.passwordController.text,
                                           );
                                           if (user == null) {
                                             return;
                                           }
 
-                                          context.goNamedAuth(
-                                              'HomePage', mounted);
+                                          context.goNamedAuth('mapa', mounted);
                                         },
                                         text: 'Iniciar sesión',
                                         options: FFButtonOptions(
-                                          width: 230,
-                                          height: 50,
+                                          width: 230.0,
+                                          height: 50.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primaryColor,
                                           textStyle:
@@ -295,17 +299,17 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
                                                   ),
-                                          elevation: 3,
+                                          elevation: 3.0,
                                           borderSide: BorderSide(
                                             color: Colors.transparent,
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                         ),
                                       ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 20, 0, 0),
+                                          0.0, 20.0, 0.0, 0.0),
                                       child: FFButtonWidget(
                                         onPressed: () {
                                           print(
@@ -313,8 +317,14 @@ class _SignInWidgetState extends State<SignInWidget> {
                                         },
                                         text: '¿Olvidó su contraseña?',
                                         options: FFButtonOptions(
-                                          width: 190,
-                                          height: 40,
+                                          width: 190.0,
+                                          height: 40.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
                                           color: Color(0x00F1641D),
                                           textStyle: FlutterFlowTheme.of(
                                                   context)
@@ -324,12 +334,12 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryColor,
-                                                fontSize: 12,
+                                                fontSize: 12.0,
                                               ),
-                                          elevation: 0,
+                                          elevation: 0.0,
                                           borderSide: BorderSide(
                                             color: Colors.transparent,
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                         ),
                                       ),
@@ -340,16 +350,16 @@ class _SignInWidgetState extends State<SignInWidget> {
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  24, 24, 24, 24),
+                                  24.0, 24.0, 24.0, 24.0),
                               child: SingleChildScrollView(
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          20, 20, 20, 0),
+                                          20.0, 20.0, 20.0, 0.0),
                                       child: TextFormField(
-                                        controller: nombreController,
+                                        controller: _model.nombreController,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'Nombre y apellido',
@@ -363,35 +373,35 @@ class _SignInWidgetState extends State<SignInWidget> {
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Colors.white,
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
-                                              color: Colors.white,
-                                              width: 1,
+                                              color: Color(0x00000000),
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           errorBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           filled: true,
                                           fillColor:
@@ -399,7 +409,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                   .secondaryBackground,
                                           contentPadding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  20, 24, 20, 24),
+                                                  20.0, 24.0, 20.0, 24.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
@@ -409,13 +419,16 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                             ),
+                                        validator: _model
+                                            .nombreControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          20, 20, 20, 0),
+                                          20.0, 20.0, 20.0, 0.0),
                                       child: TextFormField(
-                                        controller: cedulaController,
+                                        controller: _model.cedulaController,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'Cédula',
@@ -429,35 +442,35 @@ class _SignInWidgetState extends State<SignInWidget> {
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Colors.white,
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
-                                              color: Colors.white,
-                                              width: 1,
+                                              color: Color(0x00000000),
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           errorBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           filled: true,
                                           fillColor:
@@ -465,7 +478,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                   .secondaryBackground,
                                           contentPadding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  20, 24, 20, 24),
+                                                  20.0, 24.0, 20.0, 24.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
@@ -476,13 +489,16 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                       .secondaryText,
                                             ),
                                         keyboardType: TextInputType.number,
+                                        validator: _model
+                                            .cedulaControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          20, 20, 20, 0),
+                                          20.0, 20.0, 20.0, 0.0),
                                       child: TextFormField(
-                                        controller: emailController,
+                                        controller: _model.emailController,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'Correo electrònico',
@@ -496,35 +512,35 @@ class _SignInWidgetState extends State<SignInWidget> {
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Colors.white,
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
-                                              color: Colors.white,
-                                              width: 1,
+                                              color: Color(0x00000000),
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           errorBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           filled: true,
                                           fillColor:
@@ -532,7 +548,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                   .secondaryBackground,
                                           contentPadding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  20, 24, 20, 24),
+                                                  20.0, 24.0, 20.0, 24.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
@@ -544,14 +560,18 @@ class _SignInWidgetState extends State<SignInWidget> {
                                             ),
                                         keyboardType:
                                             TextInputType.emailAddress,
+                                        validator: _model
+                                            .emailControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          20, 12, 20, 0),
+                                          20.0, 12.0, 20.0, 0.0),
                                       child: TextFormField(
-                                        controller: contraseaController,
-                                        obscureText: !contraseaVisibility,
+                                        controller: _model.contraseaController,
+                                        obscureText:
+                                            !_model.contraseaVisibility,
                                         decoration: InputDecoration(
                                           labelText: 'Contraseña',
                                           labelStyle:
@@ -564,35 +584,35 @@ class _SignInWidgetState extends State<SignInWidget> {
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Colors.white,
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
-                                              color: Colors.white,
-                                              width: 1,
+                                              color: Color(0x00000000),
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           errorBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           filled: true,
                                           fillColor:
@@ -600,23 +620,23 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                   .secondaryBackground,
                                           contentPadding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  20, 24, 20, 24),
+                                                  20.0, 24.0, 20.0, 24.0),
                                           suffixIcon: InkWell(
                                             onTap: () => setState(
-                                              () => contraseaVisibility =
-                                                  !contraseaVisibility,
+                                              () => _model.contraseaVisibility =
+                                                  !_model.contraseaVisibility,
                                             ),
                                             focusNode:
                                                 FocusNode(skipTraversal: true),
                                             child: Icon(
-                                              contraseaVisibility
+                                              _model.contraseaVisibility
                                                   ? Icons.visibility_outlined
                                                   : Icons
                                                       .visibility_off_outlined,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
-                                              size: 20,
+                                              size: 20.0,
                                             ),
                                           ),
                                         ),
@@ -628,11 +648,14 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                             ),
+                                        validator: _model
+                                            .contraseaControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 24, 0, 0),
+                                          0.0, 24.0, 0.0, 0.0),
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           GoRouter.of(context)
@@ -641,8 +664,8 @@ class _SignInWidgetState extends State<SignInWidget> {
                                           final user =
                                               await createAccountWithEmail(
                                             context,
-                                            emailController!.text,
-                                            contraseaController!.text,
+                                            _model.emailController.text,
+                                            _model.contraseaController.text,
                                           );
                                           if (user == null) {
                                             return;
@@ -650,22 +673,30 @@ class _SignInWidgetState extends State<SignInWidget> {
 
                                           final usersCreateData =
                                               createUsersRecordData(
-                                            email: emailController!.text,
-                                            displayName: nombreController!.text,
+                                            email: _model.emailController.text,
+                                            displayName:
+                                                _model.nombreController.text,
                                             createdTime: getCurrentTimestamp,
-                                            cedula: cedulaController!.text,
+                                            cedula:
+                                                _model.cedulaController.text,
+                                            userRole: 'Operador',
                                           );
                                           await UsersRecord.collection
                                               .doc(user.uid)
                                               .update(usersCreateData);
 
-                                          context.goNamedAuth(
-                                              'HomePage', mounted);
+                                          context.goNamedAuth('mapa', mounted);
                                         },
                                         text: 'Crear cuenta',
                                         options: FFButtonOptions(
-                                          width: 230,
-                                          height: 50,
+                                          width: 230.0,
+                                          height: 50.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primaryColor,
                                           textStyle:
@@ -675,10 +706,10 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
                                                   ),
-                                          elevation: 3,
+                                          elevation: 3.0,
                                           borderSide: BorderSide(
                                             color: Colors.transparent,
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                         ),
                                       ),

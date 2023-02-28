@@ -1,10 +1,12 @@
-import '../flutter_flow/flutter_flow_icon_button.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'info_alcohol_model.dart';
+export 'info_alcohol_model.dart';
 
 class InfoAlcoholWidget extends StatefulWidget {
   const InfoAlcoholWidget({Key? key}) : super(key: key);
@@ -14,6 +16,27 @@ class InfoAlcoholWidget extends StatefulWidget {
 }
 
 class _InfoAlcoholWidgetState extends State<InfoAlcoholWidget> {
+  late InfoAlcoholModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => InfoAlcoholModel());
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
@@ -25,19 +48,20 @@ class _InfoAlcoholWidgetState extends State<InfoAlcoholWidget> {
         color: FlutterFlowTheme.of(context).secondaryBackground,
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(0, 12, 16, 24),
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 16.0, 24.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 5),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 5.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                     child: Text(
                       'Expendio de licores',
                       style: FlutterFlowTheme.of(context).title3,
@@ -45,13 +69,13 @@ class _InfoAlcoholWidgetState extends State<InfoAlcoholWidget> {
                   ),
                   FlutterFlowIconButton(
                     borderColor: Colors.transparent,
-                    borderRadius: 30,
-                    borderWidth: 1,
-                    buttonSize: 60,
+                    borderRadius: 30.0,
+                    borderWidth: 1.0,
+                    buttonSize: 60.0,
                     icon: Icon(
                       Icons.close,
                       color: FlutterFlowTheme.of(context).primaryText,
-                      size: 25,
+                      size: 25.0,
                     ),
                     onPressed: () async {
                       Navigator.pop(context);
@@ -62,7 +86,7 @@ class _InfoAlcoholWidgetState extends State<InfoAlcoholWidget> {
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [

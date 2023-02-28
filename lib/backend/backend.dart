@@ -9,6 +9,10 @@ import 'schema/users_record.dart';
 import 'schema/taxpayer_record.dart';
 import 'schema/payment_report_record.dart';
 import 'schema/fines_record.dart';
+import 'schema/taxpayer_audit_record.dart';
+import 'schema/citation_record.dart';
+import 'schema/taxpayers_record.dart';
+import 'schema/tax_payer_to_visit_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -20,6 +24,10 @@ export 'schema/users_record.dart';
 export 'schema/taxpayer_record.dart';
 export 'schema/payment_report_record.dart';
 export 'schema/fines_record.dart';
+export 'schema/taxpayer_audit_record.dart';
+export 'schema/citation_record.dart';
+export 'schema/taxpayers_record.dart';
+export 'schema/tax_payer_to_visit_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -223,6 +231,214 @@ Future<FFFirestorePage<FinesRecord>> queryFinesRecordPage({
     queryCollectionPage(
       FinesRecord.collection,
       FinesRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query TaxpayerAuditRecords (as a Stream and as a Future).
+Future<int> queryTaxpayerAuditRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      TaxpayerAuditRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<TaxpayerAuditRecord>> queryTaxpayerAuditRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      TaxpayerAuditRecord.collection,
+      TaxpayerAuditRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<TaxpayerAuditRecord>> queryTaxpayerAuditRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      TaxpayerAuditRecord.collection,
+      TaxpayerAuditRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<TaxpayerAuditRecord>> queryTaxpayerAuditRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      TaxpayerAuditRecord.collection,
+      TaxpayerAuditRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query CitationRecords (as a Stream and as a Future).
+Future<int> queryCitationRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      CitationRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<CitationRecord>> queryCitationRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      CitationRecord.collection,
+      CitationRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<CitationRecord>> queryCitationRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      CitationRecord.collection,
+      CitationRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<CitationRecord>> queryCitationRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      CitationRecord.collection,
+      CitationRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query TaxpayersRecords (as a Stream and as a Future).
+Future<int> queryTaxpayersRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      TaxpayersRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<TaxpayersRecord>> queryTaxpayersRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      TaxpayersRecord.collection,
+      TaxpayersRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<TaxpayersRecord>> queryTaxpayersRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      TaxpayersRecord.collection,
+      TaxpayersRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<TaxpayersRecord>> queryTaxpayersRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      TaxpayersRecord.collection,
+      TaxpayersRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query TaxPayerToVisitRecords (as a Stream and as a Future).
+Future<int> queryTaxPayerToVisitRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      TaxPayerToVisitRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<TaxPayerToVisitRecord>> queryTaxPayerToVisitRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      TaxPayerToVisitRecord.collection,
+      TaxPayerToVisitRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<TaxPayerToVisitRecord>> queryTaxPayerToVisitRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      TaxPayerToVisitRecord.collection,
+      TaxPayerToVisitRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<TaxPayerToVisitRecord>> queryTaxPayerToVisitRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      TaxPayerToVisitRecord.collection,
+      TaxPayerToVisitRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

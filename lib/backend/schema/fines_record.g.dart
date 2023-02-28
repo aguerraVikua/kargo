@@ -71,6 +71,62 @@ class _$FinesRecordSerializer implements StructuredSerializer<FinesRecord> {
             specifiedType: const FullType(
                 DocumentReference, const [const FullType.nullable(Object)])));
     }
+    value = object.reporterName;
+    if (value != null) {
+      result
+        ..add('reporter_name')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.reporterIdCard;
+    if (value != null) {
+      result
+        ..add('reporter_id_card')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.createdAt;
+    if (value != null) {
+      result
+        ..add('created_at')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.taxpayerBussinessName;
+    if (value != null) {
+      result
+        ..add('taxpayer_bussiness_name')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.representativeName;
+    if (value != null) {
+      result
+        ..add('representative_name')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.representativeIdCard;
+    if (value != null) {
+      result
+        ..add('representative_id_card')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.representativePosition;
+    if (value != null) {
+      result
+        ..add('representative_position')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.representativePhone;
+    if (value != null) {
+      result
+        ..add('representative_phone')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -127,6 +183,38 @@ class _$FinesRecordSerializer implements StructuredSerializer<FinesRecord> {
                 const FullType.nullable(Object)
               ])) as DocumentReference<Object?>?;
           break;
+        case 'reporter_name':
+          result.reporterName = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'reporter_id_card':
+          result.reporterIdCard = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'created_at':
+          result.createdAt = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'taxpayer_bussiness_name':
+          result.taxpayerBussinessName = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'representative_name':
+          result.representativeName = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'representative_id_card':
+          result.representativeIdCard = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'representative_position':
+          result.representativePosition = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'representative_phone':
+          result.representativePhone = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -156,6 +244,22 @@ class _$FinesRecord extends FinesRecord {
   @override
   final DocumentReference<Object?>? reporter;
   @override
+  final String? reporterName;
+  @override
+  final String? reporterIdCard;
+  @override
+  final DateTime? createdAt;
+  @override
+  final String? taxpayerBussinessName;
+  @override
+  final String? representativeName;
+  @override
+  final String? representativeIdCard;
+  @override
+  final String? representativePosition;
+  @override
+  final String? representativePhone;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$FinesRecord([void Function(FinesRecordBuilder)? updates]) =>
@@ -169,6 +273,14 @@ class _$FinesRecord extends FinesRecord {
       this.rif,
       this.taxPayerEmail,
       this.reporter,
+      this.reporterName,
+      this.reporterIdCard,
+      this.createdAt,
+      this.taxpayerBussinessName,
+      this.representativeName,
+      this.representativeIdCard,
+      this.representativePosition,
+      this.representativePhone,
       this.ffRef})
       : super._();
 
@@ -190,6 +302,14 @@ class _$FinesRecord extends FinesRecord {
         rif == other.rif &&
         taxPayerEmail == other.taxPayerEmail &&
         reporter == other.reporter &&
+        reporterName == other.reporterName &&
+        reporterIdCard == other.reporterIdCard &&
+        createdAt == other.createdAt &&
+        taxpayerBussinessName == other.taxpayerBussinessName &&
+        representativeName == other.representativeName &&
+        representativeIdCard == other.representativeIdCard &&
+        representativePosition == other.representativePosition &&
+        representativePhone == other.representativePhone &&
         ffRef == other.ffRef;
   }
 
@@ -201,13 +321,35 @@ class _$FinesRecord extends FinesRecord {
                 $jc(
                     $jc(
                         $jc(
-                            $jc($jc(0, articles.hashCode),
-                                articlesAlcohol.hashCode),
-                            comments.hashCode),
-                        taxpayerSignature.hashCode),
-                    rif.hashCode),
-                taxPayerEmail.hashCode),
-            reporter.hashCode),
+                            $jc(
+                                $jc(
+                                    $jc(
+                                        $jc(
+                                            $jc(
+                                                $jc(
+                                                    $jc(
+                                                        $jc(
+                                                            $jc(
+                                                                $jc(
+                                                                    0,
+                                                                    articles
+                                                                        .hashCode),
+                                                                articlesAlcohol
+                                                                    .hashCode),
+                                                            comments.hashCode),
+                                                        taxpayerSignature
+                                                            .hashCode),
+                                                    rif.hashCode),
+                                                taxPayerEmail.hashCode),
+                                            reporter.hashCode),
+                                        reporterName.hashCode),
+                                    reporterIdCard.hashCode),
+                                createdAt.hashCode),
+                            taxpayerBussinessName.hashCode),
+                        representativeName.hashCode),
+                    representativeIdCard.hashCode),
+                representativePosition.hashCode),
+            representativePhone.hashCode),
         ffRef.hashCode));
   }
 
@@ -221,6 +363,14 @@ class _$FinesRecord extends FinesRecord {
           ..add('rif', rif)
           ..add('taxPayerEmail', taxPayerEmail)
           ..add('reporter', reporter)
+          ..add('reporterName', reporterName)
+          ..add('reporterIdCard', reporterIdCard)
+          ..add('createdAt', createdAt)
+          ..add('taxpayerBussinessName', taxpayerBussinessName)
+          ..add('representativeName', representativeName)
+          ..add('representativeIdCard', representativeIdCard)
+          ..add('representativePosition', representativePosition)
+          ..add('representativePhone', representativePhone)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -263,6 +413,44 @@ class FinesRecordBuilder implements Builder<FinesRecord, FinesRecordBuilder> {
   set reporter(DocumentReference<Object?>? reporter) =>
       _$this._reporter = reporter;
 
+  String? _reporterName;
+  String? get reporterName => _$this._reporterName;
+  set reporterName(String? reporterName) => _$this._reporterName = reporterName;
+
+  String? _reporterIdCard;
+  String? get reporterIdCard => _$this._reporterIdCard;
+  set reporterIdCard(String? reporterIdCard) =>
+      _$this._reporterIdCard = reporterIdCard;
+
+  DateTime? _createdAt;
+  DateTime? get createdAt => _$this._createdAt;
+  set createdAt(DateTime? createdAt) => _$this._createdAt = createdAt;
+
+  String? _taxpayerBussinessName;
+  String? get taxpayerBussinessName => _$this._taxpayerBussinessName;
+  set taxpayerBussinessName(String? taxpayerBussinessName) =>
+      _$this._taxpayerBussinessName = taxpayerBussinessName;
+
+  String? _representativeName;
+  String? get representativeName => _$this._representativeName;
+  set representativeName(String? representativeName) =>
+      _$this._representativeName = representativeName;
+
+  String? _representativeIdCard;
+  String? get representativeIdCard => _$this._representativeIdCard;
+  set representativeIdCard(String? representativeIdCard) =>
+      _$this._representativeIdCard = representativeIdCard;
+
+  String? _representativePosition;
+  String? get representativePosition => _$this._representativePosition;
+  set representativePosition(String? representativePosition) =>
+      _$this._representativePosition = representativePosition;
+
+  String? _representativePhone;
+  String? get representativePhone => _$this._representativePhone;
+  set representativePhone(String? representativePhone) =>
+      _$this._representativePhone = representativePhone;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -281,6 +469,14 @@ class FinesRecordBuilder implements Builder<FinesRecord, FinesRecordBuilder> {
       _rif = $v.rif;
       _taxPayerEmail = $v.taxPayerEmail;
       _reporter = $v.reporter;
+      _reporterName = $v.reporterName;
+      _reporterIdCard = $v.reporterIdCard;
+      _createdAt = $v.createdAt;
+      _taxpayerBussinessName = $v.taxpayerBussinessName;
+      _representativeName = $v.representativeName;
+      _representativeIdCard = $v.representativeIdCard;
+      _representativePosition = $v.representativePosition;
+      _representativePhone = $v.representativePhone;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -313,6 +509,14 @@ class FinesRecordBuilder implements Builder<FinesRecord, FinesRecordBuilder> {
               rif: rif,
               taxPayerEmail: taxPayerEmail,
               reporter: reporter,
+              reporterName: reporterName,
+              reporterIdCard: reporterIdCard,
+              createdAt: createdAt,
+              taxpayerBussinessName: taxpayerBussinessName,
+              representativeName: representativeName,
+              representativeIdCard: representativeIdCard,
+              representativePosition: representativePosition,
+              representativePhone: representativePhone,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

@@ -153,6 +153,18 @@ abstract class TaxpayerRecord
 
   String? get employees;
 
+  @BuiltValueField(wireName: 'building_type_declared')
+  String? get buildingTypeDeclared;
+
+  @BuiltValueField(wireName: 'building_type_observed')
+  String? get buildingTypeObserved;
+
+  @BuiltValueField(wireName: 'reporter_name')
+  String? get reporterName;
+
+  @BuiltValueField(wireName: 'reporter_id_card')
+  String? get reporterIdCard;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -211,7 +223,11 @@ abstract class TaxpayerRecord
     ..statusLicense = ''
     ..photoRIF = ''
     ..parish = ''
-    ..employees = '';
+    ..employees = ''
+    ..buildingTypeDeclared = ''
+    ..buildingTypeObserved = ''
+    ..reporterName = ''
+    ..reporterIdCard = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('taxpayer');
@@ -304,6 +320,10 @@ Map<String, dynamic> createTaxpayerRecordData({
   String? photoRIF,
   String? parish,
   String? employees,
+  String? buildingTypeDeclared,
+  String? buildingTypeObserved,
+  String? reporterName,
+  String? reporterIdCard,
 }) {
   final firestoreData = serializers.toFirestore(
     TaxpayerRecord.serializer,
@@ -378,7 +398,11 @@ Map<String, dynamic> createTaxpayerRecordData({
         ..statusLicense = statusLicense
         ..photoRIF = photoRIF
         ..parish = parish
-        ..employees = employees,
+        ..employees = employees
+        ..buildingTypeDeclared = buildingTypeDeclared
+        ..buildingTypeObserved = buildingTypeObserved
+        ..reporterName = reporterName
+        ..reporterIdCard = reporterIdCard,
     ),
   );
 
